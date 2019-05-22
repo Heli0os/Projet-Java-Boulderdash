@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9b7e8f81-df08-4781-8670-e596d7880661" name="Default Changelist" comment="Beginning">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/contract_0_0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/controller_0_0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/entity_0_0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/model_0_0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/target.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/view_0_0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/.settings/org.eclipse.m2e.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/.settings/org.eclipse.m2e.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/ControllerOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/controller/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/controller/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/controller/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/controller/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/controller/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/controller/.settings/org.eclipse.m2e.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/controller/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/controller/src/main/main5.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/diagram/jpublankproject.vpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/diagram/jpublankproject.vpp.bak_000f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/diagram/jpublankproject.vpp.bak_001d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/diagram/jpublankproject.vpp.vbak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/diagram/jpublankproject.vpp~48" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/diagram/jpublankproject.vpp~49" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/diagram/jpublankproject.vux" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/diagram/jpublankproject.vux.vbak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/entity/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/entity/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/entity/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/entity/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/entity/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/entity/.settings/org.eclipse.m2e.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/entity/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/entity/src/main/java/entity/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/entity/src/main/java/entity/HelloWorld.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/entity/src/main/main2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/main/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/main/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/main/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/main/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/main/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/main/.settings/org.eclipse.m2e.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/main/dependency-reduced-pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/main/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/main/src/main/java/main/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/main/src/main/main3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/.settings/org.eclipse.m2e.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/DAOEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/DAOHelloWorld.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/DBConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/DBProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/main4.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/resources/jpublankproject.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/resources/model.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/test/java/model/ModelTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/test/test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/view/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/view/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/view/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/view/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/view/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/view/.settings/org.eclipse.m2e.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/view/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/view/src/main/java/view/View.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/view/src/main/java/view/ViewFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/view/src/main/java/view/ViewPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/view/src/main/main1.iml" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="jpublankproject" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="85" />
+    <option name="y" value="25" />
+    <option name="width" value="1750" />
+    <option name="height" value="980" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="JPU-BlankProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Clément\Documents\CESI EXIA A1 - 2nd semestre\BLOC 5\PROJET JAVA\JPU-BlankProject" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="JPU-BlankProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Clément\Documents\CESI EXIA A1 - 2nd semestre\BLOC 5\PROJET JAVA\JPU-BlankProject" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="JPU-BlankProject" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="main3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9b7e8f81-df08-4781-8670-e596d7880661" name="Default Changelist" comment="" />
+      <created>1558525677550</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1558525677550</updated>
+      <workItem from="1558525680795" duration="2858000" />
+      <workItem from="1558530728993" duration="78000" />
+      <workItem from="1558530816947" duration="1083000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4019000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25637585" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32941177" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32941177" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" weight="0.3295302" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Beginning" />
+    <option name="LAST_COMMIT_MESSAGE" value="Beginning" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/ControllerOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/main/src/main/java/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/test/java/model/ModelTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/entity/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/main.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/view/src/main/java/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/view/src/main/java/view/ViewFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/entity/.classpath">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ace2ffeb-59e3-44cb-8495-6806e49ce4f9/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>12.0.1</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
