@@ -8,7 +8,6 @@
       <module fileurl="file://$PROJECT_DIR$/JPU-BlankProject/main/src/main/main3.iml" filepath="$PROJECT_DIR$/JPU-BlankProject/main/src/main/main3.iml" />
       <module fileurl="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/main4.iml" filepath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/main4.iml" />
       <module fileurl="file://$PROJECT_DIR$/JPU-BlankProject/controller/src/main/main5.iml" filepath="$PROJECT_DIR$/JPU-BlankProject/controller/src/main/main5.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JPU-BlankProject/model/src/test/test.iml" filepath="$PROJECT_DIR$/JPU-BlankProject/model/src/test/test.iml" />
     </modules>
   </component>
 </project>
