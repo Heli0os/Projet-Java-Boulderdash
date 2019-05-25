@@ -90,5 +90,5 @@ public final class Controller implements IController {
 				break;
 		}
 	}
-
+/* ajout de plusieurs fonctions en attente*/
 }
