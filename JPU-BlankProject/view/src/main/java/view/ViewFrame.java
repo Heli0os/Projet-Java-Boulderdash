@@ -95,7 +95,7 @@ class ViewFrame extends JFrame implements KeyListener {
 
 	/**
 	 * Set the Controller
-	 * @param controller 
+	 * @param controller
 	 * set the controller
 	 */
 	public void setController(IController controller) {
@@ -133,7 +133,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 
 	}
-	
+
 	/**
 	 * Method which link the command entered from the user to the controller but not used
 	 * @param e
