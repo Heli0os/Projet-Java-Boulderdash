@@ -1,5 +1,10 @@
 package controller;
 
+/**
+ * The Class FallingController.
+ *
+ * @author Clément
+ */
 public class FallingController {
     private Model model;
 
@@ -12,7 +17,10 @@ public class FallingController {
             this.Falling();
         }
     }
-
+    
+    /**
+     * Detect the elements that can fall, if it detects a rock or a diamond, the Falling function will start
+     */
     private void detectFallingElements() {
         for (int x = this.model.getWidth() - 1; x >= 0; x--) {
             for (int y = this.model.getHeight() -1; y >+ 0; y++) {
@@ -26,7 +34,14 @@ public class FallingController {
             }
         }
     }
-
+    
+    /**
+     * Manages the falling movement of the rocks and diamonds
+     * @param x
+     * Position x
+     * @param y
+     * Position y
+     */
     private void Falling(int x, int y) {
         Elements elementDown = this.model.getLocation()[x][y+1];
 
