@@ -2,46 +2,46 @@ package model.Elements;
 
 import contract.*;
 import model.Sprite;
-import model.Location;
 
 /**
  * @author Clément
  */
 public abstract class Elements {
-    protected ILocation location;
+    protected int x;
+    protected int y;
     protected ISprite sprite;
 
-    public Elements (Location Location, String image) {
-        this.location = location;
-        this.sprite = new Sprite (image);
-    }
-
     public Elements (int x, int y, String image) {
-        this.location = new Location (x,y);
+        this.x = x;
+        this.y = y;
         this.sprite = new Sprite(image);
     }
 
     public Elements (int x, int y, Sprite sprite) {
-        this.location = new Location (x,y);
+        this.x = x;
+        this.y = y;
         this.sprite = sprite;
     }
-
-    public Elements (Location location, Sprite sprite) {
-        this.location = location;
-        this.sprite = sprite;
-    }
-
-    public ILocation getLocation() {
-        return location;
-    }
-
-    public void setLocation(ILocation location) {
-        this.location = location;
-    }
-
+    
     public void setLocation(int x, int y) {
-        this.location.setX(x);
-        this.location.setY(y);
+        this.setX(x);
+        this.setY(y);
+    }
+    
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return x;
+    }
+    
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
     public ISprite getSprite() {
@@ -54,13 +54,5 @@ public abstract class Elements {
 
     public Image getImage() {
         return this.sprite.getImage();
-    }
-
-    public String getSpriteName() {
-        return spriteName;
-    }
-
-    public void setSpriteName(String spriteName) {
-        this.spriteName = spriteName;
     }
 }

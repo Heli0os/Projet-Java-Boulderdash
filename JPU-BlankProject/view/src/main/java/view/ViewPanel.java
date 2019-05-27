@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 class ViewPanel extends JPanel implements Observer {
 
 	/** The view frame. */
-	private ViewFrame					viewFrame;
+	private ViewFrame viewFrame;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
 
@@ -63,8 +63,28 @@ class ViewPanel extends JPanel implements Observer {
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
-	protected void paintComponent(final Graphics graphics) {
-		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
+	public void paintComponent(Graphics g)
+	{
+		super.paintComponent(g);
+
+		ILevel level = this.model.getLevel();
+		for (int y = 0; y < level.getDimention().getHeight(); y++)
+		{
+			for (int x = 0; x < level.getDimention().getWidth(); x++)
+			{
+				IElement ele = level.getElement(x, y);
+				if (ele == null)
+					continue;
+				g.drawImage(model.getElement(x,y).getImage(),x*32,y*32,this);
+			}
+		}
+
+		for (IEntity ele : model.getLevel().getEntities())
+		{
+			g.drawImage(ele.getImage(), ele.getLocation().getX()*32, ele.getLocation().getY()*32, null);
+		}
 	}
+
+
+
 }
