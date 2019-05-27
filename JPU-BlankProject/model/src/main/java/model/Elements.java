@@ -9,25 +9,21 @@ import model.Sprite;
 public abstract class Elements {
     protected int x;
     protected int y;
+    protected String spriteName;
     protected ISprite sprite;
 
-    public Elements (int x, int y, String image) {
-        this.x = x;
-        this.y = y;
+    public Elements (int x, int y, String spriteName, String image) {
+        this.setX(x);
+        this.setY(y);
+        this.setSpriteName(spriteName);
         this.sprite = new Sprite(image);
     }
 
-    public Elements (int x, int y, Sprite sprite) {
-        this.x = x;
-        this.y = y;
-        this.sprite = sprite;
-    }
-    
     public void setLocation(int x, int y) {
         this.setX(x);
         this.setY(y);
     }
-    
+
     public int getX() {
         return x;
     }
@@ -35,13 +31,21 @@ public abstract class Elements {
     public int getY() {
         return x;
     }
-    
+
     public void setX(int x) {
         this.x = x;
     }
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public void setSpriteName(String spriteName) {
+        this.spriteName = spriteName;
+    }
+
+    public String getSpriteName() {
+        return spriteName;
     }
 
     public ISprite getSprite() {
