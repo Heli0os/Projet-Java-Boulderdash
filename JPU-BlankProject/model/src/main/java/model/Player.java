@@ -21,11 +21,5 @@ public class Player extends MotionElements {
         this.isAlive = isAlive;
     }
 
-    public String getSpriteName() {
-        return spriteName;
-    }
 
-    public void setSpriteName(String spriteName) {
-        this.spriteName = spriteName;
-    }
 }

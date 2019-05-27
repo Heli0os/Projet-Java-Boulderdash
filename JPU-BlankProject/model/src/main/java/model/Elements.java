@@ -55,4 +55,12 @@ public abstract class Elements {
     public Image getImage() {
         return this.sprite.getImage();
     }
+
+    public String getSpriteName() {
+        return spriteName;
+    }
+
+    public void setSpriteName(String spriteName) {
+        this.spriteName = spriteName;
+    }
 }

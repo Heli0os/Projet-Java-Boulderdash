@@ -11,11 +11,5 @@ public class Dirt extends Elements {
         this.spriteName = "Dirt";
     }
 
-    public String getSpriteName() {
-        return spriteName;
-    }
 
-    public void setSpriteName(String spriteName) {
-        this.spriteName = spriteName;
-    }
 }

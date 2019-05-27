@@ -10,12 +10,4 @@ public class Rocks extends Elements {
         super (x, y, "");
         this.spriteName = "Rock";
     }
-
-    public String getSpriteName() {
-        return spriteName;
-    }
-
-    public void setSpriteName(String spriteName) {
-        this.spriteName = spriteName;
-    }
 }

@@ -10,12 +10,4 @@ public class Diamonds extends Elements {
         super (x, y, "");
         this.spriteName = "Diamonds";
     }
-
-    public String getSpriteName() {
-        return spriteName;
-    }
-
-    public void setSpriteName(String spriteName) {
-        this.spriteName = spriteName;
-    }
 }

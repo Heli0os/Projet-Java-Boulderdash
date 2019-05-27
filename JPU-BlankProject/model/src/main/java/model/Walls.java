@@ -11,12 +11,4 @@ public class Walls extends Elements {
         super (x, y, "");
         this.spriteName = "Wall";
     }
-
-    public String getSpriteName() {
-        return spriteName;
-    }
-
-    public void setSpriteName(String spriteName) {
-        this.spriteName = spriteName;
-    }
 }

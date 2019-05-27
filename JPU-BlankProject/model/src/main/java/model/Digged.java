@@ -11,11 +11,5 @@ public class Digged extends Elements {
         this.spriteName = "Digged";
     }
 
-    public String getSpriteName() {
-        return spriteName;
-    }
 
-    public void setSpriteName(String spriteName) {
-        this.spriteName = spriteName;
-    }
 }
