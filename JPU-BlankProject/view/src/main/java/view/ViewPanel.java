@@ -3,20 +3,26 @@ package view;
 import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
-
+import contract.IModel;
+import contract.ILevel;
 import javax.swing.JPanel;
 
 /**
  * The Class ViewPanel.
  *
- * @author Jean-Aymeric Diet
+ * @author Clément
  */
 class ViewPanel extends JPanel implements Observer {
 
+	/** The model. */
+	private IModel model;
+	/** The level. */
+	private ILevel level;
 	/** The view frame. */
+
 	private ViewFrame viewFrame;
 	/** The Constant serialVersionUID. */
-	private static final long	serialVersionUID	= -998294702363713521L;
+	private static final long serialVersionUID = -998294702363713521L;
 
 	/**
 	 * Instantiates a new view panel.
@@ -24,9 +30,8 @@ class ViewPanel extends JPanel implements Observer {
 	 * @param viewFrame
 	 *          the view frame
 	 */
-	public ViewPanel(final ViewFrame viewFrame) {
-		this.setViewFrame(viewFrame);
-		viewFrame.getModel().getObservable().addObserver(this);
+	public ViewPanel() {
+		setVisible(true);
 	}
 
 	/**
@@ -53,7 +58,7 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
-	public void update(final Observable arg0, final Object arg1) {
+	public void update(final Observable observable, final Object object) {
 		this.repaint();
 	}
 
@@ -63,28 +68,17 @@ class ViewPanel extends JPanel implements Observer {
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
-	public void paintComponent(Graphics g)
-	{
-		super.paintComponent(g);
+	protected void paintComponent(final Graphics graphics) {
+		if (this.model.getLevel().isFinished()) {
+			graphics.drawString("Congratulations on winning this level", 300, 400);
+			graphics.drawString("The game is now loading the next level", 300, 500);
+			graphics.drawString("Number of diamonds collected : "+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 600);
 
-		ILevel level = this.model.getLevel();
-		for (int y = 0; y < level.getDimention().getHeight(); y++)
-		{
-			for (int x = 0; x < level.getDimention().getWidth(); x++)
-			{
-				IElement ele = level.getElement(x, y);
-				if (ele == null)
-					continue;
-				g.drawImage(model.getElement(x,y).getImage(),x*32,y*32,this);
-			}
 		}
-
-		for (IEntity ele : model.getLevel().getEntities())
-		{
-			g.drawImage(ele.getImage(), ele.getLocation().getX()*32, ele.getLocation().getY()*32, null);
+		else if (!this.model.getLevel().getPlayer.isAlive()) {
+			graphics.drawString("You died, the game is lost", 400, 450);
+			graphics.drawString("Number of diamonds collected : "+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 550);
+			model.setDiamondCounter(0);
 		}
 	}
-
-
-
 }
