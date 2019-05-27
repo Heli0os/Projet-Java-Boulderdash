@@ -42,20 +42,20 @@ public class FallingController {
      * @param y
      * Position y
      */
-    private void Falling(int x, int y) {
+private void Falling(int x, int y) {
         Elements elementDown = this.model.getLocation()[x][y+1];
 
         String spriteNameDown = elementDown.getSpriteName();
 
         if (spriteNameDown == "Digged") {
-            this.model.elementsFalling(x,y);
+            element.setLocation()[x][y+1];
         }
-        else if (spriteNameDown == "Boulder") {
-            if (this.model.getLocation()[x-1][y+1].getSpriteName == "Digged") {
-                this.model.fallingLeft(x,y);
+        else if (spriteNameDown == "Rock") {
+            if (this.model.getLocation()[x-1][y+1].getSpriteName == "Digged" && this.model.getLocation()[x-1][y].getSpriteName == "Digged") {
+                element.setLocation()[x-1][y];
             }
-            else if (this.model.getLocation()[x+1][y+1].getSpriteName == "Digged") {
-                this.model.fallingRight(x,y);
+            else if (this.model.getLocation()[x+1][y+1].getSpriteName == "Digged" && this.model.getLocation()[x+1][y].getSpriteName == "Digged") {
+                element.setLocation()[x+1][y];
             }
         }
     }
