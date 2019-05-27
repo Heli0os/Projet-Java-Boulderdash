@@ -71,8 +71,8 @@ class ViewPanel extends JPanel implements Observer {
 	protected void paintComponent(final Graphics graphics) {
 		if (this.model.getLevel().isFinished()) {
 			graphics.drawString("Congratulations on winning this level", 300, 400);
-			graphics.drawString("The game is now loading the next level", 300, 500);
-			graphics.drawString("Number of diamonds collected : "+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 600);
+			graphics.drawString("Number of diamonds collected : "+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 500);
+			graphics.drawString("The game is now loading the next level", 300, 600);
 
 		}
 		else if (!this.model.getLevel().getPlayer.isAlive()) {
