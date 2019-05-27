@@ -73,12 +73,12 @@ class ViewPanel extends JPanel implements Observer {
 			graphics.drawString("Congratulations on winning this level", 300, 400);
 			graphics.drawString("Number of diamonds collected : "+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 500);
 			graphics.drawString("The game is now loading the next level", 300, 600);
-
+			model.getLevel().setDiamondsCollected(0);
 		}
 		else if (!this.model.getLevel().getPlayer.isAlive()) {
 			graphics.drawString("You died, the game is lost", 400, 450);
 			graphics.drawString("Number of diamonds collected : "+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 550);
-			model.setDiamondCounter(0);
+			model.getLevel().setDiamondsCollected(0);
 		}
 	}
 }
