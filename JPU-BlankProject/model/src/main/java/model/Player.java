@@ -1,16 +1,16 @@
 package model.Elements;
 
+import contract.*;
+
 /**
  * @author Clément
  */
 public class Player extends MotionElements {
-    private String spriteName;
     private boolean isAlive;
 
-    public Player (int x, int y) {
-        super (x, y, "");
+    public Player (int x, int y, Direction direction) {
+        super (x, y, direction.NO, "Player", "");
         this.isAlive = true;
-        this.spriteName = "Player";
     }
 
     public boolean getIfIsAlive() {
@@ -20,6 +20,4 @@ public class Player extends MotionElements {
     public void setIsAlive (boolean isAlive) {
         this.isAlive = isAlive;
     }
-
-
 }
