@@ -14,7 +14,7 @@ public class FallingController {
 
     public void run() {
         while (this.model.isGameRunning()) {
-            this.Falling();
+            this.detectFallingElements();
         }
     }
     
