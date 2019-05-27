@@ -1,6 +1,7 @@
 package model.Elements;
 
 import contract.Direction;
+import model.Sprite;
 
 /**
  * @author Clément
@@ -12,8 +13,9 @@ public abstract class MotionElements extends Elements {
 
     protected Direction direction;
 
-    public MotionElements (int x, int y, String image) {
-        super (x, y, image);
+    public MotionElements (int x, int y, Direction direction, String spriteName, String image) {
+        super(x, y, spriteName, image);
+        this.direction = direction;
     }
 
     public void moveTo (int x, int y) {
