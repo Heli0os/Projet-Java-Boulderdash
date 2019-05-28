@@ -9,11 +9,11 @@ public class Player extends MotionElements {
     private boolean isAlive;
 
     public Player (int x, int y, Direction direction) {
-        super (x, y, direction.NO, "Player", "");
+        super (x, y, direction.NO, "Player", "images/Player_0");
         this.isAlive = true;
     }
 
-    public boolean getIfIsAlive() {
+    public boolean isAlive() {
         return isAlive;
     }
 

@@ -11,7 +11,6 @@ public abstract class Elements {
     protected int y;
     protected String spriteName;
     protected ISprite sprite;
-    protected boolean fallingStatus;
 
     public Elements (int x, int y, String spriteName, String image) {
         this.setX(x);
@@ -30,7 +29,7 @@ public abstract class Elements {
     }
 
     public int getY() {
-        return x;
+        return y;
     }
 
     public void setX(int x) {

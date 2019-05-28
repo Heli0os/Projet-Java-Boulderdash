@@ -5,6 +5,6 @@ package model.Elements;
  */
 public class Dirt extends Elements {
     public Dirt (int x, int y) {
-        super (x, y, "Dirt", "");
+        super (x, y, "Dirt", "images/Dirt");
     }
 }

@@ -6,6 +6,6 @@ package model.Elements;
 
 public class Walls extends Elements {
     public Walls (int x, int y) {
-        super (x, y, "Wall", "");
+        super (x, y, "Wall", "images/Wall");
     }
 }

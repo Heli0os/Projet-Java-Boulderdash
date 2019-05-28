@@ -7,6 +7,6 @@ import contract.Direction;
  */
 public class Ennemies extends MotionElements {
     public Ennemies (int x, int y, Direction direction) {
-        super (x, y, direction.LEFT, "Ennemy", "");
+        super (x, y, direction.LEFT, "Ennemy", "images/Enemy");
     }
 }

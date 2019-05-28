@@ -3,8 +3,8 @@ package model.Elements;
 /**
  * @author Clément
  */
-public class Rocks extends Elements {
+public class Rocks extends FallingElements {
     public Rocks (int x, int y) {
-        super (x, y, "Rocks", "");
+        super (x, y, "Rocks", "images/Rock");
     }
 }
