@@ -1,9 +1,8 @@
 package model.Elements;
 
+import contract.IMapController;
 import contract.ISprite;
 import model.Sprite;
-
-import java.awt.*;
 
 /**
  * @author Clément
@@ -13,13 +12,14 @@ public abstract class Elements {
     protected int y;
     protected String spriteName;
     protected ISprite sprite;
-    protected Image image;
+    protected IMapController mapController;
 
-    public Elements (int x, int y, String spriteName, Image image) {
+    public Elements (int x, int y, String spriteName, String image, IMapController mapController) {
         this.setX(x);
         this.setY(y);
         this.setSpriteName(spriteName);
         this.sprite = new Sprite(image);
+        this.mapController = mapController;
     }
 
     public void setLocation(int x, int y) {
@@ -59,7 +59,7 @@ public abstract class Elements {
         this.sprite = sprite;
     }
 
-    public Image getImage() {
-        return this.sprite.getImage();
+    public String getImage() {
+        return this.sprite.getImagePath();
     }
 }
