@@ -1,7 +1,9 @@
 package model.Elements;
 
-import contract.*;
+import contract.ISprite;
 import model.Sprite;
+
+import java.awt.*;
 
 /**
  * @author Clément
@@ -11,8 +13,9 @@ public abstract class Elements {
     protected int y;
     protected String spriteName;
     protected ISprite sprite;
+    protected Image image;
 
-    public Elements (int x, int y, String spriteName, String image) {
+    public Elements (int x, int y, String spriteName, Image image) {
         this.setX(x);
         this.setY(y);
         this.setSpriteName(spriteName);
