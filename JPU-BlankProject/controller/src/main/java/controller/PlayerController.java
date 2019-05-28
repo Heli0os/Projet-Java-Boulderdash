@@ -27,30 +27,16 @@ public class PlayerController {
         this.moveControl = MoveControl.getInstance();
     }
 
-    public boolean move(Direction direction) {
-        IElement player = this.model.getLevel().getPlayer();
-        if (!player.isAlive() || this.model.getLevel().isFinished() || movementIsPossible == false)
-            return false;
-        int nextX = player.getX();
-        int nextY = player.getY();
-        switch (direction) {
-            case UP:
-                nextY--;
-                break;
-            case LEFT:
-                nextX--;
-                break;
-            case DOWN:
-                nextY++;
-                break;
-            case RIGHT:
-                nextX++;
-                break;
-            default:
-                System.out.println("No move set");
-                break;
+    public void move(Direction direction) {
+        IMotionElements player = (IMotionElements) this.model.getLevel().getPlayer();
+        int x = player.getX();
+        int y = player.getY();
+        if (player.isAlive() && !this.model.getLevel().isFinished() /*&& !this.model.getLevel().isPaused()*/) {
+            player.setDirection(direction);
+            moveControl.movementIsPossible(direction, x,y);
         }
-        player.setDirection(direction);
-        return moveControl.movementIsSafe(player, nextX, nextY);
+        else {
+            player.setDirection(direction);
+        }
     }
 }

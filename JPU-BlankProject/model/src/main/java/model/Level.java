@@ -1,11 +1,11 @@
 package model;
 
-import contract.*;
-import model.Elements.Elements;
-import java.util.ArrayList;
+import contract.IDimensions;
+import contract.IElements;
+import contract.ILevel;
 
 /**
- * The Class Model.
+ * The Class Level.
  *
  * @author Clément
  */
@@ -16,13 +16,13 @@ public class Level implements ILevel {
     private String name;
     private int levelNumber;
     private int diamondsNumber;
-    private GameMap gameMap;
     private boolean finished;
     private int diamondsCollected;
+    IElements[][] map;
 
     public Level(int id, int height, int width, String name, IElements player, int levelNumber, int diamondsNumber) {
         this.id = id;
-        this.dimensions = new Dimensions(height, width);
+        this.dimensions = (IDimensions) new Dimensions(height, width);
         this.name = name;
         this.player = player;
         this.levelNumber = levelNumber;
@@ -42,6 +42,7 @@ public class Level implements ILevel {
     public IDimensions getDimensions() {
         return dimensions;
     }
+
     public void setDimensions(IDimensions dimensions) {
         this.dimensions = dimensions;
     }
@@ -90,17 +91,17 @@ public class Level implements ILevel {
         this.diamondsCollected = diamondsCollected;
     }
 
-    Elements[][] map;
 
-    public Elements[][] getElements(){
+
+    public IElements[][] getElements(){
         return map;
     }
 
-    public Elements getElement(int x,int y){
+    public IElements getElement(int x,int y){
         return map[x][y];
     }
 
-    public void setElement(Elements element,int x,int y){
+    public void setElement(IElements element,int x,int y){
         map[x][y]= element;
     }
 }

@@ -31,10 +31,10 @@ public class EnnemyController {
             int nextY;
 
             do {
-                nextX = ennemies.getLocation().getX() + random.nextInt(1);
-                nextY = ennemies.getLocation().getY() + random.nextInt(1);
+                nextX = ennemies.getX() + random.nextInt(1);
+                nextY = ennemies.getY() + random.nextInt(1);
             }
             while (!this.moveControl.movementIsPossible(direction, nextX, nextY));
-            moveControl.movementIsSafe(ennemies, nextX, nextY);
+            moveControl.movementIsPossible((IMotionElements) ennemies, nextX, nextY);
         }
 }

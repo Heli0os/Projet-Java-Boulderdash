@@ -1,8 +1,9 @@
 package controller;
 
+import contract.IElements;
 import model.Elements.Digged;
 import model.Elements.Elements;
-import model.GameMap;
+import model.Level;
 import model.Model;
 
 /**
@@ -10,7 +11,7 @@ import model.Model;
  */
 public class MapController {
     private Model model;
-    private GameMap map;
+    private Level level;
     private Elements current;
     private int oldX;
     private int oldY;
@@ -21,14 +22,11 @@ public class MapController {
         this.model = model;
     }
 
-    public void CreateMap(){
-        map = new GameMap();
-    }
 
     public void UpdateMap(){
-        for(int x = 0;x <= height; x++){
-            for (int y = 0; y <= width; y++){
-                MoveInMap(map.getElement(x,y),x,y);
+        for(int x = 0;x <= level.getDimensions().getHeight(); x++){
+            for (int y = 0; y <= level.getDimensions().getWidth(); y++){
+                MoveInMap((Elements) level.getElement(x,y),x,y);
             }
         }
     }
@@ -37,7 +35,7 @@ public class MapController {
      * @param element,x,y
      * */
     public void MoveInMap(Elements element,int x, int y){ //x and y are the current position of the element
-        current = map.getElement(element.getX(),element.getY());
+        current = (Elements) level.getElement(element.getX(),element.getY());
         newX = element.getX();
         newY = element.getY();
         oldX = x;
@@ -49,8 +47,8 @@ public class MapController {
         if((current.getSpriteName()== "Ennemy" && element.getSpriteName()=="Player") || (current.getSpriteName()== "Player" && element.getSpriteName()=="Ennemy") ){
             //die
         }
-        map.setElement(element,newX,newY);
-        map.setElement(new Digged(oldX,oldY),oldX,oldY);
+        level.setElement((IElements) element,newX,newY);
+        level.setElement((IElements) new Digged(oldX,oldY,this),oldX,oldY);
 
     }
 

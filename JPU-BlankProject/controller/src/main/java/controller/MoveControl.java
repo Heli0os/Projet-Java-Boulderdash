@@ -34,6 +34,10 @@ import contract.*;
         }
         return this.model.getLevel().getElements()[elementLocation.getY()][elementLocation.getX()];
     }*/
+/*
+
+
+
 
     /**
      * Tell if a movement is possible on the next block, according the direction
@@ -50,53 +54,47 @@ import contract.*;
 
         switch (direction) {
             case UP:
-                element = this.model.getElements(x, y-1);
+                element = this.model.getLevel().getElement(x, y-1);
                 spriteName = element.getSpriteName();
                 if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }
+                else{
+                moveTo(model.getLevel().getElement(x, y), x, y-1);
                 return true;
+                }
             case LEFT:
-                element = this.model.getElements(x-1, y);
+                element = this.model.getLevel().getElement(x-1, y);
                 spriteName = element.getSpriteName();
                 if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
-                }
+                }else{
+                moveTo(model.getLevel().getElement(x, y), x-1, y);
                 return true;
+                }
             case DOWN:
-                element = this.model.getElements(x, y+1);
+                element = this.model.getLevel().getElement(x, y+1);
                 spriteName = element.getSpriteName();
                 if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }
+                moveTo(model.getLevel().getElement(x, y), x, y+1);
                 return true;
             case RIGHT:
-                element = this.model.getElements(x+1, y);
+                element = this.model.getLevel().getElement(x+1, y);
                 spriteName = element.getSpriteName();
                 if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }
+                moveTo(model.getLevel().getElement(x, y), x+1, y);
                 return true;
         }
+        return true;
     }
 
-    /**
-     * Tell if the movement is safe, according the return of the boolean movementIsPossible
-     * @param element
-     * Get the element which as to move
-     * @param x
-     * Position x
-     * @param y
-     * Position y
-     * @return
-     * Safe move for the entity
-     */
-    boolean movementIsSafe(IMotionElements element, int x, int y) {
-        if(movementIsPossible(direction, x, y) = true) {
-            element.moveTo(x,y);
-            this.model.update();
-            return true;
-        }
-        return false;
+    public void moveTo (IElements elements, int x, int y) {
+        elements.setX(x);
+        elements.setY(y);
     }
+
 }

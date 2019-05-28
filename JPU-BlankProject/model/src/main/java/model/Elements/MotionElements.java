@@ -1,15 +1,12 @@
 package model.Elements;
 
 import contract.Direction;
-import model.Sprite;
+import contract.IElements;
 
 /**
  * @author Clément
  */
 public abstract class MotionElements extends Elements {
-    public boolean moveTo (Integer x, Integer y) {
-        return false;
-    }
 
     protected Direction direction;
 
