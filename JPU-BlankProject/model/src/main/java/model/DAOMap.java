@@ -27,22 +27,11 @@ public class DAOMap {
         getDimension(ID);
         int result[][] = new int[this.height][this.width];
 
-        try {
-            final String sql = "{call GetLevel(?)}";
-            final CallableStatement call = this.getConnection().prepareCall(sql);
-            call.setInt(1, ID);
-            call.execute();
-            final ResultSet resultSet = call.getResultSet();
+        final String sql = "{call GetLevel(?)}";
+        final CallableStatement call = this.getConnection().prepareCall(sql);
+        call.setInt(1, ID);
+        call.execute();
 
-            if (resultSet.first()) {
-                while (!resultSet.isAfterLast()) {
-                    result[resultSet.getInt(1)][resultSet.getInt(2)] = resultSet.getString(3).toCharArray()[0];
-                    resultSet.next();
-                }
-            }
-        } catch (final SQLException e) {
-            e.printStackTrace();
-        }
         return result;
     }
 
@@ -56,25 +45,18 @@ public class DAOMap {
     public int[] getDimension(int ID) throws SQLException {
         int result[] = new int[2];
 
-        try {
-            
-            final String sql = "{call GetDimension(?)}";
-            final CallableStatement call = this.getConnection().prepareCall(sql);
-            call.setInt(1, ID);
-            call.execute();
-            final ResultSet resultSet = call.getResultSet();
+        final String sql = "{call GetDimension(?)}";
+        final CallableStatement call = this.getConnection().prepareCall(sql);
+        call.setInt(1, ID);
+        call.execute();
+        final ResultSet resultSet = call.getResultSet();
 
-            resultSet.first();
-            this.height = resultSet.getInt("Height");
-            this.width = resultSet.getInt("Width");
+        resultSet.first();
+        this.height = resultSet.getInt("Height");
+        this.width = resultSet.getInt("Width");
 
-            result[0] = this.height;
-            result[1] = this.width;
-
-        } catch (final SQLException e) {
-            e.printStackTrace();
-        }
-
+        result[0] = this.height;
+        result[1] = this.width;
         return result;
     }
 }

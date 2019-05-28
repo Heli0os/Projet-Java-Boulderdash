@@ -2,51 +2,42 @@ package model;
 
 import java.sql.SQLException;
 import java.util.Observable;
-
-import contract.IModel;
-import entity.HelloWorld;
+import contract.*;
+import model.Elements.Player;
 
 /**
  * The Class Model.
  *
- * @author Jean-Aymeric Diet
+ * @author Clément
  */
 public final class Model extends Observable implements IModel {
 
-	/** The helloWorld. */
-	private HelloWorld helloWorld;
+	/** the Level. */
+	private Level level;
+
+	/** the Player. */
+	private Player player;
+
+	private Model model;
 
 	/**
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		this.helloWorld = new HelloWorld();
+		this.player = new Player(1, 1, Direction.UP);
 	}
 
-	/**
-     * Gets the hello world.
-     *
-     * @return the hello world
-     */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage()
-	 */
-	public HelloWorld getHelloWorld() {
-		return this.helloWorld;
+	public Level getLevel() {
+		return this.level;
 	}
 
-	/**
-     * Sets the hello world.
-     *
-     * @param helloWorld
-     *            the new hello world
-     */
-	private void setHelloWorld(final HelloWorld helloWorld) {
-		this.helloWorld = helloWorld;
+	public void update() {
 		this.setChanged();
 		this.notifyObservers();
+	}
+
+	public void collectDiamonds() {
+		model.getLevel().setDiamondsCollected(model.getLevel().getDiamondsCollected()+1);
 	}
 
 	/**
@@ -68,6 +59,8 @@ public final class Model extends Observable implements IModel {
 			e.printStackTrace();
 		}
 	}
+
+
 
 	/**
      * Gets the observable.

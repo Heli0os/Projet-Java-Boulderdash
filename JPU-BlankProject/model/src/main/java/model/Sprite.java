@@ -1,11 +1,13 @@
 package model;
 
+import contract.ISprite;
+
 import java.awt.*;
 
 /**
  * @author Clément
  */
-public class Sprite {
+public class Sprite implements ISprite {
     /**
      * The image.
      */
