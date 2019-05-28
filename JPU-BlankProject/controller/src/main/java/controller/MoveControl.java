@@ -2,6 +2,7 @@ package controller;
 
 import contract.*;
 
+
 /**
  * The Class MoveControl.
  *
@@ -50,34 +51,35 @@ import contract.*;
 
         switch (direction) {
             case UP:
-                element = this.model.getElements(x, y-1);
+                element = this.model.getLevel().getElement(x, y - 1);
                 spriteName = element.getSpriteName();
                 if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }
                 return true;
             case LEFT:
-                element = this.model.getElements(x-1, y);
+                element = this.model.getLevel().getElement(x - 1, y);
                 spriteName = element.getSpriteName();
                 if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }
                 return true;
             case DOWN:
-                element = this.model.getElements(x, y+1);
+                element = this.model.getLevel().getElement(x, y + 1);
                 spriteName = element.getSpriteName();
                 if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }
                 return true;
             case RIGHT:
-                element = this.model.getElements(x+1, y);
+                element = this.model.getLevel().getElement(x + 1, y);
                 spriteName = element.getSpriteName();
                 if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }
                 return true;
         }
+        return false;
     }
 
     /**
@@ -92,7 +94,7 @@ import contract.*;
      * Safe move for the entity
      */
     boolean movementIsSafe(IMotionElements element, int x, int y) {
-        if(movementIsPossible(direction, x, y) = true) {
+        if(movementIsPossible(NO,x, y) = true) {
             element.moveTo(x,y);
             this.model.update();
             return true;
