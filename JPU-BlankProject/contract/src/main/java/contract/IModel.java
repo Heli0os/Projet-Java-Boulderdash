@@ -2,29 +2,19 @@ package contract;
 
 import java.util.Observable;
 
-import entity.HelloWorld;
-
 /**
  * The Interface IModel.
  *
- * @author Jean-Aymeric Diet
+ * @author Clément
  */
 public interface IModel {
 
 	/**
-	 * Gets the hello world.
+	 * Gets the level.
 	 *
-	 * @return the helloworld entity
+	 * @return the level
 	 */
-	HelloWorld getHelloWorld();
-
-	/**
-	 * Load the message.
-	 *
-	 * @param code
-	 *          the code
-	 */
-	void loadHelloWorld(String code);
+	ILevel getLevel();
 
 	/**
 	 * Gets the observable.
@@ -32,4 +22,6 @@ public interface IModel {
 	 * @return the observable
 	 */
 	Observable getObservable();
+
+	void update();
 }

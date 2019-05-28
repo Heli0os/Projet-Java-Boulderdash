@@ -3,14 +3,9 @@ package contract;
 /**
  * The Interface IController.
  *
- * @author Jean-Aymeric Diet
+ * @author Clément
  */
 public interface IController {
-
-	/**
-	 * Control.
-	 */
-	public void control();
 
 	/**
 	 * Order perform.
@@ -19,4 +14,6 @@ public interface IController {
 	 *          the controller order
 	 */
 	public void orderPerform(ControllerOrder controllerOrder);
+	public boolean isGamePaused();
+	void setGamePaused(boolean isGamePaused);
 }
