@@ -1,7 +1,6 @@
 package model.Elements;
 
 import contract.IElements;
-import contract.IMapController;
 import model.Model;
 
 abstract class FallingElements extends Elements {
@@ -15,20 +14,22 @@ abstract class FallingElements extends Elements {
     Elements elementRUnder = (Elements) model.getLevel().getElement(x+1,y+1);
     public boolean fallingStatus;
 
-    public FallingElements (int x, int y, String spriteName, String imagePath, IMapController mapController) {
-        super(x, y, spriteName, imagePath, mapController);
+    public FallingElements (int x, int y, String spriteName, String imagePath) {
+        super(x, y, spriteName, imagePath);
         this.fallingStatus = false;
     }
 
     public void falling() {
 
         /*
-        Falling function just move the current object down and replace his older position with "digged"
+        Falling function just move the current object down and replace his older position with "digged" and set falling status to true
          */
         if (elementUnder.spriteName == "Digged") {
-
+            this.y++;
+            this.fallingStatus=true;
         }
     }
+
     public void rolling(){
         /*
         Make falling element roll to fall aside
@@ -60,6 +61,7 @@ abstract class FallingElements extends Elements {
             }
             model.getLevel().setElement((IElements) new Diamonds(x,y+1),x,y+1);
         }
+        this.fallingStatus=false;
     }
 
 

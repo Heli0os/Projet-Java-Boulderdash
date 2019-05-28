@@ -27,14 +27,6 @@ public class EnnemyController {
         }
 
         private void performMovement(IElements ennemies) {
-            int nextX;
-            int nextY;
-
-            do {
-                nextX = ennemies.getX() + random.nextInt(1);
-                nextY = ennemies.getY() + random.nextInt(1);
-            }
-            while (!this.moveControl.movementIsPossible(direction, nextX, nextY));
-            moveControl.movementIsPossible((IMotionElements) ennemies, nextX, nextY);
+            moveControl.movementIsPossible(Direction.getRandomDirection(),ennemies.getX(),ennemies.getY());
         }
 }

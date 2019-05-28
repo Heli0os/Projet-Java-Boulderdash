@@ -1,20 +1,25 @@
 package controller;
 
+import contract.IElements;
+import contract.IModel;
+import model.Elements.Diamonds;
+import model.Elements.Rocks;
+
 /**
  * The Class FallingController.
  *
- * @author Clément
+ * @author Clément&Théophile
  */
 public class FallingController {
-    private Model model;
+    private IModel model;
 
-    public FallingController(Model model) {
+    public FallingController(IModel model) {
         this.model = model;
     }
 
     public void run() {
         while (this.model.isGameRunning()) {
-            this.Falling();
+            detectFallingElements();
         }
     }
 
@@ -22,41 +27,19 @@ public class FallingController {
      * Detect the elements that can fall, if it detects a rock or a diamond, the Falling function will start
      */
     private void detectFallingElements() {
-        for (int x = this.model.getWidth() - 1; x >= 0; x--) {
-            for (int y = this.model.getHeight() -1; y >+ 0; y++) {
-                Elements element = this.model.getElement(x, y);
-            }
+        for (int x = model.getLevel().getDimensions().getHeight() - 1; x >= 0; x--) {
+            for (int y = model.getLevel().getDimensions().getWidth() -1; y >= 0; y--) {
+                IElements element = this.model.getLevel().getElement(x, y);
 
-            String spriteName = element.getSpriteName();
+                if(element instanceof Rocks || element instanceof Diamonds) {
+                    element.rolling();
 
-            if(spriteName == "Boulder" || spriteName == "Diamond") {
-                this.Falling(x,y);
-            }
-        }
-    }
+                    element.falling();
 
-    /**
-     * Manages the falling movement of the rocks and diamonds
-     * @param x
-     * Position x
-     * @param y
-     * Position y
-     */
-    private void Falling(int x, int y) {
-        Elements elementDown = this.model.getSpriteNameLocation(x, y-1);
-
-        String spriteNameDown = elementDown.getSpriteName();
-
-        if (spriteNameDown == "Digged") {
-            element.setLocation(x,y+1);
-        }
-        else if (spriteNameDown == "Rock") {
-            if (this.model.getSpriteNameLocation(x-1, y) == "Digged" && this.model.getSpriteNameLocation(x-1, y+1) == "Digged") {
-                element.setLocation(x-1,y);
-            }
-            else if (this.model.getSpriteNameLocation(x+1, y) == "Digged" && this.model.getSpriteNameLocation(x+1, y+1) == "Digged") {
-                element.setLocation(x+1,y);
+                    element.cruching();
+                }
             }
         }
     }
+
 }

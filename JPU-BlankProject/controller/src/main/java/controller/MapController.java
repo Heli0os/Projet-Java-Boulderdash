@@ -48,7 +48,7 @@ public class MapController {
             //die
         }
         level.setElement((IElements) element,newX,newY);
-        level.setElement((IElements) new Digged(oldX,oldY,this),oldX,oldY);
+        level.setElement((IElements) new Digged(oldX,oldY),oldX,oldY);
 
     }
 

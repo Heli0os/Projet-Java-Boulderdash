@@ -14,12 +14,11 @@ public abstract class Elements {
     protected ISprite sprite;
     protected IMapController mapController;
 
-    public Elements (int x, int y, String spriteName, String image, IMapController mapController) {
+    public Elements (int x, int y, String spriteName, String image) {
         this.setX(x);
         this.setY(y);
         this.setSpriteName(spriteName);
         this.sprite = new Sprite(image);
-        this.mapController = mapController;
     }
 
     public void setLocation(int x, int y) {

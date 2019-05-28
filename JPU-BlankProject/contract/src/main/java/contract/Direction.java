@@ -1,5 +1,7 @@
 package contract;
 
+import java.util.Random;
+
 /**
  * The Enum ControllerOrder.
  *
@@ -15,5 +17,10 @@ public enum Direction {
     /** The RIGHT direction. */
     RIGHT,
     /** No direction set. */
-    NO
+    NO;
+
+    public static Direction getRandomDirection() {
+        Random random = new Random();
+        return values()[random.nextInt(values().length)];
+    }
 }

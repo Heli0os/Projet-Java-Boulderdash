@@ -31,5 +31,14 @@ public interface IElements {
     boolean isAlive();
 
     void setIsAlive (boolean isAlive);
+
+    void falling();
+
+    void rolling();
+    void cruching();
+
+
+
+
 }
 
