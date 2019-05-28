@@ -1,4 +1,4 @@
-package model.Elements;
+package model;
 
 import contract.*;
 import model.Sprite;
