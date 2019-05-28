@@ -1,6 +1,6 @@
-package entity;
+package model;
 
-public class Map {
+public class GameMap {
 
     Elements[][] map;
 
