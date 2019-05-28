@@ -1,7 +1,9 @@
 package controller;
 
-import model.*;
+import model.Elements.Digged;
 import model.Elements.Elements;
+import model.GameMap;
+import model.Model;
 
 /**
  * @author Théophile
@@ -41,8 +43,11 @@ public class MapController {
         oldX = x;
         oldY = y;
 
-        if(current.getSpriteName() == "Diamonds"){
-            model.collectDiamonds();
+        if(current.getSpriteName()== "Diamonds" && element.getSpriteName()=="Player"){
+            //pick up item
+        }
+        if((current.getSpriteName()== "Ennemy" && element.getSpriteName()=="Player") || (current.getSpriteName()== "Player" && element.getSpriteName()=="Ennemy") ){
+            //die
         }
         map.setElement(element,newX,newY);
         map.setElement(new Digged(oldX,oldY),oldX,oldY);
