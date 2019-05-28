@@ -34,10 +34,6 @@ import contract.*;
         }
         return this.model.getLevel().getElements()[elementLocation.getY()][elementLocation.getX()];
     }*/
-/*
-
-
-
 
     /**
      * Tell if a movement is possible on the next block, according the direction
@@ -96,5 +92,4 @@ import contract.*;
         elements.setX(x);
         elements.setY(y);
     }
-
 }
