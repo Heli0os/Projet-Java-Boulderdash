@@ -1,8 +1,12 @@
 package controller;
 
-import contract.Direction;
-import contract.IModel;
+import contract.*;
 
+/**
+ * The Class PlayerController.
+ *
+ * @author Clément
+ */
 public class PlayerController {
     private static PlayerController pc;
     private IModel model;
@@ -25,10 +29,10 @@ public class PlayerController {
 
     public boolean move(Direction direction) {
         IElement player = this.model.getLevel().getPlayer();
-        if (!player.isAlive() || this.model.getLevel().isFinished())
+        if (!player.isAlive() || this.model.getLevel().isFinished() || movementIsPossible == false)
             return false;
-        int nextX = player.getLocation().getX();
-        int nextY = player.getLocation().getY();
+        int nextX = player.getX();
+        int nextY = player.getY();
         switch (direction) {
             case UP:
                 nextY--;

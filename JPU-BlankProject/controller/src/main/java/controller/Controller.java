@@ -1,28 +1,32 @@
 package controller;
 
-import contract.ControllerOrder;
-import contract.IController;
-import contract.IModel;
-import contract.IView;
+import contract.*;
 
 /**
  * The Class Controller.
+ *
+ * @author Clément
  */
 public final class Controller implements IController {
 
-	/** The view. */
-	private IView		view;
+	/**
+	 * The view.
+	 */
+	private IView view;
 
-	/** The model. */
-	private IModel	model;
+	/**
+	 * The model.
+	 */
+	private IModel model;
+
+	private boolean isGameOver = false;
+	private boolean isGamePaused = false;
 
 	/**
 	 * Instantiates a new controller.
 	 *
-	 * @param view
-	 *          the view
-	 * @param model
-	 *          the model
+	 * @param view  the view
+	 * @param model the model
 	 */
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
@@ -30,23 +34,10 @@ public final class Controller implements IController {
 	}
 
 	/**
-     * Control.
-     */
-	/*
-	 * (non-Javadoc)
+	 * Sets the view.
 	 *
-	 * @see contract.IController#control()
+	 * @param pview the new view
 	 */
-	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
-	}
-
-	/**
-     * Sets the view.
-     *
-     * @param pview
-     *            the new view
-     */
 	private void setView(final IView pview) {
 		this.view = pview;
 	}
@@ -54,41 +45,66 @@ public final class Controller implements IController {
 	/**
 	 * Sets the model.
 	 *
-	 * @param model
-	 *          the new model
+	 * @param model the new model
 	 */
 	private void setModel(final IModel model) {
 		this.model = model;
 	}
 
 	/**
-     * Order perform.
-     *
-     * @param controllerOrder
-     *            the controller order
-     */
+	 * Order perform.
+	 *
+	 * @param controllerOrder the controller order
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
+		PlayerController player = PlayerController.getInstance();
 		switch (controllerOrder) {
-			case English:
-				this.model.loadHelloWorld("GB");
+			case MOVE_UP:
+				player.move(Direction.UP);
 				break;
-			case Francais:
-				this.model.loadHelloWorld("FR");
+			case MOVE_LEFT:
+				player.move(Direction.LEFT);
 				break;
-			case Deutsch:
-				this.model.loadHelloWorld("DE");
+			case MOVE_DOWN:
+				player.move(Direction.DOWN);
 				break;
-			case Indonesia:
-				this.model.loadHelloWorld("ID");
+			case MOVE_RIGHT:
+				player.move(Direction.RIGHT);
 				break;
+			case PAUSED:
+				isGamePaused = true;
 			default:
 				break;
 		}
 	}
 
+	@Override
+	public boolean isGamePaused() {
+		return false;
+	}
+
+	@Override
+	public void setGamePaused(boolean isGamePaused) {
+	}
+
+	public void play() {
+		this.gameLoop();
+		this.view.close();
+	}
+
+	public void gameLoop() {
+		while (!this.isGameOver || !this.isGamePaused) {
+			try {
+				Thread.sleep(30);
+			} catch (final InterruptedException ex) {
+				Thread.currentThread().interrupt();
+			}
+			this.model.update();
+		}
+	}
 }

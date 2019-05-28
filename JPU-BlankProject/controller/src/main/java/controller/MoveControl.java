@@ -7,7 +7,7 @@ import contract.*;
  *
  * @author Clément
  */
-public class MoveControl {
+    public class MoveControl {
     private static MoveControl mc;
     private IModel model;
 
@@ -25,7 +25,7 @@ public class MoveControl {
         this.model = model;
     }
 
-    IElement Collision(IElement element) {
+    /*IElement Collision(IElement element) {
         ILocation elementLocation = element.getLocation();
         for(IElement movingElement: this.model.getLevel().getMovingElement()) {
             if(elementLocation.getX() == movingElement.getLocation().getX() && elementLocation.getY() == movingElement.getLocation().getY() && element != movingElement) {
@@ -33,7 +33,7 @@ public class MoveControl {
             }
         }
         return this.model.getLevel().getElements()[elementLocation.getY()][elementLocation.getX()];
-    }
+    }*/
 
     /**
      * Tell if a movement is possible on the next block, according the direction
@@ -44,36 +44,36 @@ public class MoveControl {
      * @return
      * A movement is possible
      */
-    boolean movementIsPossible(int x, int y) {
-        Elements element;
+    boolean movementIsPossible(Direction direction, int x, int y) {
+        IElements element;
         String spriteName;
 
         switch (direction) {
-            CASE UP:
-                element = this.model.getLocation()[x][y-1];
+            case UP:
+                element = this.model.getElements(x, y-1);
                 spriteName = element.getSpriteName();
-                if (spriteName == "Wall" || spriteName == "Boulder") {
+                if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }
                 return true;
-            CASE LEFT:
-                element = this.model.getLocation()[x-1][y];
+            case LEFT:
+                element = this.model.getElements(x-1, y);
                 spriteName = element.getSpriteName();
-                if (spriteName == "Wall" || spriteName == "Boulder") {
+                if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }
                 return true;
-            CASE DOWN:
-                element = this.model.getLocation()[x][y+1];
+            case DOWN:
+                element = this.model.getElements(x, y+1);
                 spriteName = element.getSpriteName();
-                if (spriteName == "Wall" || spriteName == "Boulder") {
+                if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }
                 return true;
-            CASE RIGHT:
-                element = this.model.getLocation()[x+1][y];
+            case RIGHT:
+                element = this.model.getElements(x+1, y);
                 spriteName = element.getSpriteName();
-                if (spriteName == "Wall" || spriteName == "Boulder") {
+                if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }
                 return true;
@@ -91,8 +91,8 @@ public class MoveControl {
      * @return
      * Safe move for the entity
      */
-    boolean movementIsSafe(IElement element, int x, int y) {
-        if(movementIsPossible(x,y)) {
+    boolean movementIsSafe(IMotionElements element, int x, int y) {
+        if(movementIsPossible(direction, x, y) = true) {
             element.moveTo(x,y);
             this.model.update();
             return true;

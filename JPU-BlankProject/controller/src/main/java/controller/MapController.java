@@ -1,14 +1,13 @@
 package controller;
 
-import model.Elements.Digged;
+import model.*;
 import model.Elements.Elements;
-import model.GameMap;
-
 
 /**
  * @author Théophile
  */
 public class MapController {
+    private Model model;
     private GameMap map;
     private Elements current;
     private int oldX;
@@ -16,9 +15,12 @@ public class MapController {
     private int newX;
     private int newY;
 
+    public MapController(Model model) {
+        this.model = model;
+    }
+
     public void CreateMap(){
         map = new GameMap();
-
     }
 
     public void UpdateMap(){
@@ -39,11 +41,11 @@ public class MapController {
         oldX = x;
         oldY = y;
 
-        if(current.getSpriteName()== "Diamonds"){
-            //pick up item
+        if(current.getSpriteName() == "Diamonds"){
+            model.collectDiamonds();
         }
-            map.setElement(element,newX,newY);
-            map.setElement(new Digged(oldX,oldY),oldX,oldY);
+        map.setElement(element,newX,newY);
+        map.setElement(new Digged(oldX,oldY),oldX,oldY);
 
     }
 
