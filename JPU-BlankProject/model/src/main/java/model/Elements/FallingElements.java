@@ -1,17 +1,22 @@
 package model.Elements;
 
+import contract.IElements;
+import contract.IMapController;
+import model.Model;
 
 abstract class FallingElements extends Elements {
 
-    Elements elementUnder = getElement(x,y-1);
-    Elements elementLeft = getElement(x-1,y);
-    Elements elementRight = getElement(x+1,y);
-    Elements elementLUnder = getElement(x-1,y+1);
-    Elements elementRUnder = getElement(x+1,y+1);
+    private Model model;
+
+    Elements elementUnder = (Elements) model.getLevel().getElement(x,y-1);
+    Elements elementLeft = (Elements) model.getLevel().getElement(x-1,y);
+    Elements elementRight = (Elements) model.getLevel().getElement(x+1,y);
+    Elements elementLUnder = (Elements) model.getLevel().getElement(x-1,y+1);
+    Elements elementRUnder = (Elements) model.getLevel().getElement(x+1,y+1);
     public boolean fallingStatus;
 
-    public FallingElements (int x, int y, String spriteName, String image) {
-        super(x, y, spriteName, image);
+    public FallingElements (int x, int y, String spriteName, String imagePath, IMapController mapController) {
+        super(x, y, spriteName, imagePath, mapController);
         this.fallingStatus = false;
     }
 
@@ -21,9 +26,7 @@ abstract class FallingElements extends Elements {
         Falling function just move the current object down and replace his older position with "digged"
          */
         if (elementUnder.spriteName == "Digged") {
-            this.y++;
-            setElement(model.Elements.Digged, this.x, this.y);
-            this.fallingStatus = true;
+
         }
     }
     public void rolling(){
@@ -42,20 +45,20 @@ abstract class FallingElements extends Elements {
 
     public void cruching(){
         if(this.fallingStatus == true && elementUnder.spriteName == "Player"){
-            for(int i=x-;i<=x+1;i++){
-                for(int j=y-;j<=y+1;j++){
-                    setElement(model.Elements.Digged,i,j);
+            for(int i=x-1;i<=x+1;i++){
+                for(int j=y-1;j<=y+1;j++){
+                    model.getLevel().setElement((IElements) new Digged(i,j),i,j);
                 }
             }
             /*restart function here*/
         }
         if(this.fallingStatus == true && elementUnder.spriteName == "Enemy"){
-            for(int i=x-;i<=x+1;i++){
-                for(int j=y-;j<=y+1;j++){
-                    setElement(model.Elements.Digged,i,j);
+            for(int i=x-1;i<=x+1;i++){
+                for(int j=y-1;j<=y+1;j++){
+                    model.getLevel().setElement((IElements) new Digged(i,j),i,j);
                 }
             }
-            SetElement(model.Elements.Diamonds,x,y+1);
+            model.getLevel().setElement((IElements) new Diamonds(x,y+1),x,y+1);
         }
     }
 
