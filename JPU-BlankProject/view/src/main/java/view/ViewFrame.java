@@ -122,6 +122,9 @@ class ViewFrame extends JFrame implements KeyListener {
 			case KeyEvent.VK_D:
 				this.controller.orderPerform(ControllerOrder.MOVE_RIGHT);
 				break;
+			case KeyEvent.VK_ESCAPE:
+				this.controller.orderPerform(ControllerOrder.PAUSED);
+				break;
 		}
 	}
 

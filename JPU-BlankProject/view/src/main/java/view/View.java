@@ -21,6 +21,10 @@ public class View implements IView {
 
 	}
 
+	public void close() {
+		this.frame.dispose();
+	}
+
 	public Observer getObserver() {
 		return this.frame.getViewPanel();
 	}
