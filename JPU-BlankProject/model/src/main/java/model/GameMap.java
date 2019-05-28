@@ -1,5 +1,7 @@
 package model;
 
+import model.Elements.Elements;
+
 public class GameMap {
 
     Elements[][] map;

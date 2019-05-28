@@ -1,13 +1,13 @@
-package model;
+package model.Elements;
 
 
 public class FallingElements extends Elements {
 
-    Elements elementUnder = getElement(x,y-1);
-    Elements elementLeft = getElement(x-1,y);
-    Elements elementRight = getElement(x+1,y);
-    Elements elementLUnder = getElement(x-1,y+1);
-    Elements elementRUnder = getElement(x+1,y+1);
+    Elements elementUnder = map.getElement(x,y-1);
+    Elements elementLeft = map.getElement(x-1,y);
+    Elements elementRight = map.getElement(x+1,y);
+    Elements elementLUnder = map.getElement(x-1,y+1);
+    Elements elementRUnder = map.getElement(x+1,y+1);
 
     public void rolling(){
         /*
@@ -30,7 +30,7 @@ public class FallingElements extends Elements {
          */
         if (elementUnder.spriteName == "Digged") {
             this.y++;
-            setElement(model.Elements.Digged, this.x, this.y);
+            map.setElement(Elements.Digged, this.x, this.y);
             this.fallingStatus = true;
         }
     }
@@ -40,7 +40,7 @@ public class FallingElements extends Elements {
         if(this.fallingStatus == true && elementUnder.spriteName == "Player"){
            for(int i=x-;i<=x+1;i++){
                for(int j=y-;j<=y+1;j++){
-                    setElement(model.Elements.Digged,i,j);
+                    map.setElement(Elements.Digged,i,j);
                }
            }
            /*restart function here*/
@@ -48,12 +48,10 @@ public class FallingElements extends Elements {
         if(this.fallingStatus == true && elementUnder.spriteName == "Enemy"){
             for(int i=x-1;i<=x+1;i++){
                 for(int j=y-1;j<=y+1;j++){
-                    setElement(model.Elements.Digged,i,j);
+                    map.setElement(Elements.Digged,i,j);
                 }
             }
-            SetElement(model.Elements.Diamonds,x,y+1);
+            map.setElement(Elements.Diamonds,x,y+1);
         }
     }
-
-
 }

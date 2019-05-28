@@ -30,5 +30,14 @@ public abstract class Main {
 
         controller.control();
         controller.orderPerform(ControllerOrder.English);
+
+
+        /*
+        * Game sequence:
+        * -initialisation
+        * -load map data through database
+        * -place elements
+        * -
+         */
     }
 }

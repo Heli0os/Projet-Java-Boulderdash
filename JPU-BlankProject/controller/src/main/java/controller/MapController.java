@@ -1,7 +1,7 @@
 package controller;
 
-import model.Digged;
-import model.Elements;
+import model.Elements.Digged;
+import model.Elements.Elements;
 import model.GameMap;
 
 

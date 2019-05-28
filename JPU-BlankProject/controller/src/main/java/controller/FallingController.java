@@ -30,10 +30,15 @@ public class FallingController {
 
 
                 if(element.getSpriteName() == "Rock" || element.getSpriteName == "Diamond") {
-                    element.Falling(x,y);
+                    /*try to make element roll*/
+                    element.rolling();
+                    /*try to make element fall*/
+                    element.falling();
+                    /*try to make element cruch*/
+                    element.cruching();
                 }
             }
         }
     }
-    
+
 }
