@@ -15,7 +15,7 @@ public interface IModel {
 	 * @return the level
 	 */
 	ILevel getLevel();
-
+	boolean isGameRunning();
 	/**
 	 * Gets the observable.
 	 *
