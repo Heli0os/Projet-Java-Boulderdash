@@ -35,8 +35,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `GetLevel` (IN `p_Level_id` INT)  BE
     WHERE integrate.Id = p_Level_id;
 END$$
 
-DROP PROCEDURE IF EXISTS `GetWidth`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetWidth` (IN `name` VARCHAR(255))  NO SQL
+DROP PROCEDURE IF EXISTS `GetDimension`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetDimension` (IN `name` VARCHAR(255))  NO SQL
 SELECT Height, Width
 FROM level
 WHERE `Name` = name$$
