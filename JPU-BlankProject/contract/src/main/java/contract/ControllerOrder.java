@@ -3,16 +3,18 @@ package contract;
 /**
  * The Enum ControllerOrder.
  *
- * @author Jean-Aymeric Diet
+ * @author Clément
  */
 public enum ControllerOrder {
 
-	/** The English. */
-	English,
-	/** The French. */
-	Francais,
-	/** The Deutch. */
-	Deutsch,
-	/** The Indonesia. */
-	Indonesia
+	/** MOVE in the UP direction. */
+	MOVE_UP,
+	/** MOVE in the LEFT direction. */
+	MOVE_LEFT,
+	/** MOVE in the DOWN direction. */
+	MOVE_DOWN,
+	/** MOVE in the RIGHT direction. */
+	MOVE_RIGHT,
+	/** PAUSE the game. */
+	PAUSED
 }
