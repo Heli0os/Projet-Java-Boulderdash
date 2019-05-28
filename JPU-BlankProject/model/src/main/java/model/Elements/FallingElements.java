@@ -1,9 +1,13 @@
 package model.Elements;
 
 
+import model.GameMap;
+
 public class FallingElements extends Elements {
 
-    Elements elementUnder = map.getElement(x,y-1);
+    public FallingElements(int x, int y, String spriteName, String image){super(x,y,spriteName,image)}
+
+    Elements elementUnder = GameMap.getElement(x,y-1);
     Elements elementLeft = map.getElement(x-1,y);
     Elements elementRight = map.getElement(x+1,y);
     Elements elementLUnder = map.getElement(x-1,y+1);
