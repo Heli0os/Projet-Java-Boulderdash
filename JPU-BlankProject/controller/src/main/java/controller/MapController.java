@@ -1,24 +1,23 @@
 package controller;
 
 import contract.IElements;
+import contract.ILevel;
+import contract.IModel;
 import model.Elements.Digged;
-import model.Elements.Elements;
-import model.Level;
-import model.Model;
 
 /**
  * @author Théophile
  */
 public class MapController {
-    private Model model;
-    private Level level;
-    private Elements current;
+    private IModel model;
+    private ILevel level;
+    private IElements current;
     private int oldX;
     private int oldY;
     private int newX;
     private int newY;
 
-    public MapController(Model model) {
+    public MapController(IModel model) {
         this.model = model;
     }
 
@@ -26,7 +25,7 @@ public class MapController {
     public void UpdateMap(){
         for(int x = 0;x <= level.getDimensions().getHeight(); x++){
             for (int y = 0; y <= level.getDimensions().getWidth(); y++){
-                MoveInMap((Elements) level.getElement(x,y),x,y);
+                MoveInMap(level.getElement(x,y),x,y);
             }
         }
     }
@@ -34,8 +33,8 @@ public class MapController {
      * MoveTo method move the element parameter to the x and y parameter
      * @param element,x,y
      * */
-    public void MoveInMap(Elements element,int x, int y){ //x and y are the current position of the element
-        current = (Elements) level.getElement(element.getX(),element.getY());
+    public void MoveInMap(IElements element,int x, int y){ //x and y are the current position of the element
+        current = (IElements) level.getElement(element.getX(),element.getY());
         newX = element.getX();
         newY = element.getY();
         oldX = x;
@@ -47,7 +46,7 @@ public class MapController {
         if((current.getSpriteName()== "Ennemy" && element.getSpriteName()=="Player") || (current.getSpriteName()== "Player" && element.getSpriteName()=="Ennemy") ){
             //die
         }
-        level.setElement((IElements) element,newX,newY);
+        level.setElement(element,newX,newY);
         level.setElement((IElements) new Digged(oldX,oldY),oldX,oldY);
 
     }

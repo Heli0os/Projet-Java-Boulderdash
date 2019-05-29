@@ -1,7 +1,10 @@
 package controller;
 
-import contract.*;
-import model.Model;
+import contract.ControllerOrder;
+import contract.IController;
+import contract.IModel;
+import contract.IView;
+
 
 /**
  * The Class Controller.
@@ -41,10 +44,11 @@ public final class Controller implements IController {
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
-		this.ennemyController = new EnnemyController(this.model);
+
 		this.fallingController = new FallingController(this.model);
-		this.mapController = new MapController((Model) this.model);
+		this.mapController = new MapController(this.model);
 		this.moveControl = new MoveControl(this.model);
+		this.ennemyController = new EnnemyController(this.model);
 		this.playerController = new PlayerController(this.model);
 	}
 
@@ -80,16 +84,16 @@ public final class Controller implements IController {
 		PlayerController player = PlayerController.getInstance();
 		switch (controllerOrder) {
 			case MOVE_UP:
-				player.move(Direction.UP);
+				player.move(contract.Direction.UP);
 				break;
 			case MOVE_LEFT:
-				player.move(Direction.LEFT);
+				player.move(contract.Direction.LEFT);
 				break;
 			case MOVE_DOWN:
-				player.move(Direction.DOWN);
+				player.move(contract.Direction.DOWN);
 				break;
 			case MOVE_RIGHT:
-				player.move(Direction.RIGHT);
+				player.move(contract.Direction.RIGHT);
 				break;
 			case PAUSED:
 				setGamePaused(true);

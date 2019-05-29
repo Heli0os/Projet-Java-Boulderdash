@@ -78,7 +78,7 @@
 						</goals>
 						<phase>site</phase>
 						<configuration>
-                    <skipDeploy>true</skipDeploy>
+
 						</configuration>
 					</execution>
 				</executions>
@@ -111,10 +111,7 @@
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>2.9</version>
 				<configuration>
-					<aggregate>true</aggregate>
-					<reportsDirectories>
-						<reportsDirectory>${basedir}/target/</reportsDirectory>
-					</reportsDirectories>
+
 				</configuration>
 			</plugin>
 			<plugin>

@@ -11,5 +11,6 @@
     <orderEntry type="library" name="contract-0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="module" module-name="main" />
     <orderEntry type="module" module-name="main4" />
+    <orderEntry type="module" module-name="contract" />
   </component>
 </module>

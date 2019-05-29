@@ -28,7 +28,7 @@ public class PlayerController {
         pc = this;
     }
 
-    public void move(Direction direction) {
+    public void move(contract.Direction direction) {
         IMotionElements player = (IMotionElements) this.model.getLevel().getPlayer();
         int x = player.getX();
         int y = player.getY();

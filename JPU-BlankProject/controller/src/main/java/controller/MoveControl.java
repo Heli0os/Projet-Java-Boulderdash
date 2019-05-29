@@ -12,18 +12,16 @@ import contract.*;
     private IModel model;
 
     public static MoveControl getInstance() {
-        if(mc == null)
+        if(mc == null) {
             System.err.println("No MoveControl");
+        }
         return mc;
     }
 
-    public void MoveControl(IModel model){
-        this.model=model;
-        mc =this;
-    }
 
     public MoveControl(IModel model) {
         this.model = model;
+        mc = this;
     }
 
     /*IElement Collision(IElement element) {

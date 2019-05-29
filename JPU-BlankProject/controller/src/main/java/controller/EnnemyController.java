@@ -1,6 +1,8 @@
 package controller;
 
-import contract.*;
+import contract.Direction;
+import contract.IElements;
+import contract.IModel;
 import model.Elements.Ennemies;
 
 import java.util.Random;
