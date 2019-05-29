@@ -1,5 +1,6 @@
 package model.Elements;
 
+import contract.IElements;
 import contract.IFallingElements;
 import model.Model;
 
@@ -9,11 +10,11 @@ abstract class FallingElements extends Elements implements IFallingElements {
     public boolean fallingStatus;
 
 
-    Elements elementUnder = (Elements) this.model.getLevel().getElement(this.x,this.y-1);
-    Elements elementLeft = (Elements) this.model.getLevel().getElement(this.x-1,this.y);
-    Elements elementRight = (Elements) this.model.getLevel().getElement(this.x+1,this.y);
-    Elements elementLUnder = (Elements) this.model.getLevel().getElement(this.x-1,this.y+1);
-    Elements elementRUnder = (Elements) this.model.getLevel().getElement(this.x+1,this.y+1);
+    IElements elementUnder = this.model.getLevel().getElement(this.x,this.y-1);
+    IElements elementLeft =  this.model.getLevel().getElement(this.x-1,this.y);
+    IElements elementRight =  this.model.getLevel().getElement(this.x+1,this.y);
+    IElements elementLUnder =  this.model.getLevel().getElement(this.x-1,this.y+1);
+    IElements elementRUnder =  this.model.getLevel().getElement(this.x+1,this.y+1);
 
     public FallingElements (int x, int y, String spriteName, String imagePath) {
         super(x, y, spriteName, imagePath);

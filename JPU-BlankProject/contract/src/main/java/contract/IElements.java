@@ -6,6 +6,11 @@ package contract;
  * @author Clément
  */
 public interface IElements {
+
+
+    String spriteName = "";
+
+
     void setLocation(int x, int y);
 
     int getX();

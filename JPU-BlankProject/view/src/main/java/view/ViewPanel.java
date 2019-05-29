@@ -1,9 +1,6 @@
 package view;
 
-import contract.IController;
-import contract.IElements;
-import contract.ILevel;
-import contract.IModel;
+import contract.*;
 
 import javax.swing.*;
 import java.awt.*;
