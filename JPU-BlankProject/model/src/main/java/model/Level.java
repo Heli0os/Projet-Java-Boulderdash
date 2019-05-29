@@ -1,11 +1,11 @@
 package model;
 
-import contract.IDimensions;
-import contract.IElements;
-import contract.ILevel;
+import contract.*;
+import model.Elements.Elements;
+import java.util.ArrayList;
 
 /**
- * The Class Level.
+ * The Class Model.
  *
  * @author Clément
  */
@@ -16,16 +16,16 @@ public class Level implements ILevel {
     private String name;
     private int levelNumber;
     private int diamondsNumber;
+    private GameMap gameMap;
     private boolean finished;
+    private boolean paused;
     private int diamondsCollected;
-    IElements[][] map;
 
-    public Level(int id, int height, int width, String name, IElements player, int levelNumber, int diamondsNumber) {
+    public Level(int id, String name, int height, int width, IElements player, int diamondsNumber) {
         this.id = id;
-        this.dimensions = (IDimensions) new Dimensions(height, width);
+        this.dimensions = new Dimensions(height, width);
         this.name = name;
         this.player = player;
-        this.levelNumber = levelNumber;
         this.diamondsNumber = diamondsNumber;
         this.diamondsCollected = 0;
         this.finished = false;
@@ -42,7 +42,6 @@ public class Level implements ILevel {
     public IDimensions getDimensions() {
         return dimensions;
     }
-
     public void setDimensions(IDimensions dimensions) {
         this.dimensions = dimensions;
     }
@@ -91,17 +90,28 @@ public class Level implements ILevel {
         this.diamondsCollected = diamondsCollected;
     }
 
+    Elements[][] map;
 
-
-    public IElements[][] getElements(){
+    public Elements[][] getElements(){
         return map;
     }
 
-    public IElements getElement(int x,int y){
+    public Elements getElement(int x,int y){
         return map[x][y];
     }
 
-    public void setElement(IElements element,int x,int y){
+    public void setElement(Elements element,int x,int y){
         map[x][y]= element;
+    }
+
+    public void setElement(String string, int anInt, int anInt1) {
+    }
+
+    public boolean isPaused() {
+        return paused;
+    }
+
+    public void setPaused(boolean paused) {
+        this.paused = paused;
     }
 }
