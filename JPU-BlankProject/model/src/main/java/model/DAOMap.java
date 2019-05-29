@@ -60,7 +60,7 @@ public class DAOMap {
         call.execute();
         final ResultSet map = call.getResultSet();
         if (map.first()) {
-            this.level = new Level(map.getInt(1), map.getString(2), map.getInt(3), map.getInt(4), Player player, 5);
+            this.level = new Level(map.getInt(1), map.getString(2), map.getInt(3), map.getInt(4), (IElements) player, 5);
         }
         return null;
     }
@@ -93,5 +93,5 @@ public class DAOMap {
         }
         return null;
     }
-    
+
 }
