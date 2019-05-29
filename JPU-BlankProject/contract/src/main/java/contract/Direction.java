@@ -18,11 +18,11 @@ public enum Direction {
     RIGHT,
     /** No direction set. */
     NO;
-    
+
     /**
-    * A function that set a random direction 
-    * Used for the ennemies
-    */
+     * A function that get a random direction that will be used for the ennemies movement
+     * @return
+     */
     public static Direction getRandomDirection() {
         Random random = new Random();
         return values()[random.nextInt(values().length)];
