@@ -16,4 +16,7 @@ public interface IController {
 	public void orderPerform(ControllerOrder controllerOrder);
 	public boolean isGamePaused();
 	void setGamePaused(boolean isGamePaused);
+	void start();
+	void play();
+	void gameLoop();
 }
