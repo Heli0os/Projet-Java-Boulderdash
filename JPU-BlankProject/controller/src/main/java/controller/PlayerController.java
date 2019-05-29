@@ -25,6 +25,7 @@ public class PlayerController {
     public PlayerController(IModel model) {
         this.model = model;
         this.moveControl = MoveControl.getInstance();
+        pc = this;
     }
 
     public void move(Direction direction) {

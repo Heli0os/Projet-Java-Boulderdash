@@ -17,8 +17,9 @@ import contract.*;
         return mc;
     }
 
-    public static void init(IModel model) {
-        mc = new MoveControl(model);
+    public void MoveControl(IModel model){
+        this.model=model;
+        mc =this;
     }
 
     public MoveControl(IModel model) {
