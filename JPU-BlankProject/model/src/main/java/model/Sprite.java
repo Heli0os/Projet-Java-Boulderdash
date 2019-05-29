@@ -1,21 +1,30 @@
 package model;
 
 import contract.ISprite;
+import java.awt.*;
 
 /**
  * @author Clément
  */
 public class Sprite implements ISprite {
     /**
-     * The imagePath.
+     * The image.
      */
-    protected String imagePath;
+    protected Image image;
 
-    public Sprite(String imagePath) {
-        this.imagePath = imagePath;
+    /**
+     * The constructor of the sprite
+     * @param image The image 
+     */
+    public Sprite(Image image) {
+        this.image = image;
     }
 
-    public String getImagePath() {
-        return imagePath;
+    /**
+     * Get the image
+     * @return The image
+     */
+    public Image getImage() {
+        return image;
     }
 }
