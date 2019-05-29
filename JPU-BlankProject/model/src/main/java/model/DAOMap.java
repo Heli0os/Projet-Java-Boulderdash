@@ -1,9 +1,12 @@
 package model;
 
+import model.Elements.Player;
+
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DAOMap {
 
@@ -14,6 +17,19 @@ public class DAOMap {
 
     private int height;
     private int width;
+    /**
+     * the Level.
+     */
+    private Level level;
+
+    /**
+     * the Player.
+     */
+    private Player player;
+
+    private Model model;
+
+    private ArrayList<Integer> LevelsList;
 
     public DAOMap(Connection connection) {
         this.connection = connection;
@@ -23,16 +39,57 @@ public class DAOMap {
         return this.connection;
     }
 
-    public int[][] getLevel(int ID) throws SQLException {
-        getDimension(ID);
-        int result[][] = new int[this.height][this.width];
-
-        final String sql = "{call GetLevel(?)}";
+    public ResultSet getLevelsList() throws SQLException {
+        final String sql = "{CALL GetLevelsList()}";
         final CallableStatement call = this.getConnection().prepareCall(sql);
-        call.setInt(1, ID);
         call.execute();
+        final ResultSet levels = call.getResultSet();
+        this.LevelsList = new ArrayList<Integer>();
+        while (levels.next()) {
+            LevelsList.add(levels.getInt(1));
+        }
+        return null;
+    }
 
-        return result;
+    public ResultSet getMap(int id) throws SQLException {
+        final String sql = "{CALL GetLevel(?)}";
+        final CallableStatement call = this.getConnection().prepareCall(sql);
+        call.setInt(1, id);
+        call.execute();
+        final ResultSet map = call.getResultSet();
+        if (map.first()) {
+            this.level = new Level(map.getInt(1), map.getString(2), map.getInt(3), map.getInt(4), Player player, 5);
+        }
+        return null;
+    }
+
+    public ResultSet getComponents(int id) throws SQLException {
+        final String sql = "{CALL GetComponents(?)}";
+        final CallableStatement call = this.getConnection().prepareCall(sql);
+        call.setInt(1, id);
+        call.execute();
+        final ResultSet components = call.getResultSet();
+        while (components.next()) {
+            if (components.getString(1).equals("Dirt")) {
+                this.level.setElement(components.getString(1), components.getInt(2), components.getInt(3));
+            }
+            else if (components.getString(1).equals("Rock")) {
+                this.level.setElement(components.getString(1), components.getInt(2), components.getInt(3));
+            }
+            else if (components.getString(1).equals("Wall")) {
+                this.level.setElement(components.getString(1), components.getInt(2), components.getInt(3));
+            }
+            else if (components.getString(1).equals("Diamond")) {
+                this.level.setElement(components.getString(1), components.getInt(2), components.getInt(3));
+            }
+            else if (components.getString(1).equals("Enemy")) {
+                this.level.setElement(components.getString(1), components.getInt(2), components.getInt(3));
+            }
+            else if (components.getString(1).equals("Player")) {
+                this.level.setElement(components.getString(1), components.getInt(2), components.getInt(3));
+            }
+        }
+        return null;
     }
 
 
