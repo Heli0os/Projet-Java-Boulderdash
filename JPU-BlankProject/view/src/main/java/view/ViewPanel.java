@@ -71,7 +71,7 @@ class ViewPanel extends JPanel implements Observer {
 	}
 
 	/**
-	 * Paint the components on the map
+	 * Draw the components on the frame
 	 * @param graphics The graphics
 	 */
 	/*
