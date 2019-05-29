@@ -7,4 +7,6 @@ package contract;
  */
 public interface IView {
     void close();
+    
+    Observer getObserver();
 }
