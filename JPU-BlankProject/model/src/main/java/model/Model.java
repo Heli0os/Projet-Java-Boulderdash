@@ -1,10 +1,12 @@
 package model;
 
-import contract.Direction;
-import contract.IModel;
-import model.Elements.Player;
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Observable;
+import contract.*;
+import model.Elements.Elements;
+import model.Elements.Player;
 
 /**
  * The Class Model.
@@ -20,6 +22,8 @@ public final class Model extends Observable implements IModel {
 	private Player player;
 
 	private Model model;
+
+	private ArrayList<Integer> LevelsList;
 
 	/**
 	 * Instantiates a new model.
@@ -40,40 +44,50 @@ public final class Model extends Observable implements IModel {
 	public void collectDiamonds() {
 		model.getLevel().setDiamondsCollected(model.getLevel().getDiamondsCollected()+1);
 	}
-	public boolean isGameRunning(){
-		return true;
+
+	public void loadLevels() {
+		try {
+			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
+			daoMap.getLevelsList();
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
-	public Observable getObservable() {
-		return this;
-	}
-
-	/**
-     * Load hello world.
-     *
-     * @param code
-     *            the code
-     */
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	/*public void loadHelloWorld(final String code) {
+	public void loadLevel(int id) {
 		try {
-			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			this.setHelloWorld(daoHelloWorld.find(code));
+			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
+			daoMap.getMap(id);
+			daoMap.getComponents(id);
+			this.getLevel().getPlayer().isAlive();
+			this.getLevel().setFinished(false);
+			this.getLevel().setPaused(false);
+			this.getLevel().setDiamondsCollected(0);
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
 
-
+	public ArrayList<Integer> getLevelsList() {
+		return LevelsList;
+	}
 
 	/**
      * Gets the observable.
      *
      * @return the observable
      */
-
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see contract.IModel#getObservable()
+	 */
+	public Observable getObservable() {
+		return this;
+	}
 }
