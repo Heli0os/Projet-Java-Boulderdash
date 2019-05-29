@@ -17,16 +17,12 @@ public class FallingController {
         this.model = model;
     }
 
-    public void run() {
-        while (this.model.isGameRunning()) {
-            detectFallingElements();
-        }
-    }
+
 
     /**
      * Detect the elements that can fall, if it detects a rock or a diamond, the Falling function will start
      */
-    private void detectFallingElements() {
+    protected void detectFallingElements() {
         for (int x = model.getLevel().getDimensions().getHeight() - 1; x >= 0; x--) {
             for (int y = model.getLevel().getDimensions().getWidth() -1; y >= 0; y--) {
                 IElements element = this.model.getLevel().getElement(x, y);

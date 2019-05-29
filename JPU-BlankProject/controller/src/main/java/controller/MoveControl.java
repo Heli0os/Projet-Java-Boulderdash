@@ -21,7 +21,7 @@ import contract.*;
         mc = new MoveControl(model);
     }
 
-    private MoveControl(IModel model) {
+    public MoveControl(IModel model) {
         this.model = model;
     }
 

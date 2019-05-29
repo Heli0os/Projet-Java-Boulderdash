@@ -1,6 +1,7 @@
 package controller;
 
 import contract.*;
+import model.Model;
 
 /**
  * The Class Controller.
@@ -8,6 +9,15 @@ import contract.*;
  * @author Clément
  */
 public final class Controller implements IController {
+
+	/**
+	 * References to other controllers
+	 */
+	EnnemyController ennemyController;
+	FallingController fallingController;
+	MapController mapController;
+	MoveControl moveControl;
+	PlayerController playerController;
 
 	/**
 	 * The view.
@@ -31,6 +41,11 @@ public final class Controller implements IController {
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
+		this.ennemyController = new EnnemyController(this.model);
+		this.fallingController = new FallingController(this.model);
+		this.mapController = new MapController((Model) this.model);
+		this.moveControl = new MoveControl(this.model);
+		this.playerController = new PlayerController(this.model);
 	}
 
 	/**
@@ -92,26 +107,49 @@ public final class Controller implements IController {
 	public void setGamePaused(boolean isGamePaused) {
 	}
 
+	@Override
 	public void start() {
-		this.model.loadLevels();
-		this.model.loadLevel(this.model.getLevelsList().get(0));
-		this.model.getObservable().addObserver(this.view.getObserver());
-		this.play();
+
 	}
 
+	@Override
 	public void play() {
-		this.gameLoop();
+
+	}
+
+	@Override
+	public void gameLoop() {
+
+	}
+
+	public void start(int levelIndex) {
+		this.model.loadLevels();
+		this.model.loadLevel(this.model.getLevelsList().get(levelIndex));
+		this.model.getObservable().addObserver(this.view.getObserver());
+
+		this.play(levelIndex);
+	}
+
+	public void play(int levelIndex) {
+		this.gameLoop(levelIndex);
 		this.view.close();
 	}
 
-	public void gameLoop() {
-		while (!this.isGameOver || !this.isGamePaused) {
+	public void gameLoop(int levelIndex) {
+		model.getLevel().setDiamondsCollected(0);
+		while (!this.isGameOver || !this.isGamePaused || !this.model.getLevel().isFinished()) {
 			try {
 				Thread.sleep(30);
 			} catch (final InterruptedException ex) {
 				Thread.currentThread().interrupt();
 			}
+			ennemyController.performMovement();
+			fallingController.detectFallingElements();
+			mapController.UpdateMap();
 			this.model.update();
+		}
+		if (this.model.getLevel().isFinished()) {
+			this.start(levelIndex++);
 		}
 	}
 }

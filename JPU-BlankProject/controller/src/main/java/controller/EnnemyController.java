@@ -1,6 +1,8 @@
 package controller;
 
 import contract.*;
+import model.Elements.Ennemies;
+
 import java.util.Random;
 
 public class EnnemyController {
@@ -16,7 +18,7 @@ public class EnnemyController {
             return ec;
         }
 
-        private EnnemyController(IModel model) {
+        public EnnemyController(IModel model) {
             this.model = model;
             this.moveControl = moveControl.getInstance();
         }
@@ -26,7 +28,15 @@ public class EnnemyController {
             random = new Random();
         }
 
-        private void performMovement(IElements ennemies) {
-            moveControl.movementIsPossible(Direction.getRandomDirection(),ennemies.getX(),ennemies.getY());
+        protected void performMovement() {
+            for (int x = model.getLevel().getDimensions().getHeight() - 1; x >= 0; x--) {
+                for (int y = model.getLevel().getDimensions().getWidth() - 1; y >= 0; y--) {
+                    IElements element = this.model.getLevel().getElement(x, y);
+
+                    if (element instanceof Ennemies) {
+                        moveControl.movementIsPossible(Direction.getRandomDirection(), element.getX(), element.getY());
+                    }
+                }
+            }
         }
 }

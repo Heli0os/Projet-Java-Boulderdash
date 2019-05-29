@@ -1,11 +1,14 @@
 package view;
 
-import java.awt.Graphics;
-import java.awt.image.ImageObserver;
+import contract.IController;
+import contract.IElements;
+import contract.ILevel;
+import contract.IModel;
+
+import javax.swing.*;
+import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
-import javax.swing.JPanel;
-import contract.*;
 
 /**
  * The Class ViewPanel.
@@ -75,7 +78,6 @@ class ViewPanel extends JPanel implements Observer {
 			graphics.drawString("Congratulations on winning this level", 300, 400);
 			graphics.drawString("Number of diamonds collected : "+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 500);
 			graphics.drawString("The game is now loading the next level", 300, 600);
-			model.getLevel().setDiamondsCollected(0);
 		}
 		else if (this.controller.isGamePaused()) {
 			graphics.drawString("The game is Paused, press echap to resume"+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 500);
@@ -83,7 +85,6 @@ class ViewPanel extends JPanel implements Observer {
 		else if (!this.model.getLevel().getPlayer().isAlive()) {
 			graphics.drawString("You died, the game is lost", 400, 450);
 			graphics.drawString("Number of diamonds collected : "+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 550);
-			model.getLevel().setDiamondsCollected(0);
 		}
 	}
 }

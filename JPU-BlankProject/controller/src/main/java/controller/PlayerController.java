@@ -22,7 +22,7 @@ public class PlayerController {
         pc = new PlayerController(model);
     }
 
-    private PlayerController(IModel model) {
+    public PlayerController(IModel model) {
         this.model = model;
         this.moveControl = MoveControl.getInstance();
     }

@@ -31,4 +31,6 @@ public interface IModel {
 	void loadLevel(int id);
 
 	ArrayList<Integer> getLevelsList();
+
+    boolean isGameRunning();
 }

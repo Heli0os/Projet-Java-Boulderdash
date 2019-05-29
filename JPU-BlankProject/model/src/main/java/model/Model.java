@@ -1,12 +1,12 @@
 package model;
 
-import java.sql.ResultSet;
+import contract.Direction;
+import contract.IModel;
+import model.Elements.Player;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
-import contract.*;
-import model.Elements.Elements;
-import model.Elements.Player;
 
 /**
  * The Class Model.
@@ -76,6 +76,7 @@ public final class Model extends Observable implements IModel {
 	public ArrayList<Integer> getLevelsList() {
 		return LevelsList;
 	}
+	public boolean isGameRunning(){return true;}
 
 	/**
      * Gets the observable.
