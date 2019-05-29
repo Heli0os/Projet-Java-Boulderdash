@@ -13,10 +13,10 @@ public interface IController {
 	 * @param controllerOrder
 	 *          the controller order
 	 */
-	public void orderPerform(ControllerOrder controllerOrder);
-	public boolean isGamePaused();
+	void orderPerform(ControllerOrder controllerOrder);
+	boolean isGamePaused();
 	void setGamePaused(boolean isGamePaused);
-	void start();
-	void play();
-	void gameLoop();
+	void start(int levelIndex);
+	void play(int levelIndex);
+	void gameLoop(int levelIndex);
 }

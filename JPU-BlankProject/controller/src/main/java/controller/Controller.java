@@ -107,21 +107,6 @@ public final class Controller implements IController {
 	public void setGamePaused(boolean isGamePaused) {
 	}
 
-	@Override
-	public void start() {
-
-	}
-
-	@Override
-	public void play() {
-
-	}
-
-	@Override
-	public void gameLoop() {
-
-	}
-
 	public void start(int levelIndex) {
 		this.model.loadLevels();
 		this.model.loadLevel(this.model.getLevelsList().get(levelIndex));
