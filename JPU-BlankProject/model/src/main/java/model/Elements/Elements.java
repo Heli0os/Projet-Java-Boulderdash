@@ -20,6 +20,12 @@ public abstract class Elements {
         this.setSpriteName(spriteName);
         this.sprite = new Sprite(image);
     }
+    
+    public Elements (int x, int y, String spriteName) {
+        this.setX(x);
+        this.setY(y);
+        this.setSpriteName(spriteName);
+    }  
 
     public void setLocation(int x, int y) {
         this.setX(x);
