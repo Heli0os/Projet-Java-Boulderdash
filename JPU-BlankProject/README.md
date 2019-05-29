@@ -1,3 +1,14 @@
-# JPU-BlankProject
+# Projet-Java-Boulderdash (group 4 - Strasbourg)
 
-Base de démarrage pour le projet Jave/POO/UML des 1ières années Exia-Cesi
+This project is the final project of the Java teaching unit at CESI eXia
+
+Members : 
+
+AMARY Clément (Group Manager)
+ALBERT Naomie
+MOENSCH Baptiste
+MONTEMONT Théophile
+
+Start of the project : 22/05/2019
+
+End of the project : 04/06/2019
