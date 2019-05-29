@@ -18,12 +18,18 @@ class ViewPanel extends JPanel implements Observer {
 	private IModel model;
 	/** The level. */
 	private ILevel level;
+	/**
+	 * The controller
+	 */
 	private IController controller;
 	/** The view frame. */
 	private ViewFrame viewFrame;
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -998294702363713521L;
 
+	/**
+	 * The constructor of the viewPanel
+	 */
 	public ViewPanel() {
 		setVisible(true);
 	}
@@ -47,6 +53,11 @@ class ViewPanel extends JPanel implements Observer {
 		this.viewFrame = viewFrame;
 	}
 
+	/**
+	 * Update the view
+	 * @param observable The observable
+	 * @param object The object
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -56,6 +67,10 @@ class ViewPanel extends JPanel implements Observer {
 		this.repaint();
 	}
 
+	/**
+	 * Draw the components on the frame
+	 * @param graphics The graphics
+	 */
 	/*
 	 * (non-Javadoc)
 	 *

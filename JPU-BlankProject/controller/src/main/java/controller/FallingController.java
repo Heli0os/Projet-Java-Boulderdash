@@ -10,15 +10,22 @@ import model.Elements.Rocks;
  * The Class FallingController.
  *
  * @author Clement&Theophile
+ * @author Clément / Théophile
  */
 public class FallingController {
+
+    /**
+     * The model
+     */
     private IModel model;
 
+    /**
+     * The constructor of the FallingController
+     * @param model The model
+     */
     public FallingController(IModel model) {
         this.model = model;
     }
-
-
 
     /**
      * Detect the elements that can fall, if it detects a rock or a diamond, the Falling function will start

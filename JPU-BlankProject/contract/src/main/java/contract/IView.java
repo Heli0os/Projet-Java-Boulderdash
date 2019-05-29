@@ -8,7 +8,14 @@ import java.util.Observer;
  * @author Clément
  */
 public interface IView {
+    /**
+     * close the view
+     */
     void close();
-    
+
+    /**
+     * get the observer
+     * @return
+     */
     Observer getObserver();
 }

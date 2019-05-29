@@ -10,34 +10,63 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class DAOMap implements IDAOMap{
+/**
+ * The class DAOMap
+ * @author Clément / Baptiste
+ */
+public class DAOMap {
 
     /**
-     * Connection
+     * The Connection
      */
     private final Connection connection;
 
+    /**
+     * The Height
+     */
     private int height;
+
+    /**
+     * The Width
+     */
     private int width;
+
     /**
      * the Level.
      */
     private ILevel level;
 
     /**
-     * the Player.
+     * The player.
      */
     private IPlayer player;
 
+    /**
+     * The model
+     */
     private Model model;
 
+    /**
+     * The list of levels
+     */
     private ArrayList<Integer> LevelsList;
 
     public DAOMap(Connection connection, Model model) {
+    /**
+     * Contructor of the DAOMap
+     * @param connection The DAOMap
+     */
+    public DAOMap(Connection connection) {
         this.connection = connection;
         this.model = model;
     }
 
     public Connection getConnection() {
+    /**
+     * Get the connection
+     * @return The connection
+     */
+    protected Connection getConnection() {
         return this.connection;
     }
 
@@ -51,12 +80,32 @@ public class DAOMap implements IDAOMap{
             while (levels.next()) {
                 this.LevelsList.add(levels.getInt(1));
             }
+    /**
+     * Get the list of levels
+     * @return The list of levels
+     * @throws SQLException
+     */
+    public ResultSet getLevelsList() throws SQLException {
+        final String sql = "{CALL GetLevelsList()}";
+        final CallableStatement call = this.getConnection().prepareCall(sql);
+        call.execute();
+        final ResultSet levels = call.getResultSet();
+        this.LevelsList = new ArrayList<Integer>();
+        while (levels.next()) {
+            LevelsList.add(levels.getInt(1));
         }
         catch(final SQLException e){e.printStackTrace();}
         return this.LevelsList;
     }
 
     public ILevel getMap(int id) throws SQLException {
+    /**
+     * Get the level selected
+     * @param id The id of the level
+     * @return The level
+     * @throws SQLException
+     */
+    public ResultSet getMap(int id) throws SQLException {
         final String sql = "{CALL GetLevel(?)}";
         final CallableStatement call = this.getConnection().prepareCall(sql);
         call.setInt(1, id);
@@ -69,6 +118,13 @@ public class DAOMap implements IDAOMap{
     }
 
     public void getComponents(int id) throws SQLException {
+    /**
+     * Get the components of the level
+     * @param id The id of the level
+     * @return The Components
+     * @throws SQLException
+     */
+    public ResultSet getComponents(int id) throws SQLException {
         final String sql = "{CALL GetComponents(?)}";
         final CallableStatement call = this.getConnection().prepareCall(sql);
         call.setInt(1, id);

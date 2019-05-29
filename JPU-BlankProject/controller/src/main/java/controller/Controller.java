@@ -4,7 +4,6 @@ import contract.*;
 
 import java.sql.SQLException;
 
-
 /**
  * The Class Controller.
  *
@@ -32,7 +31,14 @@ public final class Controller implements IController {
 	private IModel model;
 	private IDAOMap daoMap;
 
+	/**
+	 * the game is over or not
+	 */
 	private boolean isGameOver = false;
+
+	/**
+	 * the game is paused or not
+	 */
 	private boolean isGamePaused = false;
 
 	/**
@@ -113,6 +119,11 @@ public final class Controller implements IController {
 	}
 
 	public void start(int levelIndex) throws SQLException {
+	/**
+	 * Starting the game with the level selected
+	 * @param levelIndex The index of the level
+	 */
+	public void start(int levelIndex) {
 		this.model.loadLevels();
 		this.model.loadLevel(this.daoMap.getLevelsList().get(levelIndex));
 		this.model.getObservable().addObserver(this.view.getObserver());
@@ -121,11 +132,21 @@ public final class Controller implements IController {
 	}
 
 	public void play(int levelIndex) throws SQLException {
+	/**
+	 * Start the gameLoop for the level selected
+	 * @param levelIndex The index of the level
+	 */
+	public void play(int levelIndex) {
 		this.gameLoop(levelIndex);
 		this.view.close();
 	}
 
 	public void gameLoop(int levelIndex) throws SQLException {
+	/**
+	 * The gameLoop for the level selected
+	 * @param levelIndex The index of the level
+	 */
+	public void gameLoop(int levelIndex) {
 		model.getLevel().setDiamondsCollected(0);
 		while (!this.isGameOver || !this.isGamePaused || !this.model.getLevel().isFinished()) {
 			try {

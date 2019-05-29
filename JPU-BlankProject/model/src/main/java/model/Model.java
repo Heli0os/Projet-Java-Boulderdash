@@ -23,10 +23,18 @@ public final class Model extends Observable implements IModel {
 	/** the Player. */
 	private Player player;
 
+	/**
+	 * The model
+	 */
+	private Model model;
 
 	final IDAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection(),this);
 
 	public ArrayList<Integer> LevelsList;
+	/**
+	 * The list of levels
+	 */
+	private ArrayList<Integer> LevelsList;
 
 	/**
 	 * Instantiates a new model.
@@ -36,6 +44,10 @@ public final class Model extends Observable implements IModel {
 		this.model=this;
 	}
 
+	/**
+	 * Get the level
+	 * @return The level
+	 */
 	public Level getLevel() {
 		return this.level;
 	}
@@ -53,20 +65,36 @@ public final class Model extends Observable implements IModel {
 		return this.daoMap;
 	}
 
+	/**
+	 * Update
+	 */
 	public void update() {
 		this.setChanged();
 		this.notifyObservers();
 	}
 
+	/**
+	 * Add the diamond collected on the number of diamonds collected
+	 */
 	public void collectDiamonds() {
 		this.getLevel().setDiamondsCollected(this.getLevel().getDiamondsCollected()+1);
 	}
 
 	public void loadLevels() throws SQLException {
+	/**
+	 * Load all the levels
+	 */
+	public void loadLevels() {
+		try {
+			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
 			daoMap.getLevelsList();
 	}
 
 
+	/**
+	 * Load the level selected
+	 * @param id The id of the level
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -81,17 +109,26 @@ public final class Model extends Observable implements IModel {
 			this.getLevel().setDiamondsCollected(0);
 	}
 
+	/**
+	 * The list of levels
+	 * @return
+	 */
 	public ArrayList<Integer> getLevelsList() {
 		return LevelsList;
 	}
 
+
+	/**
+	 * The game is running or not
+	 * @return
+	 */
 	public boolean isGameRunning(){return true;}
 
 	/**
-     * Gets the observable.
-     *
-     * @return the observable
-     */
+	 * Gets the observable.
+	 *
+	 * @return the observable
+	 */
 	/*
 	 * (non-Javadoc)
 	 *

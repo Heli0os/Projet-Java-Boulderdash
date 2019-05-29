@@ -26,13 +26,33 @@ public interface IModel {
 	 */
 	Observable getObservable();
 
+	/**
+	 * update the model
+	 */
 	void update();
 
 	void loadLevels() throws SQLException;
+	/**
+	 * load all the levels
+	 */
+	void loadLevels();
 
 	void loadLevel(int id) throws SQLException;
+	/**
+	 * load the level selected
+	 * @param id The id of the level
+	 */
+	void loadLevel(int id);
 
+	/**
+	 * the list of levels
+	 * @return
+	 */
 	ArrayList<Integer> getLevelsList();
 
-    boolean isGameRunning();
+	/**
+	 * says if the game is running or not
+	 * @return
+	 */
+	boolean isGameRunning();
 }
