@@ -3,15 +3,16 @@ package model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 /**
  * The Class DBConnection.
  *
- * @author Jean-Aymeric Diet
+ * @author Clément / Baptiste
  */
 final class DBConnection {
 	/** The instance. */
-	private static DBConnection	INSTANCE = null;
+	private static DBConnection INSTANCE = null;
 
 	/** The connection. */
 	private Connection connection;
@@ -43,8 +44,7 @@ final class DBConnection {
 	private Boolean open() {
 		final DBProperties dbProperties = new DBProperties();
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			System.out.println("DRIVER OK ! ");
+			Class.forName("com.mysql.jdbc.Driver");
 			this.connection = DriverManager.getConnection(dbProperties.getUrl(), dbProperties.getLogin(), dbProperties.getPassword());
 		} catch (final ClassNotFoundException e) {
 			e.printStackTrace();
