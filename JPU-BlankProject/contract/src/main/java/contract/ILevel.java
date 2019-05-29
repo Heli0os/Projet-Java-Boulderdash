@@ -1,8 +1,6 @@
 package contract;
 
-        import java.util.ArrayList;
-
-/**
+        /**
  * The Interface IModel.
  *
  * @author Clément
@@ -15,8 +13,6 @@ public interface ILevel {
     String getName();
 
     void setName(String name);
-
-    int getLevelNumber();
 
     int getDiamondsNumber();
 
@@ -48,5 +44,4 @@ public interface ILevel {
 
     void setElement(IElements element,int x,int y);
 
-    void setElement(String string, int anInt, int anInt1);
 }

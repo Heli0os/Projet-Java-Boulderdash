@@ -13,14 +13,14 @@ public class Level implements ILevel {
     private IDimensions dimensions;
     private String name;
     private int diamondsNumber;
-    private GameMap gameMap;
+
     private boolean finished;
     private boolean paused;
     private int diamondsCollected;
 
     public Level(int id, String name, int height, int width, IElements player, int diamondsNumber) {
         this.id = id;
-        this.dimensions = new Dimensions(height, width);
+        this.dimensions = (IDimensions) new Dimensions(height, width);
         this.name = name;
         this.player = player;
         this.diamondsNumber = diamondsNumber;
@@ -49,10 +49,6 @@ public class Level implements ILevel {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getLevelNumber() {
-        return levelNumber;
     }
 
     public int getDiamondsNumber() {
@@ -99,9 +95,6 @@ public class Level implements ILevel {
 
     public void setElement(IElements element,int x,int y){
         map[x][y]= element;
-    }
-
-    public void setElement(String string, int anInt, int anInt1) {
     }
 
     public boolean isPaused() {
