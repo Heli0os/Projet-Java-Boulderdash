@@ -5,7 +5,6 @@ import contract.IController;
 import contract.IModel;
 import contract.IView;
 
-
 /**
  * The Class Controller.
  *
@@ -32,7 +31,14 @@ public final class Controller implements IController {
 	 */
 	private IModel model;
 
+	/**
+	 * the game is over or not
+	 */
 	private boolean isGameOver = false;
+	
+	/**
+	 * the game is paused or not
+	 */
 	private boolean isGamePaused = false;
 
 	/**
@@ -111,6 +117,10 @@ public final class Controller implements IController {
 	public void setGamePaused(boolean isGamePaused) {
 	}
 
+	/**
+	 * Starting the game with the level selected
+	 * @param levelIndex The index of the level
+	 */
 	public void start(int levelIndex) {
 		this.model.loadLevels();
 		this.model.loadLevel(this.model.getLevelsList().get(levelIndex));
@@ -119,11 +129,19 @@ public final class Controller implements IController {
 		this.play(levelIndex);
 	}
 
+	/**
+	 * Start the gameLoop for the level selected
+	 * @param levelIndex The index of the level
+	 */
 	public void play(int levelIndex) {
 		this.gameLoop(levelIndex);
 		this.view.close();
 	}
 
+	/**
+	 * The gameLoop for the level selected
+	 * @param levelIndex The index of the level
+	 */
 	public void gameLoop(int levelIndex) {
 		model.getLevel().setDiamondsCollected(0);
 		while (!this.isGameOver || !this.isGamePaused || !this.model.getLevel().isFinished()) {
