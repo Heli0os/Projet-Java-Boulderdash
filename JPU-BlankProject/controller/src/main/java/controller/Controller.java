@@ -92,6 +92,13 @@ public final class Controller implements IController {
 	public void setGamePaused(boolean isGamePaused) {
 	}
 
+	public void start() {
+		this.model.loadLevels();
+		this.model.loadLevel(this.model.getLevelsList().get(0));
+		this.model.getObservable().addObserver(this.view.getObserver());
+		this.play();
+	}
+
 	public void play() {
 		this.gameLoop();
 		this.view.close();
