@@ -1,11 +1,12 @@
 package model.Elements;
 
 import contract.Direction;
+import contract.IMotionElements;
 
 /**
  * @author Clément
  */
-public abstract class MotionElements extends Elements {
+public abstract class MotionElements extends Elements implements IMotionElements {
 
     protected Direction direction;
 

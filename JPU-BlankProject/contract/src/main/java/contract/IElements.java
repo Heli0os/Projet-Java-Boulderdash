@@ -26,13 +26,9 @@ public interface IElements {
 
     String getImage();
 
-    boolean isAlive();
 
-    void setIsAlive (boolean isAlive);
 
-    void falling();
-    void rolling();
-    void crushing();
+
 
 
 

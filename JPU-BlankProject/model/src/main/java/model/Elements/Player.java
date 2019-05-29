@@ -5,7 +5,7 @@ import contract.*;
 /**
  * @author Clément
  */
-public class Player extends MotionElements {
+public class Player extends MotionElements implements  IMotionElements{
     private boolean isAlive;
 
     public Player (int x, int y, Direction direction) {

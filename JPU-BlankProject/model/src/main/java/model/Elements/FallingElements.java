@@ -1,9 +1,9 @@
 package model.Elements;
 
-import contract.IElements;
+import contract.IFallingElements;
 import model.Model;
 
-abstract class FallingElements extends Elements {
+abstract class FallingElements extends Elements implements IFallingElements {
 
     private Model model;
     public boolean fallingStatus;
@@ -49,7 +49,7 @@ abstract class FallingElements extends Elements {
         if(this.fallingStatus == true && elementUnder.spriteName == "Player"){
             for(int i=x-1;i<=x+1;i++){
                 for(int j=y-1;j<=y+1;j++){
-                    model.getLevel().setElement((IElements) new Digged(i,j),i,j);
+                    model.getLevel().setElement( new Digged(i,j),i,j);
                 }
             }
             /*restart function here*/
@@ -57,10 +57,10 @@ abstract class FallingElements extends Elements {
         if(this.fallingStatus == true && elementUnder.spriteName == "Enemy"){
             for(int i=x-1;i<=x+1;i++){
                 for(int j=y-1;j<=y+1;j++){
-                    model.getLevel().setElement((IElements) new Digged(i,j),i,j);
+                    model.getLevel().setElement( new Digged(i,j),i,j);
                 }
             }
-            model.getLevel().setElement((IElements) new Diamonds(x,y+1),x,y+1);
+            model.getLevel().setElement( new Diamonds(x,y+1),x,y+1);
         }
         this.fallingStatus=false;
     }
