@@ -77,7 +77,7 @@ public final class Controller implements IController {
 				player.move(Direction.RIGHT);
 				break;
 			case PAUSED:
-				isGamePaused = true;
+				setGamePaused(true);
 			default:
 				break;
 		}
