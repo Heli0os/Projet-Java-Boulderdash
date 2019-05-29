@@ -1,6 +1,6 @@
 package contract;
 
-import java.util.ArrayList;
+        import java.util.ArrayList;
 
 /**
  * The Interface IModel.
@@ -47,4 +47,6 @@ public interface ILevel {
     IElements getElement(int x,int y);
 
     void setElement(IElements element,int x,int y);
+
+    void setElement(String string, int anInt, int anInt1);
 }
