@@ -10,37 +10,68 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * The class DAOMap 
+ * @author Clément / Baptiste
+ */
 public class DAOMap {
 
     /**
-     * Connection
+     * The Connection
      */
     private final Connection connection;
 
+    /**
+     * The Height
+     */
     private int height;
+
+    /**
+     * The Width
+     */
     private int width;
+    
     /**
      * the Level.
      */
     private Level level;
 
     /**
-     * the Player.
+     * The player.
      */
     private Player player;
 
+    /**
+     * The model
+     */
     private Model model;
 
+    /**
+     * The list of levels
+     */
     private ArrayList<Integer> LevelsList;
 
+    /**
+     * Contructor of the DAOMap
+     * @param connection The DAOMap
+     */
     public DAOMap(Connection connection) {
         this.connection = connection;
     }
 
+    /**
+     * Get the connection
+     * @return The connection
+     */
     protected Connection getConnection() {
         return this.connection;
     }
 
+    /**
+     * Get the list of levels
+     * @return The list of levels
+     * @throws SQLException
+     */
     public ResultSet getLevelsList() throws SQLException {
         final String sql = "{CALL GetLevelsList()}";
         final CallableStatement call = this.getConnection().prepareCall(sql);
@@ -53,6 +84,12 @@ public class DAOMap {
         return null;
     }
 
+    /**
+     * Get the level selected
+     * @param id The id of the level
+     * @return The level
+     * @throws SQLException
+     */
     public ResultSet getMap(int id) throws SQLException {
         final String sql = "{CALL GetLevel(?)}";
         final CallableStatement call = this.getConnection().prepareCall(sql);
@@ -65,6 +102,12 @@ public class DAOMap {
         return null;
     }
 
+    /**
+     * Get the components of the level
+     * @param id The id of the level
+     * @return The Components
+     * @throws SQLException
+     */
     public ResultSet getComponents(int id) throws SQLException {
         final String sql = "{CALL GetComponents(?)}";
         final CallableStatement call = this.getConnection().prepareCall(sql);
