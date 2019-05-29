@@ -7,10 +7,22 @@ import contract.*;
  *
  * @author Clément
  */
-    public class MoveControl {
+public class MoveControl {
+
+    /**
+     * The moveControl
+     */
     private static MoveControl mc;
+
+    /**
+     * The model
+     */
     private IModel model;
 
+    /**
+     * Get the instance of the MoveControl
+     * @return
+     */
     public static MoveControl getInstance() {
         if(mc == null) {
             System.err.println("No MoveControl");
@@ -18,7 +30,10 @@ import contract.*;
         return mc;
     }
 
-
+    /**
+     * The constructor of the MoveControl
+     * @param model The model
+     */
     public MoveControl(IModel model) {
         this.model = model;
         mc = this;
@@ -55,8 +70,8 @@ import contract.*;
                     return false;
                 }
                 else{
-                moveTo(model.getLevel().getElement(x, y), x, y-1);
-                return true;
+                    moveTo(model.getLevel().getElement(x, y), x, y-1);
+                    return true;
                 }
             case LEFT:
                 element = this.model.getLevel().getElement(x-1, y);
@@ -64,8 +79,8 @@ import contract.*;
                 if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }else{
-                moveTo(model.getLevel().getElement(x, y), x-1, y);
-                return true;
+                    moveTo(model.getLevel().getElement(x, y), x-1, y);
+                    return true;
                 }
             case DOWN:
                 element = this.model.getLevel().getElement(x, y+1);
@@ -87,6 +102,12 @@ import contract.*;
         return true;
     }
 
+    /**
+     * Move the element to the next position
+     * @param elements The element
+     * @param x The x position
+     * @param y The y position
+     */
     public void moveTo (IElements elements, int x, int y) {
         elements.setX(x);
         elements.setY(y);
