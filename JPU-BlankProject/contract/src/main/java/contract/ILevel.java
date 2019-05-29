@@ -30,6 +30,10 @@ public interface ILevel {
 
     void setFinished(boolean finished);
 
+    boolean isPaused();
+
+    void setPaused(boolean paused);
+
     int getDiamondsCollected();
 
     void setDiamondsCollected(int diamondsCollected);
