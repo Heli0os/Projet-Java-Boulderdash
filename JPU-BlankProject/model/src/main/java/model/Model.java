@@ -21,8 +21,14 @@ public final class Model extends Observable implements IModel {
 	/** the Player. */
 	private Player player;
 
+	/**
+	 * The model
+	 */
 	private Model model;
 
+	/**
+	 * The list of levels
+	 */
 	private ArrayList<Integer> LevelsList;
 
 	/**
@@ -32,19 +38,32 @@ public final class Model extends Observable implements IModel {
 		this.player = new Player(1, 1, Direction.UP);
 	}
 
+	/**
+	 * Get the level
+	 * @return The level
+	 */
 	public Level getLevel() {
 		return this.level;
 	}
 
+	/**
+	 * Update
+	 */
 	public void update() {
 		this.setChanged();
 		this.notifyObservers();
 	}
 
+	/**
+	 * Add the diamond collected on the number of diamonds collected 
+	 */
 	public void collectDiamonds() {
 		model.getLevel().setDiamondsCollected(model.getLevel().getDiamondsCollected()+1);
 	}
 
+	/**
+	 * Load all the levels
+	 */
 	public void loadLevels() {
 		try {
 			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
@@ -54,6 +73,10 @@ public final class Model extends Observable implements IModel {
 		}
 	}
 
+	/**
+	 * Load the level selected
+	 * @param id The id of the level
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -73,16 +96,25 @@ public final class Model extends Observable implements IModel {
 		}
 	}
 
+	/**
+	 * The list of levels
+	 * @return
+	 */
 	public ArrayList<Integer> getLevelsList() {
 		return LevelsList;
 	}
+
+	/**
+	 * The game is running or not
+	 * @return
+	 */
 	public boolean isGameRunning(){return true;}
 
 	/**
-     * Gets the observable.
-     *
-     * @return the observable
-     */
+	 * Gets the observable.
+	 *
+	 * @return the observable
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
