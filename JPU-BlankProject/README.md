@@ -4,10 +4,10 @@ This project is the final project of the Java teaching unit at CESI eXia
 
 Members : 
 
-AMARY Clément (Group Manager)
-ALBERT Naomie
-MOENSCH Baptiste
-MONTEMONT Théophile
+AMARY Clément (Group Manager), 
+ALBERT Naomie, 
+MOENSCH Baptiste, 
+MONTEMONT Théophile, 
 
 Start of the project : 22/05/2019
 
