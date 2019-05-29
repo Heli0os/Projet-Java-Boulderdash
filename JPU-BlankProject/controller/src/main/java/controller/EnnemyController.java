@@ -7,38 +7,77 @@ import model.Elements.Ennemies;
 
 import java.util.Random;
 
+/**
+ * The Controller for the ennemies
+ * @author Clément / Théophile
+ */
 public class EnnemyController {
-        private static EnnemyController ec;
-        private IModel model;
-        private MoveControl moveControl;
-        private static Random random;
-        private Direction direction;
+    
+    /**
+     * the EnnemyController
+     */
+    private static EnnemyController ec;
+    
+    /**
+     * The model
+     */
+    private IModel model;
 
-        public static EnnemyController getInstance() {
-            if (ec == null)
-                System.err.println("no EnnemyController");
-            return ec;
-        }
+    /**
+     * The move controller
+     */
+    private MoveControl moveControl;
 
-        public EnnemyController(IModel model) {
-            this.model = model;
-            this.moveControl = moveControl.getInstance();
-        }
+    /**
+     * A random
+     */
+    private static Random random;
 
-        public static void init (IModel model) {
-            ec = new EnnemyController(model);
-            random = new Random();
-        }
+    /**
+     * The direction
+     */
+    private Direction direction;
 
-        protected void performMovement() {
-            for (int x = model.getLevel().getDimensions().getHeight() - 1; x >= 0; x--) {
-                for (int y = model.getLevel().getDimensions().getWidth() - 1; y >= 0; y--) {
-                    IElements element = this.model.getLevel().getElement(x, y);
+    /**
+     * Get the instance of the EnnemyController
+     * @return The instance of the EnnemyController
+     */
+    public static EnnemyController getInstance() {
+        if (ec == null)
+            System.err.println("no EnnemyController");
+        return ec;
+    }
 
-                    if (element instanceof Ennemies) {
-                        moveControl.movementIsPossible(Direction.getRandomDirection(), element.getX(), element.getY());
-                    }
+    /**
+     * The constructor of the EnnemyController
+     * @param model The model
+     */
+    public EnnemyController(IModel model) {
+        this.model = model;
+        this.moveControl = moveControl.getInstance();
+    }
+
+    /**
+     * Initialisation
+     * @param model The model
+     */
+    public static void init (IModel model) {
+        ec = new EnnemyController(model);
+        random = new Random();
+    }
+
+    /**
+     * Perform the movement
+     */
+    protected void performMovement() {
+        for (int x = model.getLevel().getDimensions().getHeight() - 1; x >= 0; x--) {
+            for (int y = model.getLevel().getDimensions().getWidth() - 1; y >= 0; y--) {
+                IElements element = this.model.getLevel().getElement(x, y);
+
+                if (element instanceof Ennemies) {
+                    moveControl.movementIsPossible(Direction.getRandomDirection(), element.getX(), element.getY());
                 }
             }
         }
+    }
 }
