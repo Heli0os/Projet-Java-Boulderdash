@@ -1,6 +1,8 @@
 package model;
 
-public class Dimensions {
+import contract.IDimensions;
+
+public class Dimensions implements IDimensions {
     private int width;
     private int height;
 
