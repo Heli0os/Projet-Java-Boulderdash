@@ -1,9 +1,8 @@
 package controller;
 
-import contract.ControllerOrder;
-import contract.IController;
-import contract.IModel;
-import contract.IView;
+import contract.*;
+
+import java.sql.SQLException;
 
 
 /**
@@ -31,6 +30,7 @@ public final class Controller implements IController {
 	 * The model.
 	 */
 	private IModel model;
+	private IDAOMap daoMap;
 
 	private boolean isGameOver = false;
 	private boolean isGamePaused = false;
@@ -41,9 +41,10 @@ public final class Controller implements IController {
 	 * @param view  the view
 	 * @param model the model
 	 */
-	public Controller(final IView view, final IModel model) {
-		this.setView(view);
-		this.setModel(model);
+	public Controller(IView view,IModel model) {
+		this.view = view;
+		this.model = model;
+		this.daoMap = this.model.getDaoMap();
 
 		this.fallingController = new FallingController(this.model);
 		this.mapController = new MapController(this.model);
@@ -111,20 +112,20 @@ public final class Controller implements IController {
 	public void setGamePaused(boolean isGamePaused) {
 	}
 
-	public void start(int levelIndex) {
+	public void start(int levelIndex) throws SQLException {
 		this.model.loadLevels();
-		this.model.loadLevel(this.model.getLevelsList().get(levelIndex));
+		this.model.loadLevel(this.daoMap.getLevelsList().get(levelIndex));
 		this.model.getObservable().addObserver(this.view.getObserver());
 
 		this.play(levelIndex);
 	}
 
-	public void play(int levelIndex) {
+	public void play(int levelIndex) throws SQLException {
 		this.gameLoop(levelIndex);
 		this.view.close();
 	}
 
-	public void gameLoop(int levelIndex) {
+	public void gameLoop(int levelIndex) throws SQLException {
 		model.getLevel().setDiamondsCollected(0);
 		while (!this.isGameOver || !this.isGamePaused || !this.model.getLevel().isFinished()) {
 			try {
@@ -138,7 +139,7 @@ public final class Controller implements IController {
 			this.model.update();
 		}
 		if (this.model.getLevel().isFinished()) {
-			this.start(levelIndex++);
+			this.start(levelIndex+1);
 		}
 	}
 }

@@ -1,5 +1,7 @@
 package contract;
 
+import java.sql.SQLException;
+
 /**
  * The Interface IController.
  *
@@ -16,7 +18,7 @@ public interface IController {
 	void orderPerform(ControllerOrder controllerOrder);
 	boolean isGamePaused();
 	void setGamePaused(boolean isGamePaused);
-	void start(int levelIndex);
-	void play(int levelIndex);
-	void gameLoop(int levelIndex);
+	void start(int levelIndex) throws SQLException;
+	void play(int levelIndex) throws SQLException;
+	void gameLoop(int levelIndex) throws SQLException;
 }

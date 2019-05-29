@@ -1,6 +1,7 @@
 package model;
 
 import contract.Direction;
+import contract.IDAOMap;
 import contract.IModel;
 import model.Elements.Player;
 
@@ -17,11 +18,13 @@ public final class Model extends Observable implements IModel {
 
 	/** the Level. */
 	private Level level;
+	private static Model model;
 
 	/** the Player. */
 	private Player player;
 
-	private Model model;
+
+	final IDAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection(),this);
 
 	public ArrayList<Integer> LevelsList;
 
@@ -30,10 +33,24 @@ public final class Model extends Observable implements IModel {
 	 */
 	public Model() {
 		this.player = new Player(1, 1, Direction.UP);
+		this.model=this;
 	}
 
 	public Level getLevel() {
 		return this.level;
+	}
+
+	public static Model getInstance(){
+		if (model == null)
+		{
+			System.err.println("no model created");
+		}
+
+		return model;
+	}
+
+	public IDAOMap getDaoMap(){
+		return this.daoMap;
 	}
 
 	public void update() {
@@ -42,35 +59,26 @@ public final class Model extends Observable implements IModel {
 	}
 
 	public void collectDiamonds() {
-		model.getLevel().setDiamondsCollected(model.getLevel().getDiamondsCollected()+1);
+		this.getLevel().setDiamondsCollected(this.getLevel().getDiamondsCollected()+1);
 	}
 
-	public void loadLevels() {
-		try {
-			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection(),this);
+	public void loadLevels() throws SQLException {
 			daoMap.getLevelsList();
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
 	}
+
 
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void loadLevel(int id) {
-		try {
-			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection(),this);
+	public void loadLevel(int id) throws SQLException {
 			daoMap.getMap(id);
 			daoMap.getComponents(id);
 			this.getLevel().getPlayer().isAlive();
 			this.getLevel().setFinished(false);
 			this.getLevel().setPaused(false);
 			this.getLevel().setDiamondsCollected(0);
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public ArrayList<Integer> getLevelsList() {

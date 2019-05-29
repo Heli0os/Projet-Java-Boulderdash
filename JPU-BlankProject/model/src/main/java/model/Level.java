@@ -8,7 +8,7 @@ import contract.*;
  * @author Clément
  */
 public class Level implements ILevel {
-    private IElements player;
+    private IPlayer player;
     private int id;
     private IDimensions dimensions;
     private String name;
@@ -18,9 +18,9 @@ public class Level implements ILevel {
     private boolean paused;
     private int diamondsCollected;
 
-    public Level(int id, String name, int height, int width, IElements player, int diamondsNumber) {
+    public Level(int id, String name, int height, int width, IPlayer player, int diamondsNumber) {
         this.id = id;
-        this.dimensions = (IDimensions) new Dimensions(height, width);
+        this.dimensions =  new Dimensions(height, width);
         this.name = name;
         this.player = player;
         this.diamondsNumber = diamondsNumber;
@@ -59,11 +59,11 @@ public class Level implements ILevel {
         this.diamondsNumber = diamondsNumber;
     }
 
-    public IElements getPlayer() {
+    public IPlayer getPlayer() {
         return player;
     }
 
-    public void setPlayer(IElements player) {
+    public void setPlayer(IPlayer player) {
         this.player = player;
     }
 

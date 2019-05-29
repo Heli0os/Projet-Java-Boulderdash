@@ -20,7 +20,7 @@ public interface ILevel {
 
     IElements getPlayer();
 
-    void setPlayer(IElements player);
+    void setPlayer(IPlayer player);
 
     boolean isFinished();
 

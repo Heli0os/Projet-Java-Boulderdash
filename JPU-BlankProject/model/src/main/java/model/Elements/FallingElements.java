@@ -5,7 +5,7 @@ import model.Model;
 
 abstract class FallingElements extends Elements implements IFallingElements {
 
-    private Model model;
+    private Model model = Model.getInstance();
     public boolean fallingStatus;
 
 

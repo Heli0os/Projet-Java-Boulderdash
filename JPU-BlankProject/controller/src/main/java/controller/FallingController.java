@@ -1,8 +1,9 @@
 package controller;
 
-import contract.IElements;
+import contract.IFallingElements;
 import contract.IModel;
-import model.Elements.*;
+import model.Elements.Diamonds;
+import model.Elements.Rocks;
 
 
 /**
@@ -25,7 +26,7 @@ public class FallingController {
     protected void detectFallingElements() {
         for (int x = model.getLevel().getDimensions().getHeight() - 1; x >= 0; x--) {
             for (int y = model.getLevel().getDimensions().getWidth() -1; y >= 0; y--) {
-                IElements element = this.model.getLevel().getElement(x, y);
+                IFallingElements element = (IFallingElements) this.model.getLevel().getElement(x, y);
 
                 if(element instanceof Rocks || element instanceof Diamonds) {
                     element.rolling();

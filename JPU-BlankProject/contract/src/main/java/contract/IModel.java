@@ -1,5 +1,6 @@
 package contract;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 
@@ -16,6 +17,7 @@ public interface IModel {
 	 * @return the level
 	 */
 	ILevel getLevel();
+	IDAOMap getDaoMap();
 
 	/**
 	 * Gets the observable.
@@ -26,9 +28,9 @@ public interface IModel {
 
 	void update();
 
-	void loadLevels();
+	void loadLevels() throws SQLException;
 
-	void loadLevel(int id);
+	void loadLevel(int id) throws SQLException;
 
 	ArrayList<Integer> getLevelsList();
 

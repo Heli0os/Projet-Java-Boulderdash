@@ -2,19 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b7e8f81-df08-4781-8670-e596d7880661" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IFallingElements.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IDAOMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IElements.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IElements.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IMotionElements.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IMotionElements.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Diamonds.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Diamonds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Digged.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Digged.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Dirt.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Dirt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Ennemies.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Ennemies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IController.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/ILevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/ILevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/FallingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/FallingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/main/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/main/src/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/DAOMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/DAOMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/FallingElements.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/FallingElements.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/MotionElements.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/MotionElements.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Rocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Rocks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Walls.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Walls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Model.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/JPU-BlankProject/target/" />
@@ -58,10 +59,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Ennemies.java">
+        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/FallingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
+            <state relative-caret-position="111">
+              <caret line="30" column="77" lean-forward="true" selection-start-line="30" selection-start-column="77" selection-end-line="30" selection-end-column="77" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,53 +71,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/MotionElements.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="8" column="82" lean-forward="true" selection-start-line="8" selection-start-column="82" selection-end-line="8" selection-end-column="82" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="7" column="70" selection-start-line="7" selection-start-column="70" selection-end-line="7" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IMotionElements.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Diamonds.java">
+        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/FallingElements.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="73" selection-start-line="7" selection-start-column="73" selection-end-line="7" selection-end-column="73" />
-              <folding>
-                <element signature="e#135#136#0" expanded="true" />
-                <element signature="e#193#194#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Elements.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="62" selection-start-line="15" selection-start-column="62" selection-end-line="15" selection-end-column="62" />
+              <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,37 +83,88 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Walls.java">
+        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+            <state relative-caret-position="51">
+              <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+              <folding>
+                <element signature="e#715#716#0" expanded="true" />
+                <element signature="e#727#728#0" expanded="true" />
+                <element signature="e#1630#1631#0" expanded="true" />
+                <element signature="e#1883#1884#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Dirt.java">
+        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Level.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+            <state relative-caret-position="-114">
+              <caret line="67" column="5" lean-forward="true" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Digged.java">
+        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+            <state relative-caret-position="112">
+              <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Rocks.java">
+        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IDAOMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="70" selection-start-line="7" selection-start-column="70" selection-end-line="7" selection-end-column="70" />
+            <state relative-caret-position="153">
+              <caret line="9" column="59" lean-forward="true" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/ILevel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="116" column="19" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/main/src/main/java/main/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/DAOMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -199,9 +208,6 @@
         <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/GameMap.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Sprite.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/Direction.java" />
-        <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Level.java" />
-        <option value="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/ILevel.java" />
-        <option value="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IModel.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/view/src/main/java/view/ViewPanel.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IController.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Dimensions.java" />
@@ -210,27 +216,32 @@
         <option value="$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/PlayerController.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/pom.xml" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/controller/pom.xml" />
-        <option value="$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/Controller.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/MapController.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/EnnemyController.java" />
-        <option value="$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/FallingController.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/DBConnection.java" />
-        <option value="$PROJECT_DIR$/JPU-BlankProject/main/src/main/java/main/Main.java" />
-        <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/DAOMap.java" />
-        <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Model.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Elements.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IElements.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IFallingElements.java" />
-        <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/FallingElements.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Ennemies.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IMotionElements.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Diamonds.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Rocks.java" />
-        <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Player.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/MotionElements.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Dirt.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Digged.java" />
         <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Walls.java" />
+        <option value="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IPlayer.java" />
+        <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Player.java" />
+        <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Level.java" />
+        <option value="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/ILevel.java" />
+        <option value="$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/FallingController.java" />
+        <option value="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IModel.java" />
+        <option value="$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IDAOMap.java" />
+        <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/DAOMap.java" />
+        <option value="$PROJECT_DIR$/JPU-BlankProject/main/src/main/java/main/Main.java" />
+        <option value="$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/FallingElements.java" />
+        <option value="$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Model.java" />
       </list>
     </option>
   </component>
@@ -300,6 +311,41 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="contract" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projet-Java-Boulderdash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JPU-BlankProject" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projet-Java-Boulderdash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JPU-BlankProject" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projet-Java-Boulderdash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JPU-BlankProject" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projet-Java-Boulderdash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JPU-BlankProject" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projet-Java-Boulderdash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JPU-BlankProject" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Projet-Java-Boulderdash" type="b2602c69:ProjectViewProjectNode" />
@@ -426,7 +472,7 @@
       <workItem from="1558948984655" duration="11634000" />
       <workItem from="1559026600499" duration="19260000" />
       <workItem from="1559060337842" duration="3832000" />
-      <workItem from="1559112306059" duration="21025000" />
+      <workItem from="1559112306059" duration="25011000" />
     </task>
     <task id="LOCAL-00001" summary="Deleting bugged test file">
       <created>1558710260131</created>
@@ -638,11 +684,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559137574257</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="patched type error in getImage&#10;re-added interface implementations">
+      <created>1559138031988</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1559138031988</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60521000" />
+    <option name="totallyTimeSpent" value="64507000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -667,7 +720,7 @@
       <window_info anchor="bottom" id="Dependency Viewer" sideWeight="0.49848714" weight="0.36824876" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49848714" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8184569" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.816944" visible="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -676,8 +729,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49924356" weight="0.20949264" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5060514" side_tool="true" visible="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49394855" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.18305598" side_tool="true" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49092284" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -753,13 +806,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="patched type error in getImage&#10;re-added interface implementations" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/view/src/main/java/view/Observer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/Direction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -778,20 +824,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/ILevel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -878,13 +910,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Level.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-466">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JPU-BlankProject/masterpom.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -960,54 +985,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/FallingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="34" column="39" lean-forward="true" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/DBProperties.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
           <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/main/src/main/java/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="115" column="19" selection-start-line="115" selection-start-column="19" selection-end-line="115" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="65" column="19" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/DAOMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="83" column="54" selection-start-line="83" selection-start-column="54" selection-end-line="83" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1028,13 +1009,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IElements.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="271">
@@ -1046,16 +1020,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="51" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/FallingElements.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="48" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1087,13 +1051,6 @@
     <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Rocks.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="70" selection-start-line="7" selection-start-column="70" selection-end-line="7" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
           <caret line="7" column="70" selection-start-line="7" selection-start-column="70" selection-end-line="7" selection-end-column="70" />
         </state>
       </provider>
@@ -1146,6 +1103,111 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/ILevel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/FallingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="30" column="77" lean-forward="true" selection-start-line="30" selection-start-column="77" selection-end-line="30" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IDAOMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="59" lean-forward="true" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/contract/src/main/java/contract/IModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/DAOMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-114">
+          <caret line="67" column="5" lean-forward="true" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Elements/FallingElements.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/controller/src/main/java/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="116" column="19" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/main/src/main/java/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JPU-BlankProject/model/src/main/java/model/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+          <folding>
+            <element signature="e#715#716#0" expanded="true" />
+            <element signature="e#727#728#0" expanded="true" />
+            <element signature="e#1630#1631#0" expanded="true" />
+            <element signature="e#1883#1884#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
