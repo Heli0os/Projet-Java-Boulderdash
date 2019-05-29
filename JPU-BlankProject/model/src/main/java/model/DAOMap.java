@@ -33,27 +33,27 @@ public class DAOMap {
 
     private ArrayList<Integer> LevelsList;
 
-    public DAOMap(Connection connection) {
+    public DAOMap(Connection connection, Model model) {
         this.connection = connection;
+        this.model = model;
     }
 
     protected Connection getConnection() {
         return this.connection;
     }
 
-    public ResultSet getLevelsList() throws SQLException {
+    public void getLevelsList() throws SQLException {
         final String sql = "{CALL GetLevelsList()}";
         final CallableStatement call = this.getConnection().prepareCall(sql);
         call.execute();
         final ResultSet levels = call.getResultSet();
-        this.LevelsList = new ArrayList<Integer>();
+        this.model.LevelsList = new ArrayList<>();
         while (levels.next()) {
-            LevelsList.add(levels.getInt(1));
+            this.model.LevelsList.add(levels.getInt(1));
         }
-        return null;
     }
 
-    public ResultSet getMap(int id) throws SQLException {
+    public void getMap(int id) throws SQLException {
         final String sql = "{CALL GetLevel(?)}";
         final CallableStatement call = this.getConnection().prepareCall(sql);
         call.setInt(1, id);
@@ -62,10 +62,9 @@ public class DAOMap {
         if (map.first()) {
             this.level = new Level(map.getInt(1), map.getString(2), map.getInt(3), map.getInt(4), (IElements) player, 5);
         }
-        return null;
     }
 
-    public ResultSet getComponents(int id) throws SQLException {
+    public void getComponents(int id) throws SQLException {
         final String sql = "{CALL GetComponents(?)}";
         final CallableStatement call = this.getConnection().prepareCall(sql);
         call.setInt(1, id);
@@ -91,7 +90,6 @@ public class DAOMap {
                 this.level.setElement((IElements) new Player(components.getInt(2), components.getInt(3), Direction.NO), components.getInt(2), components.getInt(3));
             }
         }
-        return null;
     }
 
 }

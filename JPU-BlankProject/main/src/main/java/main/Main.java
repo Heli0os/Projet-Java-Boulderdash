@@ -34,7 +34,6 @@ public abstract class Main {
         * -initialisation
         * -load map data through database
         * -place elements
-        * -
          */
     }
 }

@@ -2,13 +2,13 @@ package controller;
 
 import contract.IElements;
 import contract.IModel;
-import model.Elements.Diamonds;
-import model.Elements.Rocks;
+import model.Elements.*;
+
 
 /**
  * The Class FallingController.
  *
- * @author Clément&Théophile
+ * @author Clement&Theophile
  */
 public class FallingController {
     private IModel model;
@@ -32,7 +32,7 @@ public class FallingController {
 
                     element.falling();
 
-                    element.cruching();
+                    element.crushing();
                 }
             }
         }

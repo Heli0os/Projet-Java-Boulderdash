@@ -43,7 +43,7 @@ final class DBConnection {
 	private Boolean open() {
 		final DBProperties dbProperties = new DBProperties();
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 			System.out.println("DRIVER OK ! ");
 			this.connection = DriverManager.getConnection(dbProperties.getUrl(), dbProperties.getLogin(), dbProperties.getPassword());
 		} catch (final ClassNotFoundException e) {

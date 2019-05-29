@@ -1,7 +1,5 @@
 package contract;
 
-import java.awt.*;
-
 /**
  * The Interface IElements.
  *
@@ -26,7 +24,7 @@ public interface IElements {
 
     void setSprite(ISprite sprite);
 
-    Image getImage();
+    String getImage();
 
     boolean isAlive();
 
@@ -34,7 +32,7 @@ public interface IElements {
 
     void falling();
     void rolling();
-    void cruching();
+    void crushing();
 
 
 

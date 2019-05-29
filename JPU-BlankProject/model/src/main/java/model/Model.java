@@ -23,7 +23,7 @@ public final class Model extends Observable implements IModel {
 
 	private Model model;
 
-	private ArrayList<Integer> LevelsList;
+	public ArrayList<Integer> LevelsList;
 
 	/**
 	 * Instantiates a new model.
@@ -47,7 +47,7 @@ public final class Model extends Observable implements IModel {
 
 	public void loadLevels() {
 		try {
-			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
+			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection(),this);
 			daoMap.getLevelsList();
 		} catch (final SQLException e) {
 			e.printStackTrace();
@@ -61,7 +61,7 @@ public final class Model extends Observable implements IModel {
 	 */
 	public void loadLevel(int id) {
 		try {
-			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
+			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection(),this);
 			daoMap.getMap(id);
 			daoMap.getComponents(id);
 			this.getLevel().getPlayer().isAlive();
@@ -76,6 +76,7 @@ public final class Model extends Observable implements IModel {
 	public ArrayList<Integer> getLevelsList() {
 		return LevelsList;
 	}
+
 	public boolean isGameRunning(){return true;}
 
 	/**

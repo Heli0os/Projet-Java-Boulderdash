@@ -6,13 +6,14 @@ import model.Model;
 abstract class FallingElements extends Elements {
 
     private Model model;
-
-    Elements elementUnder = (Elements) model.getLevel().getElement(x,y-1);
-    Elements elementLeft = (Elements) model.getLevel().getElement(x-1,y);
-    Elements elementRight = (Elements) model.getLevel().getElement(x+1,y);
-    Elements elementLUnder = (Elements) model.getLevel().getElement(x-1,y+1);
-    Elements elementRUnder = (Elements) model.getLevel().getElement(x+1,y+1);
     public boolean fallingStatus;
+
+
+    Elements elementUnder = (Elements) this.model.getLevel().getElement(this.x,this.y-1);
+    Elements elementLeft = (Elements) this.model.getLevel().getElement(this.x-1,this.y);
+    Elements elementRight = (Elements) this.model.getLevel().getElement(this.x+1,this.y);
+    Elements elementLUnder = (Elements) this.model.getLevel().getElement(this.x-1,this.y+1);
+    Elements elementRUnder = (Elements) this.model.getLevel().getElement(this.x+1,this.y+1);
 
     public FallingElements (int x, int y, String spriteName, String imagePath) {
         super(x, y, spriteName, imagePath);
@@ -44,7 +45,7 @@ abstract class FallingElements extends Elements {
         }
     }
 
-    public void cruching(){
+    public void crushing(){
         if(this.fallingStatus == true && elementUnder.spriteName == "Player"){
             for(int i=x-1;i<=x+1;i++){
                 for(int j=y-1;j<=y+1;j++){

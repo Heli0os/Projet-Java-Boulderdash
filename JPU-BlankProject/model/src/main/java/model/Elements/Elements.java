@@ -1,18 +1,17 @@
 package model.Elements;
 
-import contract.IMapController;
+import contract.IElements;
 import contract.ISprite;
 import model.Sprite;
 
 /**
  * @author Clément
  */
-public abstract class Elements {
+public abstract class Elements implements IElements {
     protected int x;
     protected int y;
     protected String spriteName;
     protected ISprite sprite;
-    protected IMapController mapController;
 
     public Elements (int x, int y, String spriteName, String image) {
         this.setX(x);
