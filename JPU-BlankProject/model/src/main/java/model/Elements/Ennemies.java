@@ -8,6 +8,6 @@ import contract.IMotionElements;
  */
 public class Ennemies extends MotionElements implements IMotionElements {
     public Ennemies (int x, int y, Direction direction) {
-        super (x, y, direction.LEFT, "Ennemy", "images/Enemy");
+        super (x, y, direction.LEFT, "Ennemy", "../images/Enemy.png");
     }
 }

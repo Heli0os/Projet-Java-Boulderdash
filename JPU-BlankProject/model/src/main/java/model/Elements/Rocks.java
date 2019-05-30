@@ -7,6 +7,6 @@ import contract.IFallingElements;
  */
 public class Rocks extends FallingElements implements IFallingElements {
     public Rocks (int x, int y) {
-        super (x, y, "Rocks", "images/Rock");
+        super (x, y, "Rocks", "../images/Rock.png");
     }
 }

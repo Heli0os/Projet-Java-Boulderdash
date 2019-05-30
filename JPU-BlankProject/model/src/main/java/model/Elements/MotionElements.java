@@ -10,8 +10,8 @@ public abstract class MotionElements extends Elements implements IMotionElements
 
     protected Direction direction;
 
-    public MotionElements (int x, int y, Direction direction, String spriteName, String image) {
-        super(x, y, spriteName, image);
+    public MotionElements (int x, int y, Direction direction, String name, String imagePath) {
+        super(x, y, name, imagePath);
         this.direction = direction;
     }
 

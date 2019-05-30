@@ -4,7 +4,6 @@ import contract.ISprite;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -36,8 +35,10 @@ public class Sprite implements ISprite {
     void loadImage(String imagePath) {
 
         try {
-            File pathToFile = new File(imagePath);
-            this.image = ImageIO.read(pathToFile);
+
+
+            //File pathToFile = new File(imagePath);
+            this.image = ImageIO.read(getClass().getResource(imagePath));
 
         } catch (IOException ex) {
             ex.printStackTrace();

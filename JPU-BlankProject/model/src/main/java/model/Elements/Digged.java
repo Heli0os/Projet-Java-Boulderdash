@@ -7,6 +7,6 @@ import contract.IElements;
  */
 public class Digged extends Elements implements IElements {
     public Digged (int x, int y) {
-        super (x, y, "Digged", "images/Digged");
+        super (x, y, "Digged", "../images/Digged.png");
     }
 }

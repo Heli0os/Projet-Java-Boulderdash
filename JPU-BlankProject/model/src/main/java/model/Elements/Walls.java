@@ -8,6 +8,6 @@ import contract.IElements;
 
 public class Walls extends Elements implements IElements {
     public Walls (int x, int y) {
-        super (x, y, "Wall", "images/Wall");
+        super (x, y, "Wall", "../images/Wall.png");
     }
 }

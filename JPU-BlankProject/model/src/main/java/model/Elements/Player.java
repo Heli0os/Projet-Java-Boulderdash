@@ -9,7 +9,7 @@ public class Player extends MotionElements implements  IPlayer{
     private boolean isAlive;
 
     public Player (int x, int y, Direction direction) {
-        super (x, y, direction.NO, "Player", "images/Player_0");
+        super (x, y, direction.NO, "Player", "../images/Player.png");
         this.isAlive = true;
     }
 
