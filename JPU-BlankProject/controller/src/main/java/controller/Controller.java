@@ -118,20 +118,25 @@ public final class Controller implements IController {
 	public void setGamePaused(boolean isGamePaused) {
 	}
 
-	public void start(int levelIndex) throws SQLException {
+
 	/**
 	 * Starting the game with the level selected
 	 * @param levelIndex The index of the level
 	 */
 	public void start(int levelIndex) {
-		this.model.loadLevels();
-		this.model.loadLevel(this.daoMap.getLevelsList().get(levelIndex));
-		this.model.getObservable().addObserver(this.view.getObserver());
+		try {
+			this.model.loadLevels();
+			this.model.loadLevel(this.daoMap.getLevelsList().get(levelIndex));
+			this.model.getObservable().addObserver(this.view.getObserver());
 
-		this.play(levelIndex);
+			this.play(levelIndex);
+		}catch(final SQLException e){
+			e.printStackTrace();
+		}
+
 	}
 
-	public void play(int levelIndex) throws SQLException {
+
 	/**
 	 * Start the gameLoop for the level selected
 	 * @param levelIndex The index of the level
@@ -141,7 +146,7 @@ public final class Controller implements IController {
 		this.view.close();
 	}
 
-	public void gameLoop(int levelIndex) throws SQLException {
+
 	/**
 	 * The gameLoop for the level selected
 	 * @param levelIndex The index of the level

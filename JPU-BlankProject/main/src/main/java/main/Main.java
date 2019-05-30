@@ -25,7 +25,7 @@ public abstract class Main {
      */
     public static void main(final String[] args) throws SQLException {
         final Model model = new Model();
-        final View view = new View();
+        final View view = new View(model);
         final Controller controller = new Controller(view, model);
         view.setController(controller);
         controller.start(0);

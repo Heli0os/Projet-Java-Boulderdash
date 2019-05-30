@@ -8,7 +8,7 @@ package contract;
 public interface IElements {
 
 
-    String spriteName = "";
+    String name = "";
 
 
 
@@ -46,16 +46,16 @@ public interface IElements {
     void setY(int y);
 
     /**
-     * set the spriteName
-     * @param spriteName
+     * set the name
+     * @param name
      */
-    void setSpriteName(String spriteName);
+    void setName(String name);
 
     /**
      * get the spriteName
      * @return
      */
-    String getSpriteName();
+    String getName();
 
     /**
      * get the sprite
@@ -69,43 +69,7 @@ public interface IElements {
      */
     void setSprite(ISprite sprite);
 
-    String getImage();
-    /**
-     * get the image
-     * @return
-     */
-    Image getImage();
-
-    /**
-     * boolean that says if the element is alive or not
-     * @return
-     */
-    boolean isAlive();
-
-    /**
-     * set the element as alive or not
-     * @param isAlive
-     */
-    void setIsAlive (boolean isAlive);
 
 
-
-
-
-
-    /**
-     * the fall function
-     */
-    void falling();
-
-    /**
-     * the roll function
-     */
-    void rolling();
-
-    /**
-     * the cruch function
-     */
-    void cruching();
 }
 

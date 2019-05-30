@@ -8,12 +8,13 @@ import contract.*;
  * @author Clément
  */
 public class Level implements ILevel {
+
     private IPlayer player;
 
     /**
      * The player
      */
-    private IElements player;
+
 
     /**
      * The id
@@ -50,7 +51,7 @@ public class Level implements ILevel {
      */
     private int diamondsCollected;
 
-    public Level(int id, String name, int height, int width, IPlayer player, int diamondsNumber) {
+
     /**
      * The constructor of the level
      * @param id The id
@@ -60,7 +61,7 @@ public class Level implements ILevel {
      * @param player The player
      * @param diamondsNumber The number of diamonds in the level
      */
-    public Level(int id, String name, int height, int width, IElements player, int diamondsNumber) {
+    public Level(int id, String name, int height, int width, IPlayer player, int diamondsNumber) {
         this.id = id;
         this.dimensions =  new Dimensions(height, width);
         this.name = name;
@@ -134,21 +135,21 @@ public class Level implements ILevel {
         this.diamondsNumber = diamondsNumber;
     }
 
-    public IPlayer getPlayer() {
+
     /**
      * Get the player
      * @return The player
      */
-    public IElements getPlayer() {
+    public IPlayer getPlayer() {
         return player;
     }
 
-    public void setPlayer(IPlayer player) {
+
     /**
      * Set the player
      * @param player The player
      */
-    public void setPlayer(IElements player) {
+    public void setPlayer(IPlayer player) {
         this.player = player;
     }
 

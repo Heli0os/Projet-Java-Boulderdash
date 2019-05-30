@@ -1,11 +1,13 @@
 package view;
 
-import java.awt.Color;
+import contract.ControllerOrder;
+import contract.IController;
+import contract.IModel;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import javax.swing.JFrame;
-import contract.IController;
-import contract.ControllerOrder;
 
 /**
  * The Class ViewFrame.
@@ -17,6 +19,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	/**
 	 * The controller.
 	 */
+	private IModel model;
 	private IController controller;
 	/**
 	 * The Constant serialVersionUID.
@@ -38,12 +41,13 @@ class ViewFrame extends JFrame implements KeyListener {
 	/**
 	 * Constructor of the frame
 	 */
-	ViewFrame() {
+	ViewFrame(IModel model) {
+		this.model = model;
 		this.setTitle("Boulderdash");
 		this.setSize(width, height);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.panel = new ViewPanel();
+		this.panel = new ViewPanel(this.model);
 		this.panel.setBackground(Color.BLACK);
 		this.setContentPane(this.panel);
 		this.setResizable(false);

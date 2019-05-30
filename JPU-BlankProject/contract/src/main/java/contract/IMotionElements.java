@@ -6,12 +6,7 @@ package contract;
  * @author Clément
  */
 public interface IMotionElements extends IElements {
-    /**
-     * Move the element to the next position
-     * @param x The x position
-     * @param y The y position
-     */
-    void moveTo (int x, int y);
+
 
     /**
      * get the direction of the element

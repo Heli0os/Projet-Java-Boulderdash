@@ -34,13 +34,7 @@ public class PlayerController {
         return pc;
     }
 
-    /**
-     * initialisation
-     * @param model The model
-     */
-    public static void init(IModel model) {
-        pc = new PlayerController(model);
-    }
+
 
     /**
      * Constructor of the PlayerController
@@ -57,7 +51,7 @@ public class PlayerController {
      * @param direction The direction selected by the player
      */
     public void move(contract.Direction direction) {
-        IMotionElements player = (IMotionElements) this.model.getLevel().getPlayer();
+        IPlayer player =  this.model.getLevel().getPlayer();
         int x = player.getX();
         int y = player.getY();
         if (player.isAlive() && !this.model.getLevel().isFinished() && !this.model.getLevel().isPaused()) {

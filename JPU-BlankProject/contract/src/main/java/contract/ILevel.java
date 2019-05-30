@@ -47,14 +47,14 @@ public interface ILevel {
      * get the player
      * @return
      */
-    IElements getPlayer();
+    IPlayer getPlayer();
 
-    void setPlayer(IPlayer player);
+
     /**
      * set the player
      * @param player
      */
-    void setPlayer(IElements player);
+    void setPlayer(IPlayer player);
 
     /**
      * the level is finished or not

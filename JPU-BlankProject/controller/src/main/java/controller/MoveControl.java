@@ -65,7 +65,7 @@ public class MoveControl {
         switch (direction) {
             case UP:
                 element = this.model.getLevel().getElement(x, y-1);
-                spriteName = element.getSpriteName();
+                spriteName = element.getName();
                 if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }
@@ -75,7 +75,7 @@ public class MoveControl {
                 }
             case LEFT:
                 element = this.model.getLevel().getElement(x-1, y);
-                spriteName = element.getSpriteName();
+                spriteName = element.getName();
                 if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }else{
@@ -84,7 +84,7 @@ public class MoveControl {
                 }
             case DOWN:
                 element = this.model.getLevel().getElement(x, y+1);
-                spriteName = element.getSpriteName();
+                spriteName = element.getName();
                 if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }
@@ -92,7 +92,7 @@ public class MoveControl {
                 return true;
             case RIGHT:
                 element = this.model.getLevel().getElement(x+1, y);
-                spriteName = element.getSpriteName();
+                spriteName = element.getName();
                 if (spriteName == "Wall" || spriteName == "Rock") {
                     return false;
                 }

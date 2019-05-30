@@ -1,7 +1,11 @@
 package model;
 
 import contract.ISprite;
+
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * @author Clément
@@ -14,10 +18,10 @@ public class Sprite implements ISprite {
 
     /**
      * The constructor of the sprite
-     * @param image The image 
+     * @param imagePath The image path
      */
-    public Sprite(Image image) {
-        this.image = image;
+    public Sprite(String imagePath) {
+        loadImage(imagePath);
     }
 
     /**
@@ -25,6 +29,19 @@ public class Sprite implements ISprite {
      * @return The image
      */
     public Image getImage() {
-        return image;
+        return this.image;
+    }
+
+
+    void loadImage(String imagePath) {
+
+        try {
+            File pathToFile = new File(imagePath);
+            this.image = ImageIO.read(pathToFile);
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
     }
 }

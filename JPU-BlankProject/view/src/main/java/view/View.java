@@ -1,8 +1,10 @@
 package view;
 
-import java.util.Observer;
 import contract.IController;
+import contract.IModel;
 import contract.IView;
+
+import java.util.Observer;
 
 /**
  * The Class View.
@@ -19,8 +21,9 @@ public class View implements IView {
 	/**
 	 * The constructor of the view
 	 */
-	public View() {
-		this.frame = new ViewFrame();
+	public View(IModel model) {
+
+		this.frame = new ViewFrame(model);
 	}
 
 	/**

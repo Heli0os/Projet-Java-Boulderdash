@@ -30,7 +30,9 @@ class ViewPanel extends JPanel implements Observer {
 	/**
 	 * The constructor of the viewPanel
 	 */
-	public ViewPanel() {
+	public ViewPanel(IModel model) {
+		this.model=model;
+		this.level=model.getLevel();
 		setVisible(true);
 	}
 
@@ -80,13 +82,13 @@ class ViewPanel extends JPanel implements Observer {
 	protected void paintComponent(final Graphics graphics) {
 		graphics.drawString("Player control : Z (UP), Q (LEFT), S (DOWN), D (RIGHT)", 450, 500);
 
-		for (int y = 0; y<level.getDimensions().getHeight(); y++) {
-			for (int x = 0; x<level.getDimensions().getWidth(); x++) {
-				IElements elements = level.getElement(x,y);
-				graphics.drawImage(elements.getImage(),x,y,this);
+		for (int y = 0; y< this.level.getDimensions().getHeight(); y++) {
+			for (int x = 0; x< this.level.getDimensions().getWidth(); x++) {
+				IElements elements = this.level.getElement(x,y);
+				graphics.drawImage(elements.getSprite().getImage(),x,y,this);
 			}
 		}
-		if (this.model.getLevel().isFinished() && this.model.getLevel().getPlayer().isAlive()) {
+		if (this.level.isFinished() && this.level.getPlayer().isAlive()) {
 			graphics.drawString("Congratulations on winning this level", 300, 400);
 			graphics.drawString("Number of diamonds collected : "+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 500);
 			graphics.drawString("The game is now loading the next level", 300, 600);
@@ -94,7 +96,7 @@ class ViewPanel extends JPanel implements Observer {
 		else if (this.controller.isGamePaused()) {
 			graphics.drawString("The game is Paused, press echap to resume"+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 500);
 		}
-		else if (!this.model.getLevel().getPlayer().isAlive()) {
+		else if (!this.level.getPlayer().isAlive()) {
 			graphics.drawString("You died, the game is lost", 400, 450);
 			graphics.drawString("Number of diamonds collected : "+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 550);
 		}

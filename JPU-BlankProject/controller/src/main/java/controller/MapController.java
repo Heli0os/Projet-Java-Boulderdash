@@ -74,10 +74,10 @@ public class MapController {
         oldX = x;
         oldY = y;
 
-        if(current.getSpriteName()== "Diamonds" && element.getSpriteName()=="Player"){
+        if(current.getName()== "Diamonds" && element.getName()=="Player"){
             //pick up item
         }
-        if((current.getSpriteName()== "Ennemy" && element.getSpriteName()=="Player") || (current.getSpriteName()== "Player" && element.getSpriteName()=="Ennemy") ){
+        if((current.getName()== "Ennemy" && element.getName()=="Player") || (current.getName()== "Player" && element.getName()=="Ennemy") ){
             //die
         }
         level.setElement(element,newX,newY);

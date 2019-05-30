@@ -10,21 +10,16 @@ import model.Sprite;
 public abstract class Elements implements IElements {
     protected int x;
     protected int y;
-    protected String spriteName;
+    protected String name;
     protected ISprite sprite;
 
-    public Elements (int x, int y, String spriteName, String image) {
+    public Elements (int x, int y, String name, String imagePath) {
         this.setX(x);
         this.setY(y);
-        this.setSpriteName(spriteName);
-        this.sprite = new Sprite(image);
+        this.setName(name);
+        this.sprite = new Sprite(imagePath);
     }
-    
-    public Elements (int x, int y, String spriteName) {
-        this.setX(x);
-        this.setY(y);
-        this.setSpriteName(spriteName);
-    }  
+
 
     public void setLocation(int x, int y) {
         this.setX(x);
@@ -32,11 +27,11 @@ public abstract class Elements implements IElements {
     }
 
     public int getX() {
-        return x;
+        return this.x;
     }
 
     public int getY() {
-        return y;
+        return this.y;
     }
 
     public void setX(int x) {
@@ -47,23 +42,21 @@ public abstract class Elements implements IElements {
         this.y = y;
     }
 
-    public void setSpriteName(String spriteName) {
-        this.spriteName = spriteName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getSpriteName() {
-        return spriteName;
+    public String getName() {
+        return this.name;
     }
 
     public ISprite getSprite() {
-        return sprite;
+        return this.sprite;
     }
 
     public void setSprite(ISprite sprite) {
         this.sprite = sprite;
     }
 
-    public String getImage() {
-        return this.sprite.getImagePath();
-    }
+
 }

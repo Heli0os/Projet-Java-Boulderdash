@@ -2,6 +2,7 @@ package model;
 
 import contract.Direction;
 import contract.IDAOMap;
+import contract.ILevel;
 import contract.IModel;
 import model.Elements.Player;
 
@@ -17,7 +18,7 @@ import java.util.Observable;
 public final class Model extends Observable implements IModel {
 
 	/** the Level. */
-	private Level level;
+	private ILevel level;
 	private static Model model;
 
 	/** the Player. */
@@ -26,29 +27,34 @@ public final class Model extends Observable implements IModel {
 	/**
 	 * The model
 	 */
-	private Model model;
+
 
 	final IDAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection(),this);
 
-	public ArrayList<Integer> LevelsList;
+
 	/**
 	 * The list of levels
 	 */
-	private ArrayList<Integer> LevelsList;
+	public ArrayList<Integer> LevelsList;
 
 	/**
 	 * Instantiates a new model.
 	 */
 	public Model() {
 		this.player = new Player(1, 1, Direction.UP);
-		this.model=this;
+		Model.model=this;
+		try {
+			this.level=daoMap.getMap(0);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
 	 * Get the level
 	 * @return The level
 	 */
-	public Level getLevel() {
+	public ILevel getLevel() {
 		return this.level;
 	}
 
@@ -80,14 +86,18 @@ public final class Model extends Observable implements IModel {
 		this.getLevel().setDiamondsCollected(this.getLevel().getDiamondsCollected()+1);
 	}
 
-	public void loadLevels() throws SQLException {
+
 	/**
 	 * Load all the levels
 	 */
 	public void loadLevels() {
 		try {
-			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
+			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection(), this);
 			daoMap.getLevelsList();
+		}
+		catch(final SQLException e){
+			e.printStackTrace();
+		}
 	}
 
 
@@ -100,13 +110,18 @@ public final class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void loadLevel(int id) throws SQLException {
+	public void loadLevel(int id)  {
+		try {
 			daoMap.getMap(id);
 			daoMap.getComponents(id);
 			this.getLevel().getPlayer().isAlive();
 			this.getLevel().setFinished(false);
 			this.getLevel().setPaused(false);
 			this.getLevel().setDiamondsCollected(0);
+		}
+		catch(final SQLException e){
+			e.printStackTrace();
+		}
 	}
 
 	/**

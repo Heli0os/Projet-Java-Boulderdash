@@ -10,44 +10,54 @@ abstract class FallingElements extends Elements implements IFallingElements {
     public boolean fallingStatus;
 
 
-    IElements elementUnder = this.model.getLevel().getElement(this.x,this.y-1);
-    IElements elementLeft =  this.model.getLevel().getElement(this.x-1,this.y);
-    IElements elementRight =  this.model.getLevel().getElement(this.x+1,this.y);
-    IElements elementLUnder =  this.model.getLevel().getElement(this.x-1,this.y+1);
-    IElements elementRUnder =  this.model.getLevel().getElement(this.x+1,this.y+1);
+    IElements elementUnder;
+    IElements elementLeft;
+    IElements elementRight;
+    IElements elementLUnder;
+    IElements elementRUnder;
 
-    public FallingElements (int x, int y, String spriteName, String imagePath) {
-        super(x, y, spriteName, imagePath);
+    public FallingElements (int x, int y, String name, String imagePath) {
+        super(x, y, name, imagePath);
         this.fallingStatus = false;
     }
+    public void scan(){
+        this.elementUnder = this.model.getLevel().getElement(this.x,this.y-1);
+        this.elementLeft =  this.model.getLevel().getElement(this.x-1,this.y);
+        this.elementRight =  this.model.getLevel().getElement(this.x+1,this.y);
+        this.elementLUnder=  this.model.getLevel().getElement(this.x-1,this.y+1);
+        this.elementRUnder =  this.model.getLevel().getElement(this.x+1,this.y+1);
+    }
+
 
     public void falling() {
-
+        this.scan();
         /*
         Falling function just move the current object down and replace his older position with "digged" and set falling status to true
          */
-        if (elementUnder.spriteName == "Digged") {
+        if (elementUnder.name == "Digged") {
             this.y++;
             this.fallingStatus=true;
         }
     }
 
     public void rolling(){
+        this.scan();
         /*
         Make falling element roll to fall aside
          */
-        if(elementUnder.spriteName == "Rock" || elementUnder.spriteName == "Diamond"){
-            if(elementLeft.spriteName == "Digged" && elementLUnder.spriteName == "Digged"){
+        if(elementUnder.name == "Rock" || elementUnder.name == "Diamond"){
+            if(elementLeft.name == "Digged" && elementLUnder.name == "Digged"){
                 this.x--;
             }
-            if(elementRight.spriteName == "Digged" && elementRUnder.spriteName == "Digged"){
+            if(elementRight.name == "Digged" && elementRUnder.name == "Digged"){
                 this.x++;
             }
         }
     }
 
     public void crushing(){
-        if(this.fallingStatus == true && elementUnder.spriteName == "Player"){
+        this.scan();
+        if(this.fallingStatus == true && elementUnder.name == "Player"){
             for(int i=x-1;i<=x+1;i++){
                 for(int j=y-1;j<=y+1;j++){
                     model.getLevel().setElement( new Digged(i,j),i,j);
@@ -55,7 +65,7 @@ abstract class FallingElements extends Elements implements IFallingElements {
             }
             /*restart function here*/
         }
-        if(this.fallingStatus == true && elementUnder.spriteName == "Enemy"){
+        if(this.fallingStatus == true && elementUnder.name == "Enemy"){
             for(int i=x-1;i<=x+1;i++){
                 for(int j=y-1;j<=y+1;j++){
                     model.getLevel().setElement( new Digged(i,j),i,j);
