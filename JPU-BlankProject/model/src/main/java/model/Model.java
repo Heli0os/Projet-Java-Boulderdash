@@ -1,10 +1,8 @@
 package model;
 
-import contract.Direction;
 import contract.IDAOMap;
 import contract.ILevel;
 import contract.IModel;
-import model.Elements.Player;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,7 +20,7 @@ public final class Model extends Observable implements IModel {
 	private static Model model;
 
 	/** the Player. */
-	private Player player;
+
 
 	/**
 	 * The model
@@ -41,13 +39,9 @@ public final class Model extends Observable implements IModel {
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		this.player = new Player(1, 1, Direction.UP);
+
 		Model.model=this;
-		try {
-			this.level=daoMap.getMap(0);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+
 	}
 
 	/**
@@ -112,9 +106,9 @@ public final class Model extends Observable implements IModel {
 	 */
 	public void loadLevel(int id)  {
 		try {
-			daoMap.getMap(id);
+			this.level = daoMap.getMap(id);
 			daoMap.getComponents(id);
-			this.getLevel().getPlayer().isAlive();
+			this.getLevel().getPlayer().setIsAlive(true);
 			this.getLevel().setFinished(false);
 			this.getLevel().setPaused(false);
 			this.getLevel().setDiamondsCollected(0);

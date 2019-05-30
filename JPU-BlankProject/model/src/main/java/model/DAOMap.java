@@ -44,7 +44,7 @@ public class DAOMap implements IDAOMap{
     /**
      * The model
      */
-    private Model model;
+    private IModel model;
 
     /**
      * The list of levels
@@ -59,6 +59,7 @@ public class DAOMap implements IDAOMap{
     public DAOMap(Connection connection, Model model) {
         this.connection = connection;
         this.model = model;
+        this.player = new Player(1, 1, Direction.NO);
     }
 
 
@@ -108,7 +109,8 @@ public class DAOMap implements IDAOMap{
             call.execute();
             final ResultSet map = call.getResultSet();
             if (map.first()) {
-                this.level = new Level(map.getInt(1), map.getString(2), map.getInt(3), map.getInt(4), player, 5);
+            this.level = new Level(map.getInt(1), map.getString(2), map.getInt(3), map.getInt(4),this.player, 5);
+            System.err.println("level constructor called");
             }
         }
         catch(final SQLException e){

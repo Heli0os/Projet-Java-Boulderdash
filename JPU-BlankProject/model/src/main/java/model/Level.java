@@ -1,6 +1,10 @@
 package model;
 
-import contract.*;
+import contract.IDimensions;
+import contract.IElements;
+import contract.ILevel;
+import contract.IPlayer;
+import model.Elements.Walls;
 
 /**
  * The Class Model.
@@ -9,12 +13,16 @@ import contract.*;
  */
 public class Level implements ILevel {
 
-    private IPlayer player;
+    /**
+     * The map
+     */
+    IElements[][] map = new IElements[100][100];
+
 
     /**
      * The player
      */
-
+    private IPlayer player;
 
     /**
      * The id
@@ -115,6 +123,7 @@ public class Level implements ILevel {
      * Set the name
      * @param name The name
      */
+
     public void setName(String name) {
         this.name = name;
     }
@@ -123,6 +132,7 @@ public class Level implements ILevel {
      * Get the number of diamonds in the level
      * @return The number of diamonds in the level
      */
+
     public int getDiamondsNumber() {
         return diamondsNumber;
     }
@@ -131,6 +141,7 @@ public class Level implements ILevel {
      * Set the number of diamonds in the level
      * @param diamondsNumber The number of diamonds to get in the level
      */
+
     public void setDiamondsNumber(int diamondsNumber) {
         this.diamondsNumber = diamondsNumber;
     }
@@ -185,10 +196,7 @@ public class Level implements ILevel {
         this.diamondsCollected = diamondsCollected;
     }
 
-    /**
-     * The map
-     */
-    IElements[][] map;
+
 
     /**
      * Get the elements
@@ -205,7 +213,12 @@ public class Level implements ILevel {
      * @return The map
      */
     public IElements getElement(int x,int y){
-        return map[x][y];
+
+        if(x<0 || y < 0){
+            return new Walls(0,0);
+        }else {
+            return map[x][y];
+        }
     }
 
     /**
@@ -215,7 +228,7 @@ public class Level implements ILevel {
      * @param y The y position
      */
     public void setElement(IElements element,int x,int y){
-        map[x][y]= element;
+        this.map[x][y]= element;
     }
 
     /**

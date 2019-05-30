@@ -51,6 +51,7 @@ public class MapController {
      */
     public MapController(IModel model) {
         this.model = model;
+        this.level = this.model.getLevel();
     }
 
     /**
@@ -59,7 +60,7 @@ public class MapController {
     public void UpdateMap(){
         for(int x = 0;x <= level.getDimensions().getHeight(); x++){
             for (int y = 0; y <= level.getDimensions().getWidth(); y++){
-                MoveInMap(level.getElement(x,y),x,y);
+                this.MoveInMap(level.getElement(x,y),x,y);
             }
         }
     }
@@ -68,7 +69,7 @@ public class MapController {
      * @param element,x,y The element, the x position and the y position
      * */
     public void MoveInMap(IElements element,int x, int y){ //x and y are the current position of the element
-        current = (IElements) level.getElement(element.getX(),element.getY());
+        current =  level.getElement(element.getX(),element.getY());
         newX = element.getX();
         newY = element.getY();
         oldX = x;
