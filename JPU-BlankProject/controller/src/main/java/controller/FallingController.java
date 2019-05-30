@@ -33,6 +33,7 @@ public class FallingController {
     protected void detectFallingElements() {
         for (int x = model.getLevel().getDimensions().getHeight() - 1; x >= 0; x--) {
             for (int y = model.getLevel().getDimensions().getWidth() -1; y >= 0; y--) {
+                try{
                 IFallingElements element = (IFallingElements) this.model.getLevel().getElement(x, y);
 
                 if(element instanceof Rocks || element instanceof Diamonds) {
@@ -41,6 +42,9 @@ public class FallingController {
                     element.falling();
 
                     element.crushing();
+                }
+                }catch(ClassCastException c){
+
                 }
             }
         }

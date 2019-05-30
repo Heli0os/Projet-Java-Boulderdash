@@ -4,10 +4,6 @@ package contract;
  * @author Théophile
  */
 public interface IMapController {
-    /**
-     * create the map
-     */
-    void CreateMap();
 
     /**
      * update the map

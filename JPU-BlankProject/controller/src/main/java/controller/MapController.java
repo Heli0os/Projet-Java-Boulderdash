@@ -2,13 +2,14 @@ package controller;
 
 import contract.IElements;
 import contract.ILevel;
+import contract.IMapController;
 import contract.IModel;
 import model.Elements.Digged;
 
 /**
  * @author Théophile
  */
-public class MapController {
+public class MapController implements IMapController {
 
     /**
      * The model
@@ -58,9 +59,11 @@ public class MapController {
      * The function that will move the elements in the map
      */
     public void UpdateMap(){
-        for(int x = 0;x <= level.getDimensions().getHeight(); x++){
-            for (int y = 0; y <= level.getDimensions().getWidth(); y++){
-                this.MoveInMap(level.getElement(x,y),x,y);
+        this.level = this.model.getLevel();
+        for(int x = 0; x <= this.level.getDimensions().getHeight(); x++){
+            for (int y = 0; y <= this.level.getDimensions().getWidth(); y++){
+                //System.err.println("updatemap is called");
+                this.MoveInMap(this.level.getElement(x,y),x,y);
             }
         }
     }
@@ -68,22 +71,24 @@ public class MapController {
      * MoveTo method move the element parameter to the x and y parameter
      * @param element,x,y The element, the x position and the y position
      * */
-    public void MoveInMap(IElements element,int x, int y){ //x and y are the current position of the element
-        current =  level.getElement(element.getX(),element.getY());
-        newX = element.getX();
-        newY = element.getY();
-        oldX = x;
-        oldY = y;
+    public void MoveInMap(IElements element,int x, int y) { //x and y are the current position of the element
+        if (element != null) {
+            this.current = this.model.getLevel().getElement(element.getX(), element.getY());
+            this.newX = element.getX();
+            this.newY = element.getY();
+            this.oldX = x;
+            this.oldY = y;
 
-        if(current.getName()== "Diamonds" && element.getName()=="Player"){
-            //pick up item
-        }
-        if((current.getName()== "Ennemy" && element.getName()=="Player") || (current.getName()== "Player" && element.getName()=="Ennemy") ){
-            //die
-        }
-        level.setElement(element,newX,newY);
-        level.setElement((IElements) new Digged(oldX,oldY),oldX,oldY);
+            if (current.getName() == "Diamonds" && element.getName() == "Player") {
+                //pick up item
+            }
+            if ((current.getName() == "Ennemy" && element.getName() == "Player") || (current.getName() == "Player" && element.getName() == "Ennemy")) {
+                //die
+            }
+            this.model.getLevel().setElement(element, this.newX, this.newY);
+            this.model.getLevel().setElement(new Digged(this.oldX, this.oldY), this.oldX, this.oldY);
 
+        }
     }
 
 

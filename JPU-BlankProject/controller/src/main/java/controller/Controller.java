@@ -14,11 +14,11 @@ public final class Controller implements IController {
 	/**
 	 * References to other controllers
 	 */
-	EnnemyController ennemyController;
-	FallingController fallingController;
-	MapController mapController;
-	MoveControl moveControl;
-	PlayerController playerController;
+	private EnnemyController ennemyController;
+	private FallingController fallingController;
+	private MapController mapController;
+	private MoveControl moveControl;
+	private PlayerController playerController;
 
 	/**
 	 * The view.
@@ -109,13 +109,14 @@ public final class Controller implements IController {
 		}
 	}
 
-	@Override
+
 	public boolean isGamePaused() {
-		return false;
+		return this.isGamePaused;
 	}
 
-	@Override
+
 	public void setGamePaused(boolean isGamePaused) {
+		this.isGamePaused=isGamePaused;
 	}
 
 
@@ -159,9 +160,9 @@ public final class Controller implements IController {
 			} catch (final InterruptedException ex) {
 				Thread.currentThread().interrupt();
 			}
-			ennemyController.performMovement();
-			fallingController.detectFallingElements();
-			mapController.UpdateMap();
+			this.ennemyController.performMovement();
+			this.fallingController.detectFallingElements();
+			this.mapController.UpdateMap();
 			this.model.update();
 		}
 		if (this.model.getLevel().isFinished()) {

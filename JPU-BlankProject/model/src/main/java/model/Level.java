@@ -4,6 +4,7 @@ import contract.IDimensions;
 import contract.IElements;
 import contract.ILevel;
 import contract.IPlayer;
+import model.Elements.Digged;
 import model.Elements.Walls;
 
 /**
@@ -16,7 +17,7 @@ public class Level implements ILevel {
     /**
      * The map
      */
-    IElements[][] map = new IElements[100][100];
+    IElements[][] map;
 
 
     /**
@@ -77,6 +78,7 @@ public class Level implements ILevel {
         this.diamondsNumber = diamondsNumber;
         this.diamondsCollected = 0;
         this.finished = false;
+        this.map = new IElements[height*16][width*16];
     }
 
     /**
@@ -100,7 +102,7 @@ public class Level implements ILevel {
      * @return The dimensions
      */
     public IDimensions getDimensions() {
-        return dimensions;
+        return this.dimensions;
     }
 
     /**
@@ -197,7 +199,13 @@ public class Level implements ILevel {
     }
 
 
-
+    public void autoFill(){
+        for(int i = 0;i<this.dimensions.getHeight();i++){
+            for(int j = 0 ;j < this.dimensions.getWidth();i++){
+                this.map[i][j] = new Digged(i,j);
+            }
+        }
+    }
     /**
      * Get the elements
      * @return The map

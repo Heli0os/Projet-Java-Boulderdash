@@ -104,6 +104,9 @@ public interface ILevel {
      */
     void setDimensions (IDimensions dimensions);
 
+
+    void autoFill();
+
     /**
      * get the Elements
      * @return

@@ -32,9 +32,9 @@ public class Dimensions implements IDimensions {
      * The constructor Dimensions
      * @param dimensions The dimensions
      */
-    public Dimensions(final Dimensions dimensions) {
+    /*public Dimensions(final Dimensions dimensions) {
         this(dimensions.getWidth(), dimensions.getHeight());
-    }
+    }*/
 
     /**
      * Get the width

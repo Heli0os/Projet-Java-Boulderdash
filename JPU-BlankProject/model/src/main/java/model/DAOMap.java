@@ -110,7 +110,8 @@ public class DAOMap implements IDAOMap{
             final ResultSet map = call.getResultSet();
             if (map.first()) {
             this.level = new Level(map.getInt(1), map.getString(2), map.getInt(3), map.getInt(4),this.player, 5);
-            System.err.println("level constructor called");
+            //this.level.autoFill();
+            //System.err.println("level constructor called");
             }
         }
         catch(final SQLException e){
