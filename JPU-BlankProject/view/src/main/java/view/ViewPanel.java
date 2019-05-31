@@ -98,7 +98,7 @@ class ViewPanel extends JPanel implements Observer {
 				if(element == null)System.err.println("element is null in \"paintComponent()\"");
 				//System.err.println("for normaly called");
 				//graphics.drawString("obj"+x+""+y,x,y); // test line
-				graphics.drawImage(element.getSprite().getImage().getScaledInstance(16,16,Image.SCALE_DEFAULT),x*16,y*16,this);
+				graphics.drawImage(element.getSprite().getImage().getScaledInstance(16,16,Image.SCALE_AREA_AVERAGING),x*16,y*16,this);
 			}
 
 		}/*

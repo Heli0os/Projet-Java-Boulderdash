@@ -8,8 +8,6 @@ import controller.Controller;
 import model.Model;
 import view.View;
 
-import java.sql.SQLException;
-
 /**
  * The Class Main.
  *
@@ -23,7 +21,7 @@ public abstract class Main {
      * @param args
      *            the arguments
      */
-    public static void main(final String[] args) throws SQLException {
+    public static void main(final String[] args)  {
         final Model model = new Model();
         model.start();
         final View view = new View(model);

@@ -4,7 +4,6 @@ import contract.IDimensions;
 import contract.IElements;
 import contract.ILevel;
 import contract.IPlayer;
-import model.Elements.Digged;
 import model.Elements.Dirt;
 import model.Elements.Walls;
 
@@ -68,18 +67,18 @@ public class Level implements ILevel {
      * @param name The name
      * @param height The height
      * @param width The width
-     * @param player The player
      * @param diamondsNumber The number of diamonds in the level
      */
-    public Level(int id, String name, int height, int width, IPlayer player, int diamondsNumber) {
+    public Level(int id, String name, int height, int width, int diamondsNumber) {
         this.id = id;
         this.dimensions =  new Dimensions(height, width);
         this.name = name;
-        this.player = player;
+
         this.diamondsNumber = diamondsNumber;
         this.diamondsCollected = 0;
         this.finished = false;
         this.map = new IElements[height*16][width*16];
+
     }
 
     /**
@@ -155,8 +154,10 @@ public class Level implements ILevel {
      * @return The player
      */
     public IPlayer getPlayer() {
-        return player;
+        return this.player;
     }
+
+
 
 
     /**
@@ -201,11 +202,11 @@ public class Level implements ILevel {
 
 
     public void autoFill(){
-        for(int i = 0;i<this.map.length-1;i++){
+        /*for(int i = 0;i<this.map.length-1;i++){
             for(int j = 0 ;j < this.map.length-1;i++){
                 this.map[i][j] = new Digged(i,j);
             }
-        }
+        }*/
     }
     /**
      * Get the elements

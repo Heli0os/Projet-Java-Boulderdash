@@ -88,7 +88,7 @@ public final class Model extends Observable implements IModel {
 	public void start(){
 		this.loadLevels();
 		try {
-			this.loadLevel(this.daoMap.getLevelsList().get(0));
+			this.loadLevel(this.daoMap.getLevelsList().get(2));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -129,10 +129,11 @@ public final class Model extends Observable implements IModel {
 		try {
 			this.level = daoMap.getMap(id);
 			daoMap.getComponents(id);
-			this.getLevel().getPlayer().setIsAlive(true);
+			this.daoMap.setPlayer();
 			this.getLevel().setFinished(false);
 			this.getLevel().setPaused(false);
 			this.getLevel().setDiamondsCollected(0);
+			this.getLevel().getPlayer().setIsAlive(true);
 		}
 		catch(final SQLException e){
 			e.printStackTrace();

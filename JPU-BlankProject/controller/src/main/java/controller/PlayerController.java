@@ -50,7 +50,8 @@ public class PlayerController {
      * Move the player
      * @param direction The direction selected by the player
      */
-    public void move(contract.Direction direction) {
+    public void move(Direction direction) {
+        //this one works
         IPlayer player =  this.model.getLevel().getPlayer();
         int x = player.getX();
         int y = player.getY();

@@ -59,7 +59,7 @@ public class DAOMap implements IDAOMap{
     public DAOMap(Connection connection, Model model) {
         this.connection = connection;
         this.model = model;
-        this.player = new Player(1, 1, Direction.NO);
+
     }
 
 
@@ -69,6 +69,9 @@ public class DAOMap implements IDAOMap{
      */
     public Connection getConnection() {
         return this.connection;
+    }
+    public void setPlayer(){
+        this.level.setPlayer(this.player);
     }
 
 
@@ -109,7 +112,7 @@ public class DAOMap implements IDAOMap{
             call.execute();
             final ResultSet map = call.getResultSet();
             if (map.first()) {
-            this.level = new Level(map.getInt(1), map.getString(2), map.getInt(3), map.getInt(4),this.player, 5);
+            this.level = new Level(map.getInt(1), map.getString(2), map.getInt(3), map.getInt(4), map.getInt(5));
             //this.level.autoFill();
             System.err.println("level constructor called");
             //System.err.println("level autofilled called");
@@ -153,7 +156,9 @@ public class DAOMap implements IDAOMap{
                 this.level.setElement(new Ennemies(components.getInt(2), components.getInt(3), Direction.NO), components.getInt(2), components.getInt(3));
             }
             else if (components.getString(1).equals("Player")) {
-                this.level.setElement(new Player(components.getInt(2), components.getInt(3), Direction.NO), components.getInt(2), components.getInt(3));
+                this.player = new Player(components.getInt(2), components.getInt(3), Direction.NO);
+                this.level.setElement(this.player, components.getInt(2), components.getInt(3));
+
             }
         }
     }

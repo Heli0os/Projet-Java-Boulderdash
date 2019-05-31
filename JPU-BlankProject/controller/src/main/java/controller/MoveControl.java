@@ -60,7 +60,7 @@ public class MoveControl {
      */
     boolean movementIsPossible(Direction direction, int x, int y) {
         IElements element;
-        String spriteName;
+        String name;
 
         switch (direction) {
             case UP:
@@ -68,8 +68,8 @@ public class MoveControl {
                 if(element== null){
                     return false;
                 }
-                spriteName = element.getName();
-                if (spriteName == "Wall" || spriteName == "Rock") {
+                name = element.getName();
+                if (name == "Wall" || name == "Rock") {
                     return false;
                 }
                 else{
@@ -81,8 +81,8 @@ public class MoveControl {
                 if(element== null){
                     return false;
                 }
-                spriteName = element.getName();
-                if (spriteName == "Wall" || spriteName == "Rock") {
+                name = element.getName();
+                if (name == "Wall" || name == "Rock") {
                     return false;
                 }else{
                     moveTo(model.getLevel().getElement(x, y), x-1, y);
@@ -93,8 +93,8 @@ public class MoveControl {
                 if(element== null){
                     return false;
                 }
-                spriteName = element.getName();
-                if (spriteName == "Wall" || spriteName == "Rock") {
+                name = element.getName();
+                if (name == "Wall" || name == "Rock") {
                     return false;
                 }
                 moveTo(model.getLevel().getElement(x, y), x, y+1);
@@ -104,8 +104,8 @@ public class MoveControl {
                 if(element== null){
                     return false;
                 }
-                spriteName = element.getName();
-                if (spriteName == "Wall" || spriteName == "Rock") {
+                name = element.getName();
+                if (name == "Wall" || name == "Rock") {
                     return false;
                 }
                 moveTo(model.getLevel().getElement(x, y), x+1, y);
@@ -116,12 +116,12 @@ public class MoveControl {
 
     /**
      * Move the element to the next position
-     * @param elements The element
+     * @param element The element
      * @param x The x position
      * @param y The y position
      */
-    public void moveTo (IElements elements, int x, int y) {
-        elements.setX(x);
-        elements.setY(y);
+    public void moveTo (IElements element, int x, int y) {
+        element.setX(x);
+        element.setY(y);
     }
 }

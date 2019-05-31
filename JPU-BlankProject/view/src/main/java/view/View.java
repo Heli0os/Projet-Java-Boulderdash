@@ -26,12 +26,7 @@ public class View implements IView {
 		this.frame = new ViewFrame(model);
 	}
 
-	/**
-	 * repaint the view
-	 */
-	public void repaint() {
 
-	}
 
 	/**
 	 * close the view

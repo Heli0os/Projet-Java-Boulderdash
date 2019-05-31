@@ -85,8 +85,10 @@ public class MapController implements IMapController {
             if ((current.getName() == "Ennemy" && element.getName() == "Player") || (current.getName() == "Player" && element.getName() == "Ennemy")) {
                 //die
             }
-            this.model.getLevel().setElement(element, this.newX, this.newY);
-            this.model.getLevel().setElement(new Digged(this.oldX, this.oldY), this.oldX, this.oldY);
+            if(this.newX != this.oldX || this.newY != this.oldY) {
+                this.model.getLevel().setElement(element, this.newX, this.newY);
+                this.model.getLevel().setElement(new Digged(this.oldX, this.oldY), this.oldX, this.oldY);
+            }
 
         }
     }

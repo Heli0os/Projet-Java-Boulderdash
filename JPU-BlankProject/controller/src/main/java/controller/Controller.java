@@ -2,8 +2,6 @@ package controller;
 
 import contract.*;
 
-import java.sql.SQLException;
-
 /**
  * The Class Controller.
  *
@@ -88,19 +86,20 @@ public final class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
-		PlayerController player = PlayerController.getInstance();
+//this one works
 		switch (controllerOrder) {
 			case MOVE_UP:
-				player.move(contract.Direction.UP);
+
+				this.playerController.move(contract.Direction.UP);
 				break;
 			case MOVE_LEFT:
-				player.move(contract.Direction.LEFT);
+				this.playerController.move(contract.Direction.LEFT);
 				break;
 			case MOVE_DOWN:
-				player.move(contract.Direction.DOWN);
+				this.playerController.move(contract.Direction.DOWN);
 				break;
 			case MOVE_RIGHT:
-				player.move(contract.Direction.RIGHT);
+				this.playerController.move(contract.Direction.RIGHT);
 				break;
 			case PAUSED:
 				setGamePaused(true);
