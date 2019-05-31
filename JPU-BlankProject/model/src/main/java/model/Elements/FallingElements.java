@@ -21,7 +21,8 @@ abstract class FallingElements extends Elements implements IFallingElements {
         this.fallingStatus = false;
     }
     public void scan(){
-        this.elementUnder = this.model.getLevel().getElement(this.x,this.y-1);
+        System.err.println("scan performed");
+        this.elementUnder = this.model.getLevel().getElement(this.x,this.y+1);
         this.elementLeft =  this.model.getLevel().getElement(this.x-1,this.y);
         this.elementRight =  this.model.getLevel().getElement(this.x+1,this.y);
         this.elementLUnder=  this.model.getLevel().getElement(this.x-1,this.y+1);
@@ -30,12 +31,14 @@ abstract class FallingElements extends Elements implements IFallingElements {
 
 
     public void falling() {
+        System.err.println("falling called");
         this.scan();
         /*
         Falling function just move the current object down and replace his older position with "digged" and set falling status to true
          */
         if (elementUnder.name == "Digged") {
-            this.y++;
+            System.err.println("digged found under");
+            this.y += 1;
             this.fallingStatus=true;
         }
     }
@@ -47,10 +50,10 @@ abstract class FallingElements extends Elements implements IFallingElements {
          */
         if(elementUnder.name == "Rock" || elementUnder.name == "Diamond"){
             if(elementLeft.name == "Digged" && elementLUnder.name == "Digged"){
-                this.x--;
+                this.x-= 1;
             }
             if(elementRight.name == "Digged" && elementRUnder.name == "Digged"){
-                this.x++;
+                this.x+= 1;
             }
         }
     }

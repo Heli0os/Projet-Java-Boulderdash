@@ -68,7 +68,8 @@ public class MoveControl {
                 if(element== null){
                     return false;
                 }
-                name = element.getName();
+                    name = element.getName();
+
                 if (name == "Wall" || name == "Rock") {
                     return false;
                 }
@@ -96,9 +97,10 @@ public class MoveControl {
                 name = element.getName();
                 if (name == "Wall" || name == "Rock") {
                     return false;
+                }else {
+                    moveTo(model.getLevel().getElement(x, y), x, y + 1);
+                    return true;
                 }
-                moveTo(model.getLevel().getElement(x, y), x, y+1);
-                return true;
             case RIGHT:
                 element = this.model.getLevel().getElement(x+1, y);
                 if(element== null){
@@ -107,9 +109,10 @@ public class MoveControl {
                 name = element.getName();
                 if (name == "Wall" || name == "Rock") {
                     return false;
-                }
+                }else {
                 moveTo(model.getLevel().getElement(x, y), x+1, y);
                 return true;
+                }
         }
         return false;
     }

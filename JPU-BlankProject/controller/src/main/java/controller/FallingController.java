@@ -31,12 +31,14 @@ public class FallingController {
      * Detect the elements that can fall, if it detects a rock or a diamond, the Falling function will start
      */
     protected void detectFallingElements() {
-        for (int x = model.getLevel().getDimensions().getHeight() - 1; x >= 0; x--) {
-            for (int y = model.getLevel().getDimensions().getWidth() -1; y >= 0; y--) {
+        System.err.println("falling detetction called");
+        for (int x = 0;x<=model.getLevel().getDimensions().getHeight(); x++) {
+            for (int y = 0; y<=model.getLevel().getDimensions().getWidth(); y++) {
                 try{
                 IFallingElements element = (IFallingElements) this.model.getLevel().getElement(x, y);
 
                 if(element instanceof Rocks || element instanceof Diamonds) {
+
                     element.rolling();
 
                     element.falling();
