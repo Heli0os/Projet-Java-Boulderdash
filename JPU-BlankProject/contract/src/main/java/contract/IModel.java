@@ -17,7 +17,7 @@ public interface IModel {
 	 */
 	ILevel getLevel();
 	IDAOMap getDaoMap();
-
+	void setView(IView view);
 
 	/**
 	 * Gets the observable.

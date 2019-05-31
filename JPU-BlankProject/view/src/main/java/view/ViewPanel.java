@@ -1,6 +1,9 @@
 package view;
 
-import contract.*;
+import contract.IController;
+import contract.IElements;
+import contract.ILevel;
+import contract.IModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,7 +35,8 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	public ViewPanel(IModel model) {
 		this.model=model;
-		this.level=model.getLevel();
+		this.level=this.model.getLevel();
+
 		setVisible(true);
 	}
 
@@ -80,14 +84,19 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-		graphics.drawString("Player control : Z (UP), Q (LEFT), S (DOWN), D (RIGHT)", 450, 500);
+		this.level=this.model.getLevel();
+		if(graphics == null)System.err.println("graphics is null");
 
-		for (int y = 0; y< this.level.getDimensions().getHeight(); y++) {
-			for (int x = 0; x< this.level.getDimensions().getWidth(); x++) {
-				IElements elements = this.level.getElement(x,y);
-				graphics.drawImage(elements.getSprite().getImage(),x,y,this);
+		graphics.drawString("Player control : Z (UP), Q (LEFT), S (DOWN), D (RIGHT)", 450, 500);
+//this is called normally
+		for (int y = 0; y <= this.model.getLevel().getDimensions().getHeight(); y++) {
+			for (int x = 0; x<= this.model.getLevel().getDimensions().getWidth(); x++) {
+				IElements elements = this.model.getLevel().getElement(x,y);
+				graphics.drawString("obj"+x+""+y,x,y);
+				//graphics.drawImage(elements.getSprite().getImage(),x*16,y*16,this);
 			}
-		}
+
+		}/*
 		if (this.level.isFinished() && this.level.getPlayer().isAlive()) {
 			graphics.drawString("Congratulations on winning this level", 300, 400);
 			graphics.drawString("Number of diamonds collected : "+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 500);
@@ -99,6 +108,6 @@ class ViewPanel extends JPanel implements Observer {
 		else if (!this.level.getPlayer().isAlive()) {
 			graphics.drawString("You died, the game is lost", 400, 450);
 			graphics.drawString("Number of diamonds collected : "+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 550);
-		}
+		}*/
 	}
 }

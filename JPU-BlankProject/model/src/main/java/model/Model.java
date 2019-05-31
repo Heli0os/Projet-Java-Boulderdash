@@ -3,6 +3,7 @@ package model;
 import contract.IDAOMap;
 import contract.ILevel;
 import contract.IModel;
+import contract.IView;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public final class Model extends Observable implements IModel {
 	/** the Level. */
 	private ILevel level;
 	private static Model model;
+	private IView view;
 
 	/** the Player. */
 
@@ -43,7 +45,10 @@ public final class Model extends Observable implements IModel {
 		Model.model=this;
 
 	}
-
+	public void setView(IView view){
+		this.view=view;
+		this.addObserver(view.getObserver());
+	}
 	/**
 	 * Get the level
 	 * @return The level

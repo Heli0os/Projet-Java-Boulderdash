@@ -6,6 +6,7 @@
     <JAVADOC />
     <SOURCES>
       <root url="file://$PROJECT_DIR$/../mysql-connector-java-5.1.47/src" />
+      <root url="file://$PROJECT_DIR$/../showboard-master/src" />
     </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/../mysql-connector-java-5.1.47" recursive="false" />
   </library>
