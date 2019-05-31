@@ -25,11 +25,13 @@ public abstract class Main {
      */
     public static void main(final String[] args) throws SQLException {
         final Model model = new Model();
+        model.start();
         final View view = new View(model);
         final Controller controller = new Controller(view, model);
         view.setController(controller);
         model.setView(view);
-        controller.start(0);
+        controller.start();
+        controller.play(0);
 
 
         /*

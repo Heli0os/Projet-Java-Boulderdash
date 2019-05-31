@@ -5,6 +5,7 @@ import contract.IElements;
 import contract.ILevel;
 import contract.IPlayer;
 import model.Elements.Digged;
+import model.Elements.Dirt;
 import model.Elements.Walls;
 
 /**
@@ -200,8 +201,8 @@ public class Level implements ILevel {
 
 
     public void autoFill(){
-        for(int i = 0;i<this.dimensions.getHeight();i++){
-            for(int j = 0 ;j < this.dimensions.getWidth();i++){
+        for(int i = 0;i<this.map.length-1;i++){
+            for(int j = 0 ;j < this.map.length-1;i++){
                 this.map[i][j] = new Digged(i,j);
             }
         }
@@ -222,9 +223,11 @@ public class Level implements ILevel {
      */
     public IElements getElement(int x,int y){
 
-        if(x<0 || y < 0){
+        if(x<0 || y < 0 ){
             return new Walls(0,0);
-        }else {
+        }else if( map[x][y] == null) {
+            return new Dirt(x, y);
+        }else{
             return map[x][y];
         }
     }

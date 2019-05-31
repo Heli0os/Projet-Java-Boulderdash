@@ -30,6 +30,7 @@ public interface IModel {
 	 * update the model
 	 */
 	void update();
+	void start();
 
 
 	/**

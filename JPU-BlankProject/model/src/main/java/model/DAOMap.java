@@ -111,7 +111,10 @@ public class DAOMap implements IDAOMap{
             if (map.first()) {
             this.level = new Level(map.getInt(1), map.getString(2), map.getInt(3), map.getInt(4),this.player, 5);
             //this.level.autoFill();
-            //System.err.println("level constructor called");
+            System.err.println("level constructor called");
+            //System.err.println("level autofilled called");
+
+                return this.level;
             }
         }
         catch(final SQLException e){

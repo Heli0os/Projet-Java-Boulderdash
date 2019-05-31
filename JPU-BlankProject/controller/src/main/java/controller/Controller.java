@@ -122,18 +122,14 @@ public final class Controller implements IController {
 
 	/**
 	 * Starting the game with the level selected
-	 * @param levelIndex The index of the level
+	 *
 	 */
-	public void start(int levelIndex) {
-		try {
-			this.model.loadLevels();
-			this.model.loadLevel(this.daoMap.getLevelsList().get(levelIndex));
+	public void start() {
+
 			this.model.getObservable().addObserver(this.view.getObserver());
 
-			this.play(levelIndex);
-		}catch(final SQLException e){
-			e.printStackTrace();
-		}
+			//this.play(levelIndex);
+
 
 	}
 
@@ -166,7 +162,7 @@ public final class Controller implements IController {
 			this.model.update();
 		}
 		if (this.model.getLevel().isFinished()) {
-			this.start(levelIndex+1);
+			this.play(levelIndex+1);
 		}
 	}
 }

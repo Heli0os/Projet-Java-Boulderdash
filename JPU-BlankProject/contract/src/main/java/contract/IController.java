@@ -30,9 +30,9 @@ public interface IController {
 
 	/**
 	 * Start the game
-	 * @param levelIndex
+
 	 */
-	void start(int levelIndex);
+	void start();
 
 	/**
 	 * Function play that will launch the gameLoop

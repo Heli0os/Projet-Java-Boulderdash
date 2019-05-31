@@ -22,7 +22,7 @@ public class View implements IView {
 	 * The constructor of the view
 	 */
 	public View(IModel model) {
-
+		if(model == null)System.err.println("model null in view");
 		this.frame = new ViewFrame(model);
 	}
 

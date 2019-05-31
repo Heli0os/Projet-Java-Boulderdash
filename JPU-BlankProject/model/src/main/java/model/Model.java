@@ -54,7 +54,15 @@ public final class Model extends Observable implements IModel {
 	 * @return The level
 	 */
 	public ILevel getLevel() {
-		return this.level;
+
+		try {
+			this.level = this.daoMap.getMap(0);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+
+		return level;
 	}
 
 	public static Model getInstance(){
@@ -76,6 +84,14 @@ public final class Model extends Observable implements IModel {
 	public void update() {
 		this.setChanged();
 		this.notifyObservers();
+	}
+	public void start(){
+		this.loadLevels();
+		try {
+			this.loadLevel(this.daoMap.getLevelsList().get(0));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**

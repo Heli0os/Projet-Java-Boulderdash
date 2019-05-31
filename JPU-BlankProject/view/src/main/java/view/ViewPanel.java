@@ -35,8 +35,9 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	public ViewPanel(IModel model) {
 		this.model=model;
-		this.level=this.model.getLevel();
 
+		this.level=this.model.getLevel();
+		if(this.level == null)System.err.println("level null in viewPanel builder");
 		setVisible(true);
 	}
 
@@ -86,14 +87,18 @@ class ViewPanel extends JPanel implements Observer {
 	protected void paintComponent(final Graphics graphics) {
 		this.level=this.model.getLevel();
 		if(graphics == null)System.err.println("graphics is null");
+		if(this.model == null)System.err.println("model is null");
+		if(this.level == null)System.err.println("level is null");
 
-		graphics.drawString("Player control : Z (UP), Q (LEFT), S (DOWN), D (RIGHT)", 450, 500);
+		//graphics.drawString("Player control : Z (UP), Q (LEFT), S (DOWN), D (RIGHT)", 450, 500);
 //this is called normally
 		for (int y = 0; y <= this.model.getLevel().getDimensions().getHeight(); y++) {
 			for (int x = 0; x<= this.model.getLevel().getDimensions().getWidth(); x++) {
-				IElements elements = this.model.getLevel().getElement(x,y);
-				graphics.drawString("obj"+x+""+y,x,y);
-				//graphics.drawImage(elements.getSprite().getImage(),x*16,y*16,this);
+				IElements element = this.model.getLevel().getElement(x,y);
+				if(element == null)System.err.println("element is null in \"paintComponent()\"");
+				//System.err.println("for normaly called");
+				//graphics.drawString("obj"+x+""+y,x,y); // test line
+				graphics.drawImage(element.getSprite().getImage().getScaledInstance(16,16,Image.SCALE_DEFAULT),x*16,y*16,this);
 			}
 
 		}/*
