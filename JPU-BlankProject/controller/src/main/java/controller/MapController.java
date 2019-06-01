@@ -7,7 +7,7 @@ import contract.IModel;
 import model.Elements.Digged;
 
 /**
- * @author Théophile
+ * @author Théophile & Clément
  */
 public class MapController implements IMapController {
 
@@ -62,7 +62,6 @@ public class MapController implements IMapController {
         this.level = this.model.getLevel();
         for(int x = 0; x <= this.level.getDimensions().getHeight(); x++){
             for (int y = 0; y <= this.level.getDimensions().getWidth(); y++){
-                //System.err.println("updatemap is called");
                 this.MoveInMap(this.level.getElement(x,y),x,y);
             }
         }
@@ -79,11 +78,14 @@ public class MapController implements IMapController {
             this.oldX = x;
             this.oldY = y;
 
-            if (current.getName() == "Diamonds" && element.getName() == "Player") {
-                //pick up item
+            if (current.getName().equals("Diamonds") && element.getName().equals("Player")) {
+                this.model.collectDiamonds();
+                if (this.model.getLevel().getDiamondsCollected() == this.model.getLevel().getDiamondsNumber()) {
+                    this.model.getLevel().setFinished(true);
+                }
             }
-            if ((current.getName() == "Ennemy" && element.getName() == "Player") || (current.getName() == "Player" && element.getName() == "Ennemy")) {
-                //die
+            if ((current.getName().equals("Ennemy") && element.getName().equals("Player")) || (current.getName().equals("Player") && element.getName().equals("Ennemy"))) {
+                this.model.getLevel().getPlayer().setIsAlive(false);
             }
             if(this.newX != this.oldX || this.newY != this.oldY) {
                 this.model.getLevel().setElement(element, this.newX, this.newY);
