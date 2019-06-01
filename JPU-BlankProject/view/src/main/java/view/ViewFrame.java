@@ -17,22 +17,30 @@ import java.awt.event.KeyListener;
 class ViewFrame extends JFrame implements KeyListener {
 
 	/**
-	 * The controller.
+	 * The model.
 	 */
 	private IModel model;
+
+	/**
+	 * The controller
+	 */
 	private IController controller;
+
 	/**
 	 * The Constant serialVersionUID.
 	 */
 	private static final long serialVersionUID = -697358409737458175L;
+
 	/**
 	 * The width
 	 */
 	private int width = 1000;
+
 	/**
 	 * The height
 	 */
 	private int height = 1000;
+
 	/**
 	 * The game panel
 	 */
@@ -53,6 +61,14 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setVisible(true);
+	}
+
+	/**
+	 * print a message on a window
+	 * @param message the message
+	 */
+	public void printMessage(final String message) {
+		JOptionPane.showMessageDialog(null, message);
 	}
 
 	/**
@@ -116,15 +132,19 @@ class ViewFrame extends JFrame implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
 			case KeyEvent.VK_Z:
+			case KeyEvent.VK_UP:
 				this.controller.orderPerform(ControllerOrder.MOVE_UP);
 				break;
 			case KeyEvent.VK_Q:
+			case KeyEvent.VK_LEFT:
 				this.controller.orderPerform(ControllerOrder.MOVE_LEFT);
 				break;
 			case KeyEvent.VK_S:
+			case KeyEvent.VK_DOWN:
 				this.controller.orderPerform(ControllerOrder.MOVE_DOWN);
 				break;
 			case KeyEvent.VK_D:
+			case KeyEvent.VK_RIGHT:	
 				this.controller.orderPerform(ControllerOrder.MOVE_RIGHT);
 				break;
 			case KeyEvent.VK_ESCAPE:
