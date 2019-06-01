@@ -26,8 +26,6 @@ public class View implements IView {
 		this.frame = new ViewFrame(model);
 	}
 
-
-
 	/**
 	 * close the view
 	 */
@@ -41,6 +39,14 @@ public class View implements IView {
 	 */
 	public Observer getObserver() {
 		return this.frame.getViewPanel();
+	}
+
+	/**
+	 * Open a window and print a message
+	 * @param message the message
+	 */
+	public void printMessage(final String message) {
+		this.frame.printMessage(message);
 	}
 
 	/**
