@@ -1,9 +1,6 @@
 package view;
 
-import contract.IController;
-import contract.IElements;
-import contract.ILevel;
-import contract.IModel;
+import contract.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,14 +16,18 @@ class ViewPanel extends JPanel implements Observer {
 
 	/** The model. */
 	private IModel model;
+
 	/** The level. */
 	private ILevel level;
+
 	/**
 	 * The controller
 	 */
 	private IController controller;
+
 	/** The view frame. */
 	private ViewFrame viewFrame;
+
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -998294702363713521L;
 
@@ -86,33 +87,57 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		this.level=this.model.getLevel();
-		if(graphics == null)System.err.println("graphics is null");
-		if(this.model == null)System.err.println("model is null");
-		if(this.level == null)System.err.println("level is null");
 
-		//graphics.drawString("Player control : Z (UP), Q (LEFT), S (DOWN), D (RIGHT)", 450, 500);
-//this is called normally
 		for (int y = 0; y <= this.model.getLevel().getDimensions().getHeight(); y++) {
 			for (int x = 0; x<= this.model.getLevel().getDimensions().getWidth(); x++) {
 				IElements element = this.model.getLevel().getElement(x,y);
-				if(element == null)System.err.println("element is null in \"paintComponent()\"");
-				//System.err.println("for normaly called");
-				//graphics.drawString("obj"+x+""+y,x,y); // test line
-				graphics.drawImage(element.getSprite().getImage().getScaledInstance(16,16,Image.SCALE_AREA_AVERAGING),x*16,y*16,this);
+				graphics.drawImage(element.getSprite().getImage().getScaledInstance(45,45,Image.SCALE_AREA_AVERAGING),x*45,y*45,this);
 			}
-
-		}/*
-		if (this.level.isFinished() && this.level.getPlayer().isAlive()) {
-			graphics.drawString("Congratulations on winning this level", 300, 400);
-			graphics.drawString("Number of diamonds collected : "+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 500);
-			graphics.drawString("The game is now loading the next level", 300, 600);
 		}
-		else if (this.controller.isGamePaused()) {
-			graphics.drawString("The game is Paused, press echap to resume"+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 500);
+		if (this.model.getLevel().isPaused()) {
+			gamePaused(graphics);
+;		}
+		else if (this.model.getLevel().isFinished()) {
+			levelFinished(graphics);
 		}
 		else if (!this.level.getPlayer().isAlive()) {
-			graphics.drawString("You died, the game is lost", 400, 450);
-			graphics.drawString("Number of diamonds collected : "+model.getLevel().getDiamondsCollected() +"/ "+model.getLevel().getDiamondsNumber(), 300, 550);
-		}*/
+			gameLost(graphics);
+		}
+	}
+
+	/**
+	 * A panel that appears when the game is paused
+	 * @param graphics The graphics
+	 */
+	void gamePaused (Graphics graphics) {
+		graphics.fillRect(300, 400, 400, 200);
+		graphics.setColor(Color.WHITE);
+		this.setFont(new Font ("Dialog", Font.BOLD, 20));
+		graphics.drawString("The game is Paused, press echap to resume", 375, 450);
+		graphics.drawString(model.getLevel().getDiamondsCollected() + " / "+model.getLevel().getDiamondsNumber() + " Diamonds collected", 375, 550);
+	}
+
+	/**
+	 * A panel that appears when the player dies
+	 * @param graphics The graphics
+	 */
+	void gameLost (Graphics graphics) {
+		graphics.fillRect(300, 400, 400, 200);
+		graphics.setColor(Color.WHITE);
+		this.setFont(new Font ("Dialog", Font.BOLD, 20));
+		graphics.drawString("You died, the game is lost", 375, 450);
+		graphics.drawString(model.getLevel().getDiamondsCollected() + " / "+model.getLevel().getDiamondsNumber() + " Diamonds collected", 375, 550);
+	}
+
+	/**
+	 * A panel that appears when a level is finished
+	 * @param graphics The graphics
+	 */
+	void levelFinished(Graphics graphics) {
+		graphics.fillRect(300, 400, 400, 200);
+		graphics.setColor(Color.WHITE);
+		this.setFont(new Font ("Dialog", Font.BOLD, 20));
+		graphics.drawString("Congratulations on winning this level", 375, 450);
+		graphics.drawString(model.getLevel().getDiamondsCollected() + " / "+model.getLevel().getDiamondsNumber() + " Diamonds collected", 375, 550);
 	}
 }
