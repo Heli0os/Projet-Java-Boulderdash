@@ -27,21 +27,14 @@ public final class Controller implements IController {
 	 * The model.
 	 */
 	private IModel model;
+
+    /**
+     * The daoMap.
+     */
 	private IDAOMap daoMap;
 
 	/**
-	 * the game is over or not
-	 */
-	private boolean isGameOver = false;
-
-	/**
-	 * the game is paused or not
-	 */
-	private boolean isGamePaused = false;
-
-	/**
 	 * Instantiates a new controller.
-	 *
 	 * @param view  the view
 	 * @param model the model
 	 */
@@ -49,30 +42,11 @@ public final class Controller implements IController {
 		this.view = view;
 		this.model = model;
 		this.daoMap = this.model.getDaoMap();
-
 		this.fallingController = new FallingController(this.model);
 		this.mapController = new MapController(this.model);
 		this.moveControl = new MoveControl(this.model);
 		this.ennemyController = new EnnemyController(this.model);
 		this.playerController = new PlayerController(this.model);
-	}
-
-	/**
-	 * Sets the view.
-	 *
-	 * @param pview the new view
-	 */
-	private void setView(final IView pview) {
-		this.view = pview;
-	}
-
-	/**
-	 * Sets the model.
-	 *
-	 * @param model the new model
-	 */
-	private void setModel(final IModel model) {
-		this.model = model;
 	}
 
 	/**
@@ -86,10 +60,8 @@ public final class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
-//this one works
 		switch (controllerOrder) {
 			case MOVE_UP:
-
 				this.playerController.move(contract.Direction.UP);
 				break;
 			case MOVE_LEFT:
@@ -102,36 +74,24 @@ public final class Controller implements IController {
 				this.playerController.move(contract.Direction.RIGHT);
 				break;
 			case PAUSED:
-				setGamePaused(true);
+				this.model.getLevel().setPaused(true);
+				if (this.model.getLevel().isPaused()) {
+					this.model.getLevel().setPaused(false);
+				}
 			default:
 				break;
 		}
 	}
 
-
-	public boolean isGamePaused() {
-		return this.isGamePaused;
-	}
-
-
-	public void setGamePaused(boolean isGamePaused) {
-		this.isGamePaused=isGamePaused;
-	}
-
-
 	/**
-	 * Starting the game with the level selected
-	 *
+	 * Starting the game with a welcome message and load all the levels
 	 */
 	public void start() {
-
-			this.model.getObservable().addObserver(this.view.getObserver());
-
-			//this.play(levelIndex);
-
-
+		this.view.printMessage("Welcome in the Boulderdash Game" + "\n" + "Made by" + "\n" + "AMARY Clément" + "\n" + "MONTEMONT Théophile" + "\n" + "ALBERT Naomie" + "\n" + "MOENSCH Baptiste" + "\n" + "Player control : Z (UP), Q (LEFT), S (DOWN), D (RIGHT)" + "\n" + "Good game !");
+		this.model.loadLevels();
+		this.model.getObservable().addObserver(this.view.getObserver());
+		//this.play(levelIndex);
 	}
-
 
 	/**
 	 * Start the gameLoop for the level selected
@@ -142,16 +102,15 @@ public final class Controller implements IController {
 		this.view.close();
 	}
 
-
 	/**
 	 * The gameLoop for the level selected
 	 * @param levelIndex The index of the level
 	 */
 	public void gameLoop(int levelIndex) {
 		model.getLevel().setDiamondsCollected(0);
-		while (!this.isGameOver || !this.isGamePaused || !this.model.getLevel().isFinished()) {
+		while (!this.model.getLevel().isFinished() && this.model.getLevel().getPlayer().isAlive()) {
 			try {
-				Thread.sleep(30);
+				Thread.sleep(100);
 			} catch (final InterruptedException ex) {
 				Thread.currentThread().interrupt();
 			}
@@ -159,9 +118,6 @@ public final class Controller implements IController {
 			this.fallingController.detectFallingElements();
 			this.mapController.UpdateMap();
 			this.model.update();
-		}
-		if (this.model.getLevel().isFinished()) {
-			this.play(levelIndex+1);
 		}
 	}
 }
