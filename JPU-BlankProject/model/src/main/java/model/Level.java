@@ -1,14 +1,11 @@
 package model;
 
-import contract.IDimensions;
-import contract.IElements;
-import contract.ILevel;
-import contract.IPlayer;
+import contract.*;
 import model.Elements.Dirt;
 import model.Elements.Walls;
 
 /**
- * The Class Model.
+ * The Class Level.
  *
  * @author Clément
  */
@@ -60,7 +57,6 @@ public class Level implements ILevel {
      */
     private int diamondsCollected;
 
-
     /**
      * The constructor of the level
      * @param id The id
@@ -73,12 +69,10 @@ public class Level implements ILevel {
         this.id = id;
         this.dimensions =  new Dimensions(height, width);
         this.name = name;
-
         this.diamondsNumber = diamondsNumber;
         this.diamondsCollected = 0;
         this.finished = false;
         this.map = new IElements[height*16][width*16];
-
     }
 
     /**
@@ -148,7 +142,6 @@ public class Level implements ILevel {
         this.diamondsNumber = diamondsNumber;
     }
 
-
     /**
      * Get the player
      * @return The player
@@ -156,9 +149,6 @@ public class Level implements ILevel {
     public IPlayer getPlayer() {
         return this.player;
     }
-
-
-
 
     /**
      * Set the player
@@ -223,7 +213,6 @@ public class Level implements ILevel {
      * @return The map
      */
     public IElements getElement(int x,int y){
-
         if(x<0 || y < 0 ){
             return new Walls(0,0);
         }else if( map[x][y] == null) {
@@ -245,7 +234,7 @@ public class Level implements ILevel {
 
     /**
      * The game is paused or not
-      * @return
+     * @return
      */
     public boolean isPaused() {
         return paused;
