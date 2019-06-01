@@ -2,16 +2,15 @@ package contract;
 
 /**
  * The Interface IElements.
- *
  * @author Clément
  */
 public interface IElements {
 
-
+    /**
+     * The name of the element
+     */
     String name = "";
-
-
-
+    
     /**
      * set the Element location
      * The x position
@@ -68,8 +67,4 @@ public interface IElements {
      * @param sprite
      */
     void setSprite(ISprite sprite);
-
-
-
 }
-
