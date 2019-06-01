@@ -38,17 +38,7 @@ public class MoveControl {
         this.model = model;
         mc = this;
     }
-
-    /*IElement Collision(IElement element) {
-        ILocation elementLocation = element.getLocation();
-        for(IElement movingElement: this.model.getLevel().getMovingElement()) {
-            if(elementLocation.getX() == movingElement.getLocation().getX() && elementLocation.getY() == movingElement.getLocation().getY() && element != movingElement) {
-                return movingElement;
-            }
-        }
-        return this.model.getLevel().getElements()[elementLocation.getY()][elementLocation.getX()];
-    }*/
-
+    
     /**
      * Tell if a movement is possible on the next block, according the direction
      * @param x
@@ -68,9 +58,9 @@ public class MoveControl {
                 if(element== null){
                     return false;
                 }
-                    name = element.getName();
+                name = element.getName();
 
-                if (name == "Wall" || name == "Rock") {
+                if (name.equals("Wall") || name.equals("Rock")) {
                     return false;
                 }
                 else{
@@ -83,7 +73,7 @@ public class MoveControl {
                     return false;
                 }
                 name = element.getName();
-                if (name == "Wall" || name == "Rock") {
+                if (name.equals("Wall") || name.equals("Rock")) {
                     return false;
                 }else{
                     moveTo(model.getLevel().getElement(x, y), x-1, y);
@@ -95,7 +85,7 @@ public class MoveControl {
                     return false;
                 }
                 name = element.getName();
-                if (name == "Wall" || name == "Rock") {
+                if (name.equals("Wall") || name.equals("Rock")) {
                     return false;
                 }else {
                     moveTo(model.getLevel().getElement(x, y), x, y + 1);
@@ -107,11 +97,11 @@ public class MoveControl {
                     return false;
                 }
                 name = element.getName();
-                if (name == "Wall" || name == "Rock") {
+                if (name.equals("Wall") || name.equals("Rock")) {
                     return false;
                 }else {
-                moveTo(model.getLevel().getElement(x, y), x+1, y);
-                return true;
+                    moveTo(model.getLevel().getElement(x, y), x+1, y);
+                    return true;
                 }
         }
         return false;
