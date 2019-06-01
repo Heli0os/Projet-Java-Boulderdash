@@ -16,7 +16,17 @@ public interface IModel {
 	 * @return the level
 	 */
 	ILevel getLevel();
+
+	/**
+	 * Gets the DaoMap
+	 * @return the DaoMap
+	 */
 	IDAOMap getDaoMap();
+
+	/**
+	 * Sets the view
+	 * @param view the View
+	 */
 	void setView(IView view);
 
 	/**
@@ -30,14 +40,11 @@ public interface IModel {
 	 * update the model
 	 */
 	void update();
-	void start();
-
 
 	/**
 	 * load all the levels
 	 */
 	void loadLevels();
-
 
 	/**
 	 * load the level selected
@@ -56,4 +63,9 @@ public interface IModel {
 	 * @return
 	 */
 	boolean isGameRunning();
+
+	/**
+	 * A function that collect the add the diamond to the diamonds collected count
+	 */
+    void collectDiamonds();
 }
