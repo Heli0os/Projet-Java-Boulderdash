@@ -16,21 +16,7 @@ public interface IController {
 	void orderPerform(ControllerOrder controllerOrder);
 
 	/**
-	 * The game is paused or not
-	 * @return
-	 */
-	boolean isGamePaused();
-
-	/**
-	 * set the game paused or not
-	 * @param isGamePaused
-	 */
-	void setGamePaused(boolean isGamePaused);
-
-
-	/**
 	 * Start the game
-
 	 */
 	void start();
 
