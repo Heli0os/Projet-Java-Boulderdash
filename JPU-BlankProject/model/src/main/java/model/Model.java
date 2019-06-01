@@ -18,19 +18,19 @@ public final class Model extends Observable implements IModel {
 
 	/** the Level. */
 	private ILevel level;
+	/**
+	 * The model
+	 */
 	private static Model model;
+	/**
+	 * The view
+	 */
 	private IView view;
-
-	/** the Player. */
-
 
 	/**
 	 * The model
 	 */
-
-
 	final IDAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection(),this);
-
 
 	/**
 	 * The list of levels
@@ -41,39 +41,43 @@ public final class Model extends Observable implements IModel {
 	 * Instantiates a new model.
 	 */
 	public Model() {
-
 		Model.model=this;
-
 	}
+
+	/**
+	 * set the view
+	 * @param view the View
+	 */
 	public void setView(IView view){
 		this.view=view;
 		this.addObserver(view.getObserver());
 	}
+
 	/**
 	 * Get the level
 	 * @return The level
 	 */
 	public ILevel getLevel() {
-
 		try {
 			this.level = this.daoMap.getMap(0);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-
 		return level;
 	}
 
+	/**
+	 * get the instance of the model
+	 * @return the model
+	 */
 	public static Model getInstance(){
-		if (model == null)
-		{
-			System.err.println("no model created");
-		}
-
 		return model;
 	}
 
+	/**
+	 * The DAOMap
+	 * @return the daoMap
+	 */
 	public IDAOMap getDaoMap(){
 		return this.daoMap;
 	}
@@ -85,10 +89,14 @@ public final class Model extends Observable implements IModel {
 		this.setChanged();
 		this.notifyObservers();
 	}
+
+	/**
+	 * Load the levels and the level selected
+	 */
 	public void start(){
 		this.loadLevels();
 		try {
-			this.loadLevel(this.daoMap.getLevelsList().get(2));
+			this.loadLevel(this.daoMap.getLevelsList().get(0));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -100,7 +108,6 @@ public final class Model extends Observable implements IModel {
 	public void collectDiamonds() {
 		this.getLevel().setDiamondsCollected(this.getLevel().getDiamondsCollected()+1);
 	}
-
 
 	/**
 	 * Load all the levels
@@ -114,7 +121,6 @@ public final class Model extends Observable implements IModel {
 			e.printStackTrace();
 		}
 	}
-
 
 	/**
 	 * Load the level selected
@@ -147,7 +153,6 @@ public final class Model extends Observable implements IModel {
 	public ArrayList<Integer> getLevelsList() {
 		return LevelsList;
 	}
-
 
 	/**
 	 * The game is running or not
