@@ -31,18 +31,15 @@ public class Sprite implements ISprite {
         return this.image;
     }
 
-
+    /**
+     * Load the image
+     * @param imagePath the path of the image
+     */
     void loadImage(String imagePath) {
-
         try {
-
-
-            //File pathToFile = new File(imagePath);
             this.image = ImageIO.read(getClass().getResource(imagePath));
-
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
     }
 }
