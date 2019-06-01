@@ -9,12 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DAOMap implements IDAOMap{
 /**
  * The class DAOMap
  * @author Clément / Baptiste
  */
-
+public class DAOMap implements IDAOMap{
 
     /**
      * The Connection
@@ -51,7 +50,6 @@ public class DAOMap implements IDAOMap{
      */
     private ArrayList<Integer> LevelsList;
 
-
     /**
      * Contructor of the DAOMap
      * @param connection The DAOMap
@@ -59,9 +57,7 @@ public class DAOMap implements IDAOMap{
     public DAOMap(Connection connection, Model model) {
         this.connection = connection;
         this.model = model;
-
     }
-
 
     /**
      * Get the connection
@@ -73,7 +69,6 @@ public class DAOMap implements IDAOMap{
     public void setPlayer(){
         this.level.setPlayer(this.player);
     }
-
 
     /**
      * Get the list of levels
@@ -93,10 +88,9 @@ public class DAOMap implements IDAOMap{
         }
         catch(final SQLException e){
             e.printStackTrace();
-            }
+        }
         return this.LevelsList;
     }
-
 
     /**
      * Get the level selected
@@ -112,11 +106,7 @@ public class DAOMap implements IDAOMap{
             call.execute();
             final ResultSet map = call.getResultSet();
             if (map.first()) {
-            this.level = new Level(map.getInt(1), map.getString(2), map.getInt(3), map.getInt(4), map.getInt(5));
-            //this.level.autoFill();
-            System.err.println("level constructor called");
-            //System.err.println("level autofilled called");
-
+                this.level = new Level(map.getInt(1), map.getString(2), map.getInt(3), map.getInt(4), map.getInt(5));
                 return this.level;
             }
         }
@@ -125,7 +115,6 @@ public class DAOMap implements IDAOMap{
         }
         return this.level;
     }
-
 
     /**
      * Get the components of the level
