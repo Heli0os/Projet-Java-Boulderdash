@@ -45,11 +45,11 @@ abstract class FallingElements extends Elements implements IFallingElements {
      * Scan the elements around the falling element
      */
     public void scan(){
-        this.elementUnder = this.model.getLevel().getElement(this.x,this.y+1);
-        this.elementLeft = this.model.getLevel().getElement(this.x-1,this.y);
-        this.elementRight = this.model.getLevel().getElement(this.x+1,this.y);
-        this.elementLUnder = this.model.getLevel().getElement(this.x-1,this.y+1);
-        this.elementRUnder = this.model.getLevel().getElement(this.x+1,this.y+1);
+        this.elementUnder = this.model.getLevel().getElement(x,y+1);
+        this.elementLeft = this.model.getLevel().getElement(x-1,y);
+        this.elementRight = this.model.getLevel().getElement(x+1,y);
+        this.elementLUnder = this.model.getLevel().getElement(x-1,y+1);
+        this.elementRUnder = this.model.getLevel().getElement(x+1,y+1);
     }
 
     /**
@@ -60,21 +60,22 @@ abstract class FallingElements extends Elements implements IFallingElements {
         if (elementUnder.getName().equals("Digged")) {
             this.y += 1;
             this.fallingStatus=true;
+            this.rolling();
+            this.crushing();
         }
-        this.rolling();
-        this.crushing();
     }
 
     /**
      *  Make falling element roll to fall aside
      */
     public void rolling(){
-        if(elementUnder.getName().equals("Rock") || elementUnder.getName().equals("Diamond")){
+        this.scan();
+        if(elementUnder.getName().equals("Rocks") || elementUnder.getName().equals("Diamonds") && this.fallingStatus){
             if(elementLeft.getName().equals("Digged") && elementLUnder.getName().equals("Digged")){
-                this.x-= 1;
-            }
-            if(elementRight.getName().equals("Digged") && elementRUnder.getName().equals("Digged")){
-                this.x+= 1;
+                this.x -= 1;
+                }
+            else if(elementRight.getName().equals("Digged") && elementRUnder.getName().equals("Digged")){
+                this.x += 1;
             }
         }
     }
@@ -95,7 +96,7 @@ abstract class FallingElements extends Elements implements IFallingElements {
         if (this.fallingStatus && elementUnder.getName().equals("Enemy")){
             for(int i=x-1;i<=x+1;i++){
                 for(int j=y-1;j<=y+1;j++){
-                    model.getLevel().setElement( new Digged(i,j),i,j);
+                    model.getLevel().setElement( new Diamonds(i,j),i,j);
                 }
             }
             model.getLevel().setElement( new Diamonds(x,y+1),x,y+1);
