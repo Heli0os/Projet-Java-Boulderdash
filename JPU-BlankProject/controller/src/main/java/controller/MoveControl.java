@@ -60,7 +60,7 @@ public class MoveControl {
                 }
                 name = element.getName();
 
-                if (name.equals("Wall") || name.equals("Rock")) {
+                if (name.equals("Wall") || name.equals("Rocks")) {
                     return false;
                 }
                 else{
@@ -73,7 +73,7 @@ public class MoveControl {
                     return false;
                 }
                 name = element.getName();
-                if (name.equals("Wall") || name.equals("Rock")) {
+                if (name.equals("Wall") || name.equals("Rocks")) {
                     return false;
                 }else{
                     moveTo(model.getLevel().getElement(x, y), x-1, y);
@@ -85,7 +85,7 @@ public class MoveControl {
                     return false;
                 }
                 name = element.getName();
-                if (name.equals("Wall") || name.equals("Rock")) {
+                if (name.equals("Wall") || name.equals("Rocks")) {
                     return false;
                 }else {
                     moveTo(model.getLevel().getElement(x, y), x, y + 1);
@@ -97,7 +97,7 @@ public class MoveControl {
                     return false;
                 }
                 name = element.getName();
-                if (name.equals("Wall") || name.equals("Rock")) {
+                if (name.equals("Wall") || name.equals("Rocks")) {
                     return false;
                 }else {
                     moveTo(model.getLevel().getElement(x, y), x+1, y);
