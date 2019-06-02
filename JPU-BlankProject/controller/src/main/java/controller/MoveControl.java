@@ -31,6 +31,14 @@ public class MoveControl {
     }
 
     /**
+     * Set the instance of the MoveControl
+     * @param mc
+     */
+    public void setInstance(MoveControl mc) {
+        this.mc = mc;
+    }
+
+    /**
      * The constructor of the MoveControl
      * @param model The model
      */
