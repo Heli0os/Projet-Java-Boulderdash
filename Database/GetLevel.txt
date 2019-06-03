@@ -1,0 +1,5 @@
+BEGIN
+	SELECT level.Id, level.Name, level.Width, level.Height, level.DiamondsNumber
+    FROM level
+    WHERE level.Id = p_Level_id;
+END

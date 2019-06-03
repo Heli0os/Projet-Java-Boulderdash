@@ -1,0 +1,8 @@
+BEGIN
+SELECT components.Name, positions.PosX, positions.PosY
+FROM components, positions, integrate, level
+WHERE components.Id = integrate.Component
+AND positions.Id = integrate.Position
+AND level.Id = integrate.Level
+AND level.Id = p_Level_id;
+END

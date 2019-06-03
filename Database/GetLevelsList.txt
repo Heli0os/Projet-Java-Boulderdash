@@ -1,0 +1,4 @@
+BEGIN
+SELECT DISTINCT level.id
+FROM level;
+END
