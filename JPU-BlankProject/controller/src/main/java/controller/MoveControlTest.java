@@ -5,46 +5,79 @@ import model.Elements.Diamonds;
 
 import static junit.framework.TestCase.*;
 
+/**
+ * Test of the class MoveControl
+ * @author Baptiste
+ */
 public class MoveControlTest {
 
+    /**
+     * The model
+     */
     private IModel model;
-    private int moveToTest = 5;
-    private MoveControl moveControl = new MoveControl(model);
-    private Diamonds diamond = new Diamonds(moveToTest, moveToTest);
 
+    /**
+     * Initializing moveToTest
+     */
+    private int moveToTest = 5;
+
+    /**
+     * The moveControl to test getInstance method
+     */
+    private MoveControl moveControl;
+
+    /**
+     * The diamond to test moveTo method
+     */
+    private Diamonds diamond;
+
+    /**
+     * Set up the moveControl and the diamond with coordinates 5, 5 (moveToTest, moveToTest)
+     * @throws Exception
+     */
     @org.junit.Before
     public void setUp() throws Exception {
+         moveControl = new MoveControl(model);
+         diamond = new Diamonds(moveToTest, moveToTest);
     }
 
-    @org.junit.After
-    public void tearDown() throws Exception {
-    }
-
+    /**
+     * Test if the instance of moveControl is not null
+     * @throws Exception
+     */
     @org.junit.Test
-    public void testGetInstanceIfNotNull() {
+    public void testGetInstanceIfNotNull() throws Exception {
         MoveControl result = moveControl.getInstance();
         assertNotNull(result);
     }
 
+    /**
+     * Test if the getter returns the correct value
+     * @throws Exception
+     */
     @org.junit.Test
-    public void testGetInstance() {
+    public void testGetInstance() throws Exception {
         MoveControl result = moveControl.getInstance();
         assertEquals(moveControl, result);
     }
 
+    /**
+     * Test if moveControl is set null
+     * @throws Exception
+     */
     @org.junit.Test
-    public void testGetInstanceIfNull() {
+    public void testGetInstanceIfNull() throws Exception {
         moveControl.setInstance(null);
         MoveControl result = moveControl.getInstance();
         assertNull(result);
     }
 
+    /**
+     * Test both x and y coordinates before and after if diamond doesn't move
+     * @throws Exception
+     */
     @org.junit.Test
-    public void movementIsPossible() {
-    }
-
-    @org.junit.Test
-    public void testMoveToIfNotMoving() {
+    public void testMoveToIfNotMoving() throws Exception {
         int expectedX = diamond.getX();
         int expectedY = diamond.getY();
         moveControl.moveTo(diamond, moveToTest, moveToTest);
@@ -54,8 +87,12 @@ public class MoveControlTest {
         assertEquals(expectedY, resultY);
     }
 
+    /**
+     * Test both x and y coordinates before and after if diamond goes +1, +1
+     * @throws Exception
+     */
     @org.junit.Test
-    public void testMoveToIfNotMovingPlus() {
+    public void testMoveToPlus() throws Exception {
         int expectedX = diamond.getX();
         int expectedY = diamond.getY();
         moveControl.moveTo(diamond, moveToTest +1, moveToTest +1);
@@ -65,8 +102,12 @@ public class MoveControlTest {
         assertEquals(expectedY +1, resultY);
     }
 
+    /**
+     * Test both x and y coordinates before and after if diamond goes -1, -1
+     * @throws Exception
+     */
     @org.junit.Test
-    public void testMoveToIfNotMovingMinus() {
+    public void testMoveToMinus() throws Exception {
         int expectedX = diamond.getX();
         int expectedY = diamond.getY();
         moveControl.moveTo(diamond, moveToTest -1, moveToTest -1);
