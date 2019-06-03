@@ -1,6 +1,6 @@
 This project is the final project of the Java teaching unit at CESI eXia
 
-Members : AMARY Clément (Group Manager), ALBERT Naomie, MOENCH Baptiste, MONTEMONT Théophile,
+Members : AMARY Clément (Group Manager) (Heli0os), ALBERT Naomie (Naoi18), MOENCH Baptiste (Slash-12), MONTEMONT Théophile (Rabatt09),
 
 Start of the project : 22/05/2019
 
