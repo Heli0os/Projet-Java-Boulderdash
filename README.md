@@ -15,3 +15,5 @@ Diagrams : All the UML diagrams for the project with their .png (the model and v
 Jpublankproject : All the code and tests files
 
 Reports : The group report (pdf including a git report at the end), the javadoc and the tests reports
+
+Sprites : The sprites used in the project
