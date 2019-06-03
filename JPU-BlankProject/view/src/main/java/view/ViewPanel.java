@@ -1,6 +1,9 @@
 package view;
 
-import contract.*;
+import contract.IController;
+import contract.IElements;
+import contract.ILevel;
+import contract.IModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -127,6 +130,13 @@ class ViewPanel extends JPanel implements Observer {
 		this.setFont(new Font ("Dialog", Font.BOLD, 20));
 		graphics.drawString("You died, the game is lost", 375, 450);
 		graphics.drawString(model.getLevel().getDiamondsCollected() + " / "+model.getLevel().getDiamondsNumber() + " Diamonds collected", 375, 550);
+		try{
+			Thread.sleep(5000);
+		}
+		catch(InterruptedException ex)
+		{
+			Thread.currentThread().interrupt();
+		}
 	}
 
 	/**
@@ -139,5 +149,12 @@ class ViewPanel extends JPanel implements Observer {
 		this.setFont(new Font ("Dialog", Font.BOLD, 20));
 		graphics.drawString("Congratulations on winning this level", 375, 450);
 		graphics.drawString(model.getLevel().getDiamondsCollected() + " / "+model.getLevel().getDiamondsNumber() + " Diamonds collected", 375, 550);
+		try{
+			Thread.sleep(5000);
+		}
+		catch(InterruptedException ex)
+		{
+			Thread.currentThread().interrupt();
+		}
 	}
 }
