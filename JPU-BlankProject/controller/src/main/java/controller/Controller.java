@@ -87,7 +87,7 @@ public final class Controller implements IController {
 	 * Starting the game with a welcome message and load all the levels
 	 */
 	public void start() {
-		this.view.printMessage("Welcome in the Boulderdash Game" + "\n" + "Made by" + "\n" + "AMARY Clément" + "\n" + "MONTEMONT Théophile" + "\n" + "ALBERT Naomie" + "\n" + "MOENSCH Baptiste" + "\n" + "Player control : Z (UP), Q (LEFT), S (DOWN), D (RIGHT)" + "\n" + "Good game !");
+		this.view.printMessage("Welcome in the Boulderdash Game" + "\n" + "Made by" + "\n" + "AMARY Clément" + "\n" + "MONTEMONT Théophile" + "\n" + "ALBERT Naomie" + "\n" + "MOENCH Baptiste" + "\n" + "Player control : Z (UP), Q (LEFT), S (DOWN), D (RIGHT)" + "\n" + "Good game !");
 		this.model.loadLevels();
 		this.model.getObservable().addObserver(this.view.getObserver());
 		//this.play(levelIndex);
