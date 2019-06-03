@@ -1,53 +1,95 @@
-/**
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
 package model;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.sql.SQLException;
+
+import static org.junit.Assert.*;
+
+/**
+ * The test for the class model
+ * @author Clément
+ */
 public class ModelTest {
-    private Model model;
 
-    @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
-    }
+    /**
+     * The model test
+     */
+    Model test;
 
-    @AfterClass
-    public static void tearDownAfterClass() throws Exception {
-    }
+    /**
+     * A boolean to notify the observer
+     */
+    boolean notified = false;
 
+    /**
+     * The DAOMap test
+     */
+    DAOMap daoMap;
+
+    Level leveltest;
+
+    /**
+     * Instanciate a new model for the tests
+     * @throws Exception
+     */
     @Before
     public void setUp() throws Exception {
-        this.model = new Model();
-    }
-
-    @After
-    public void tearDown() throws Exception {
+        test = new Model();
+        leveltest = new Level (4, "test", 5, 6, 7);
     }
 
     @Test
-    public void testGetMessage() {
-        Assert.assertEquals("", this.model.getHelloWorld().getMessage());
+    public void testGetLevel() {
+        test.getLevel();
+        assertNotNull("fail", leveltest);
     }
 
     /**
-     * Test method for {@link model.Model#loadHelloWorld(java.lang.String)}.
+     * Test for the start method
+     * @throws SQLException
      */
     @Test
-    public void testGetMessageString() {
-        this.model.loadHelloWorld("GB");
-        Assert.assertEquals("Hello world", this.model.getHelloWorld().getMessage());
-        this.model.loadHelloWorld("FR");
-        Assert.assertEquals("Bonjour le monde", this.model.getHelloWorld().getMessage());
-        this.model.loadHelloWorld("DE");
-        Assert.assertEquals("Hallo Welt", this.model.getHelloWorld().getMessage());
-        this.model.loadHelloWorld("ID");
-        Assert.assertEquals("Salamat pagi dunia", this.model.getHelloWorld().getMessage());
+    public void testStart() throws SQLException {
+        test.loadLevels();
+        assertNotNull("The list of levels can't be null",test.getLevelsList());
+        assertTrue("The list of levels can't be empty",test.getLevelsList().size() > 0);
+        test.loadLevel(this.daoMap.getLevelsList().get(0));
+        assertNotNull("Level can't be null after loading",test.getLevel());
+        assertTrue("The player must be alive when the level is loaded",test.getLevel().getPlayer().isAlive());
+        assertFalse("The level can't be finished when the level is loaded",test.getLevel().isFinished());
+    }
+
+    /**
+     * Test for the collectDiamonds method
+     */
+    @Test
+    public void testCollectDiamonds() {
+        leveltest.setDiamondsCollected(4);
+        test.collectDiamonds();
+        assertEquals("The number of diamonds collected must be 5",5, leveltest.getDiamondsCollected());
+    }
+
+    /**
+     * Test for the loadingLevels method
+     */
+    @Test
+    public void testLoadLevels() {
+        test.loadLevels();
+        assertNotNull("The list of levels can't be null",test.getLevelsList());
+        assertTrue("The list of levels can't be empty",test.getLevelsList().size() > 0);
+    }
+
+    /**
+     * Test for the LoadingLevel method
+     * @throws Exception
+     */
+    @Test
+    public void testLoadLevel() throws Exception {
+        test.loadLevel(0);
+        assertNotNull("Level can't be null after loading",test.getLevel());
+        assertTrue("The player must be alive when the level is loaded",test.getLevel().getPlayer().isAlive());
+        assertFalse("The level can't be finished when the level is loaded",test.getLevel().isFinished());
     }
 }
