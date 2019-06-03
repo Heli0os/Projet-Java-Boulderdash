@@ -1,32 +1,45 @@
 package view;
 
-import java.awt.Graphics;
+import contract.*;
+
+import javax.swing.*;
+import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
-
-import javax.swing.JPanel;
 
 /**
  * The Class ViewPanel.
  *
- * @author Jean-Aymeric Diet
+ * @author Clément
  */
 class ViewPanel extends JPanel implements Observer {
 
-	/** The view frame. */
-	private ViewFrame					viewFrame;
-	/** The Constant serialVersionUID. */
-	private static final long	serialVersionUID	= -998294702363713521L;
+	/** The model. */
+	private IModel model;
+
+	/** The level. */
+	private ILevel level;
 
 	/**
-	 * Instantiates a new view panel.
-	 *
-	 * @param viewFrame
-	 *          the view frame
+	 * The controller
 	 */
-	public ViewPanel(final ViewFrame viewFrame) {
-		this.setViewFrame(viewFrame);
-		viewFrame.getModel().getObservable().addObserver(this);
+	private IController controller;
+
+	/** The view frame. */
+	private ViewFrame viewFrame;
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = -998294702363713521L;
+
+	/**
+	 * The constructor of the viewPanel
+	 */
+	public ViewPanel(IModel model) {
+		this.model=model;
+
+		this.level=this.model.getLevel();
+		if(this.level == null) System.err.println("level null in viewPanel builder");
+		setVisible(true);
 	}
 
 	/**
@@ -48,15 +61,24 @@ class ViewPanel extends JPanel implements Observer {
 		this.viewFrame = viewFrame;
 	}
 
+	/**
+	 * Update the view
+	 * @param observable The observable
+	 * @param object The object
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
-	public void update(final Observable arg0, final Object arg1) {
+	public void update(final Observable observable, final Object object) {
 		this.repaint();
 	}
 
+	/**
+	 * Draw the components on the frame
+	 * @param graphics The graphics
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -64,7 +86,73 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
+		this.level=this.model.getLevel();
+
+		for (int y = 0; y <= this.model.getLevel().getDimensions().getHeight(); y++) {
+			for (int x = 0; x<= this.model.getLevel().getDimensions().getWidth(); x++) {
+				IElements element = this.model.getLevel().getElement(x,y);
+				graphics.drawImage(element.getSprite().getImage().getScaledInstance(100,100,Image.SCALE_AREA_AVERAGING),x*100,y*100,this);
+			}
+		}
+		if (this.model.getLevel().getPlayer().isAlive()) {
+			diamondsCounterPanel(graphics);
+		}
+		else if (this.model.getLevel().isPaused()) {
+			gamePaused(graphics);
+;		}
+		else if (this.model.getLevel().isFinished()) {
+			levelFinished(graphics);
+		}
+		else if (!this.level.getPlayer().isAlive()) {
+			gameLost(graphics);
+		}
+	}
+
+	/**
+	 * A panel that appears when the game is paused
+	 * @param graphics The graphics
+	 */
+	public void gamePaused (Graphics graphics) {
+		graphics.fillRect(300, 400, 400, 200);
+		graphics.setColor(Color.WHITE);
+		this.setFont(new Font ("Dialog", Font.BOLD, 20));
+		graphics.drawString("The game is Paused, press echap to resume", 375, 450);
+		graphics.drawString(model.getLevel().getName() + " : " + model.getLevel().getDiamondsCollected() + " / "+model.getLevel().getDiamondsNumber() + " Diamonds collected", 325, 550);
+	}
+
+	/**
+	 * A panel that appears when the player dies
+	 * @param graphics The graphics
+	 */
+	public void gameLost (Graphics graphics) {
+		graphics.fillRect(300, 400, 400, 200);
+		graphics.setColor(Color.WHITE);
+		this.setFont(new Font ("Dialog", Font.BOLD, 20));
+		graphics.drawString("You died, the game is lost", 375, 450);
+		graphics.drawString(model.getLevel().getName() + " : " +model.getLevel().getDiamondsCollected() + " / "+model.getLevel().getDiamondsNumber() + " Diamonds collected", 325, 550);
+	}
+
+	/**
+	 * A panel that appears when a level is finished
+	 * @param graphics The graphics
+	 */
+	public void levelFinished(Graphics graphics) {
+		graphics.fillRect(300, 400, 400, 200);
+		graphics.setColor(Color.WHITE);
+		this.setFont(new Font ("Dialog", Font.BOLD, 20));
+		graphics.drawString("Congratulations on winning this level", 375, 450);
+		graphics.drawString(model.getLevel().getName() + " : " + model.getLevel().getDiamondsCollected() + " / "+model.getLevel().getDiamondsNumber() + " Diamonds collected", 325, 550);
+	}
+
+	public void diamondsCounterPanel(Graphics graphics) {
+		graphics.setColor(Color.WHITE);
+		graphics.fillRect(298, 18, 404, 64);
+		graphics.setColor(Color.BLACK);
+		graphics.fillRect(300, 20, 400, 60);
+		graphics.setColor(Color.BLUE);
+		graphics.fillRect(300, 20, (model.getLevel().getDiamondsCollected() * 300) / model.getLevel().getDiamondsNumber(), 60);
+		graphics.setColor(Color.WHITE);
+		this.setFont(new Font ("Dialog", Font.BOLD, 20));
+		graphics.drawString(model.getLevel().getName() + " : " + model.getLevel().getDiamondsCollected() + " / "+model.getLevel().getDiamondsNumber() + " Diamonds collected", 330, 55);
 	}
 }
