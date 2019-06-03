@@ -7,24 +7,24 @@ import java.util.Properties;
 /**
  * The Class DBProperties.
  *
- * @author Jean-Aymeric Diet
+ * @author Clément / Théophile / Baptiste
  */
 class DBProperties extends Properties {
 
 	/** The Constant serialVersionUID. */
-	private static final long		serialVersionUID			= 5289057445894568927L;
+	private static final long serialVersionUID = 5289057445894568927L;
 
 	/** The Constant PROPERTIES_FILE_NAME. */
 	private final static String	PROPERTIES_FILE_NAME	= "model.properties";
 
 	/** The url. */
-	private String							url										= "";
+	private String url = "jdbc:mysql://localhost/jpublankproject";
 
 	/** The login. */
-	private String							login									= "";
+	private String login = "root";
 
 	/** The password. */
-	private String							password							= "";
+	private String password = "";
 
 	/**
 	 * Instantiates a new DB properties.

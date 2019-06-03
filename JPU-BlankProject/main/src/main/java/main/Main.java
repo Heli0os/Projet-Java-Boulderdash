@@ -4,7 +4,6 @@
  */
 package main;
 
-import contract.ControllerOrder;
 import controller.Controller;
 import model.Model;
 import view.View;
@@ -22,13 +21,22 @@ public abstract class Main {
      * @param args
      *            the arguments
      */
-    public static void main(final String[] args) {
+    public static void main(final String[] args)  {
         final Model model = new Model();
+        model.start();
         final View view = new View(model);
         final Controller controller = new Controller(view, model);
         view.setController(controller);
+        model.setView(view);
+        controller.start();
+        controller.play(0);
 
-        controller.control();
-        controller.orderPerform(ControllerOrder.English);
+
+        /*
+        * Game sequence:
+        * -initialisation
+        * -load map data through database
+        * -place elements
+         */
     }
 }

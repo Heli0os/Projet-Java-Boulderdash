@@ -8,10 +8,10 @@ import entity.Entity;
 /**
  * The Class DAOEntity.
  *
- * @author Jean-Aymeric Diet
+ * @author Clément
  *
  * @param <E>
- *          the element type
+ * the element type
  */
 abstract class DAOEntity<E extends Entity> {
 

@@ -1,30 +1,33 @@
 package contract;
 
+import java.util.ArrayList;
 import java.util.Observable;
-
-import entity.HelloWorld;
 
 /**
  * The Interface IModel.
  *
- * @author Jean-Aymeric Diet
+ * @author Clément
  */
 public interface IModel {
 
 	/**
-	 * Gets the hello world.
+	 * Gets the level.
 	 *
-	 * @return the helloworld entity
+	 * @return the level
 	 */
-	HelloWorld getHelloWorld();
+	ILevel getLevel();
 
 	/**
-	 * Load the message.
-	 *
-	 * @param code
-	 *          the code
+	 * Gets the DaoMap
+	 * @return the DaoMap
 	 */
-	void loadHelloWorld(String code);
+	IDAOMap getDaoMap();
+
+	/**
+	 * Sets the view
+	 * @param view the View
+	 */
+	void setView(IView view);
 
 	/**
 	 * Gets the observable.
@@ -32,4 +35,37 @@ public interface IModel {
 	 * @return the observable
 	 */
 	Observable getObservable();
+
+	/**
+	 * update the model
+	 */
+	void update();
+
+	/**
+	 * load all the levels
+	 */
+	void loadLevels();
+
+	/**
+	 * load the level selected
+	 * @param id The id of the level
+	 */
+	void loadLevel(int id);
+
+	/**
+	 * the list of levels
+	 * @return
+	 */
+	ArrayList<Integer> getLevelsList();
+
+	/**
+	 * says if the game is running or not
+	 * @return
+	 */
+	boolean isGameRunning();
+
+	/**
+	 * A function that collect the add the diamond to the diamonds collected count
+	 */
+    void collectDiamonds();
 }

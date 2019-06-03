@@ -1,17 +1,27 @@
 package contract;
 
+import java.util.Observer;
+
 /**
  * The Interface IView.
  *
- * @author Jean-Aymeric Diet
+ * @author Clément
  */
 public interface IView {
+    /**
+     * close the view
+     */
+    void close();
 
-	/**
-	 * Prints the message.
-	 *
-	 * @param message
-	 *          the message
-	 */
-	void printMessage(final String message);
+    /**
+     * get the observer
+     * @return
+     */
+    Observer getObserver();
+
+    /**
+     * A function used to print a message on the screen
+     * @param s The message
+     */
+    void printMessage(String s);
 }
