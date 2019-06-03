@@ -8,7 +8,7 @@ Start of the project : 22/05/2019
 
 End of the project : 04/06/2019
 
----- Organization of the Git ----
+                                                  ---- Organization of the Git ----
 
 Database : All the files for the database (including the requests, the mcd, a dump and the sql script)
 
